@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "solidity-parser-antlr": "^0.4.3",
+    "thrift": "^0.12.0"
+  }
 }

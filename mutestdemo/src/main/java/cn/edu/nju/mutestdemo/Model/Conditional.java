@@ -50,7 +50,9 @@ public class Conditional {
     }
     public String outputToLine(ArrayList<MuType> types){
         String str=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),condition)+" ? ";
+        Statement.lineContent+=" ? ";
         str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),trueExpression)+" : ";
+        Statement.lineContent+=" : ";
         str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),falseExpression);
         return str;
     }

@@ -32,7 +32,7 @@ public class TestResultAnalysis {
     }
     private static boolean isKill(File file){
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));// 读取原始json文件
+            BufferedReader br = new BufferedReader(new FileReader(file));// 读取log
 
             String line  = null;
             while ((line = br.readLine()) != null) {

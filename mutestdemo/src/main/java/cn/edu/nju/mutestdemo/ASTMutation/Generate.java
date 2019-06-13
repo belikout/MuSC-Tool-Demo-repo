@@ -29,14 +29,16 @@ public class Generate {
             ArrayList<MuType>type=new ArrayList<MuType>();
             type.add(MuType.AOR);
             type.add(MuType.ASR);
+            type.add(MuType.ROR);
+            type.add(MuType.COR);
             su.addToMutant(type);
             System.out.println(Mutant.lines.size());
             Mutant.Repair();
-            for(int i=0;i<Mutant.lines.size();i++){
-                if(Mutant.lines.get(i).getSpace()>0)
+            for(int i=0;i<Mutant.mutateLine.size();i++){
+                /*if(Mutant.mutateLine.get(i).getSpace()>0)
                     for(int j=0;j<Mutant.lines.get(i).getSpace();j++)
-                        System.out.print("    ");
-                    System.out.println(Mutant.lines.get(i).getContent());
+                        System.out.print("    ");*/
+                    System.out.println(Mutant.mutateLine.get(i));
             }
             br.close();
         } catch (IOException e) {

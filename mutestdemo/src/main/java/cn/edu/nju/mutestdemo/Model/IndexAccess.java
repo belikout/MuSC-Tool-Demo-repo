@@ -38,7 +38,9 @@ public class IndexAccess  {
     }
     public String outputToLine(ArrayList<MuType> types){
         String str=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),base)+"[";
+        Statement.lineContent+="[";
         str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),index)+"]";
+        Statement.lineContent+="]";
         return str;
     }
 }

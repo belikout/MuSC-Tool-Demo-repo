@@ -56,12 +56,16 @@ public class FunctionCall {
     public String outputToLine(ArrayList<MuType> types){
         String str=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),expression);
         str+="(";
+        Statement.lineContent+="(";
         if(names.length>0) {
+            Statement.lineContent+="{";
             str+="{ "+Argument.ListOutputWithNameToLine(names, arguments)+"}";
+            Statement.lineContent+="}";
         }
         else
             str+=Argument.ListOutputToLine(arguments);
         str+=")";
+        Statement.lineContent+=")";
         return str;
     }
 }

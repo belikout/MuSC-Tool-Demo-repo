@@ -11,12 +11,56 @@
 </head>
 <body class=" ">
 <script>
+    var projectPath=""
     var contracts=new Array()
     var contractsName=new Array()
     var reader = new FileReader();//new一个FileReader实例
     reader.onload = function (evt) { //读取完文件之后会回来这里
         var fileString = evt.target.result; // 读取文件内容
         contracts[contracts.length] =fileString;
+    }
+    function changeProjectPath(){
+        projectPath="";
+        $("#project-path-input").removeAttr("disabled");
+    }
+    function getTestProjectFolder(){
+        document.getElementById("project-path-input").setAttribute("disabled","disabled");
+        $("#contractChoosePanel").html("");
+        $.ajax({
+            type: 'GET',
+            url: '/getTestProfile',
+            cache: 'false',
+            data: {
+                "path": document.getElementById("project-path-input").value
+            },
+            dataType: 'json',
+            //contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
+            headers : {
+                'Content-Type' : 'application/json;charset=utf-8'
+            },
+            success: function (result) {
+                if(result.toString().length>4&&result.toString().substr(0,4)=="Fail"){
+                    projectPath="";
+                    $("#project-path-input").removeAttr("disabled");
+                    $("#contractChoosePanel").html(result);
+                }
+                else {
+                    projectPath=result[0];
+                    document.getElementById("project-path-input").value=result[0];
+                    for (var i = 1; i < result.length; i++) {
+                        contractsName[contractsName.length]=result[i]
+                        var text = "<div class=\"col-md-3\"class=\"contractFile\"style='margin-bottom: 15px;max-width:90%;margin-top: 15px'>\n" +
+                            "                                        <div class=\"toggle-switch\" data-ts-color=\"info\">\n" +
+                            "                                            <label for=\"ts" + contractsName.length + "\" class=\"contract-label\">" + result[i] + "</label>\n" +
+                            "                                            <input class=\"contractFileChoose\"id=\"ts" + contractsName.length + "\" type=\"checkbox\" hidden=\"hidden\">\n" +
+                            "                                            <label for=\"ts" + contractsName.length + "\" class=\"ts-helper\"></label>\n" +
+                            "                                        </div>\n" +
+                            "                                    </div>"
+                        $("#contractChoosePanel").append(text);
+                    }
+                }
+            }
+        })
     }
     function getContractsFolder(){
         $("#file").trigger("click");
@@ -110,9 +154,9 @@
     }
 </script>
 <div class="page-wrapper">
-  
+
     <div class="main-container">
-   
+
 
         <div class="content">
 
@@ -130,822 +174,1180 @@
                         <li class="nav-item">
                             <a id="eViewer"class="nav-link" data-toggle="tab" href="#cmv" role="tab" aria-controls="cmv">ESC mutants viewer</a>
                         </li>
-						
-						 <li class="nav-item">
+
+                        <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tcr" role="tab" aria-controls="tcr">Test Case Runner</a>
                         </li>
                     </ul>
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="mg" role="tabpanel">
-                       		    
-                         <div class="row mt-4">
-                        
-					 <div class="col-md-6">	
-                        <div class="card">
-                            <div class="card-header bg-light">
-                                Files<button class="btn btn-rounded btn-primary"style="float: right"onclick="getContractsFolder()">Add File</button>
-                                <input type="file" id="file" onchange="getFile()"
-                                       style="display: none"/>
-                            </div>
-<div id="temp"></div>
-                            <div class="card-body">
-                                <div id="contractChoosePanel"style="height: 270px;overflow: auto">
-                                    <!--contractchoose-->
-                                </div>
-                                   <div class="form-group">
-                                            <label for="single-select">log level</label>
-                                            <select id="single-select" class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
+
+                            <div class="row mt-4">
+
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header bg-light">
+                                            Solidity Muation Operators
                                         </div>
-										
-										<button class="btn btn-rounded btn-primary"onclick="generateMutant()">Generate</button>
-                                
-                            </div>
-                        </div>
-						
-					
-						
-						
-						</div>
-						
-						
-						
-						
-						
-						 <div class="col-md-6">	
-                        <div class="card">
-                            <div class="card-header bg-light">
-                                Solidity Muation Operators
-                            </div>
 
-                            <div class="card-body" style="height: 430px">
-                                <div class="row">
-								
-								
-								<div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-light">
-                            Traditional
-                        </div>
+                                        <div class="card-body" style="height: 430px">
+                                            <div class="row">
 
-                        <div class="card-body"style="height: 340px">
-                             
-							 
-							 <div class="panel-body" style="height: 300px; overflow-y:scroll">
-                        <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
+
+                                                <div class="col-md-6">
+                                                    <div class="card">
+                                                        <div class="card-header bg-light">
+                                                            Traditional
+                                                            <div class="toggle-switch" data-ts-color="info"style="float: right">
+                                                                all
+                                                                <input id="toggle1" type="checkbox" hidden="hidden">
+                                                                <label for="toggle1" class="ts-helper"></label>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="card-body"style="height: 340px">
+
+
+                                                            <div class="panel-body" style="height: 300px; overflow-y:scroll">
+                                                                <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
                 <span>
-				                            <label for="AOR" class="ts-label">AOR</label>
-                                            <input id="AOR" class="typeCheck" type="checkbox" >
-											</br>
-											
+				                             <input id="AOR" title="I am AOR" class="typeCheck" type="checkbox" >
+				                            <label for="AOR"title="I am AOR" class="ts-label">AOR</label>
+
+                    </br>
+                    <input id="AOI" class="typeCheck" type="checkbox" >
 											 <label for="AOI" class="ts-label">AOI</label>
-                                            <input id="AOI" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="ROR" class="typeCheck" type="checkbox" >
 											 <label for="ROR" class="ts-label">ROR</label>
-                                            <input id="ROR" class="typeCheck" type="checkbox" >
-											</br>
-											
+
+                    </br>
+                    <input id="COR" class="typeCheck" type="checkbox" >
 											 <label for="COR" class="ts-label">COR</label>
-                                            <input id="COR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="LOR" class="typeCheck" type="checkbox" >
 											 <label for="LOR" class="ts-label">LOR</label>
-                                            <input id="LOR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="ASR" class="typeCheck" type="checkbox" >
 											 <label for="ASR" class="ts-label">ASR</label>
-                                            <input id="ASR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="SDL" class="typeCheck" type="checkbox" >
 											 <label for="SDL" class="ts-label">SDL</label>
-                                            <input id="SDL" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="RVR" class="typeCheck" type="checkbox" >
 											 <label for="RVR" class="ts-label">RVR</label>
-                                            <input id="RVR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="CSC" class="typeCheck" type="checkbox" >
 											 <label for="CSC" class="ts-label">CSC</label>
-                                            <input id="CSC" class="typeCheck" type="checkbox" >
-                                
-                                          
-        
+
             </span>
-            </div>
-        </div>
+                                                                </div>
+                                                            </div>
 
-                                       
-                                      
-                                     
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-light">
-                            ESC Aimed
-                        </div>
 
-                        <div class="card-body"style="height: 340px">
-                         
-                                         	 
-							 <div class="panel-body" style="height: 300px; overflow-y:scroll">
-                        <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="card">
+                                                        <div class="card-header bg-light">
+                                                            ESC Aimed
+                                                            <div class="toggle-switch" data-ts-color="info"style="float: right">
+                                                                all
+                                                                <input id="toggle2" type="checkbox" hidden="hidden">
+                                                                <label for="toggle2" class="ts-helper"></label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-body"style="height: 340px">
+
+
+                                                            <div class="panel-body" style="height: 300px; overflow-y:scroll">
+                                                                <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
                 <span>
+				                              <input id="FSC" class="typeCheck" type="checkbox" >
 				                            <label for="FSC" class="ts-label">FSC</label>
-                                            <input id="FSC" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="FVC" class="typeCheck" type="checkbox" >
 											 <label for="FVC" class="ts-label">FVC</label>
-                                            <input id="FVC" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="DLR" class="typeCheck" type="checkbox" >
 											 <label for="DLR" class="ts-label">DLR</label>
-                                            <input id="DLR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="VTR" class="typeCheck" type="checkbox" >
 												 <label for="VTR" class="ts-label">VTR</label>
-                                            <input id="VTR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="PKD" class="typeCheck" type="checkbox" >
 											<label for="PKD" class="ts-label">PKD</label>
-                                            <input id="PKD" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="DKD" class="typeCheck" type="checkbox" >
 											<label for="DKD" class="ts-label">DKD</label>
-                                            <input id="DKD" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="GVC" class="typeCheck" type="checkbox" >
 											<label for="GVC" class="ts-label">GVC</label>
-                                            <input id="GVC" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="MFR" class="typeCheck" type="checkbox" >
 											<label for="MFR" class="ts-label">MFR</label>
-                                            <input id="MFR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="AVR" class="typeCheck" type="checkbox" >
 											<label for="AVR" class="ts-label">AVR</label>
-                                            <input id="AVR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="EUR" class="typeCheck" type="checkbox" >
 											<label for="EUR" class="ts-label">EUR</label>
-                                            <input id="EUR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="TUR" class="typeCheck" type="checkbox" >
 											<label for="TUR" class="ts-label">TUR</label>
-                                            <input id="TUR" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="RSD" class="typeCheck" type="checkbox" >
 												<label for="RSD" class="ts-label">RSD</label>
-                                            <input id="RSD" class="typeCheck" type="checkbox" >
-											</br>
-												<label for="RSC" class="ts-label">RSC</label>
-                                            <input id="RSC" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="RSC" class="typeCheck" type="checkbox" >
+											<label for="RSC" class="ts-label">RSC</label>
+
+                    </br>
+                    <input id="ASD" class="typeCheck" type="checkbox" >
 												<label for="ASD" class="ts-label">ASD</label>
-                                            <input id="ASD" class="typeCheck" type="checkbox" >
-											</br>
+
+                    </br>
+                    <input id="ASC" class="typeCheck" type="checkbox" >
 											<label for="ASC" class="ts-label">ASC</label>
-                                            <input id="ASC" class="typeCheck" type="checkbox" >
-											
-                                
-                                           
-        
+
+
+
+
+
             </span>
-            </div>
-        </div>
+                                                                </div>
+                                                            </div>
 
-                                       
-                            
-											
-                                     
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                            </div>
+
+
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card">
+
+                                        <div class="card-header bg-light">Truffle Test Project Selector
+
+                                            <input id="project-path-input" class="form-control" style="float:left;margin-top: 10px;" placeholder="Input truffle project path">
+
+                                            <button class="btn btn-rounded btn-primary" style="float: right;margin-top: 10px;margin-left: 10px;" onclick="getTestProjectFolder()">Test Project</button>
+                                            <button class="btn btn-rounded btn-primary" style="float: right;margin-top: 10px;" onclick="changeProjectPath()">Change Path</button>
+                                            <!--<input type="file" id="file" onchange="getFile()"
+                                                   style="display: none"/>-->
+                                        </div>
+                                        <div id="temp"></div>
+                                        <div class="card-body">
+                                            <div id="contractChoosePanel" style="height: 270px;overflow: auto">
+                                                <!--contractchoose-->
+                                                <h2>Help</h2>
+                                                <p>Enter the path of Truffle Project to be tested in the input box above, and click "Test Project" to check the project of the path. Only when the path is correct and the test cases are all passed, can the mutants be generated by clicking "Generate" button below.</p>
+                                                <p>If you need to change the path of the project, click the "Change Path" button above, and then test the changed path again.</p>
+                                            </div>
+                                            <button class="btn btn-rounded btn-primary" onclick="generateMutant()" style="margin-right: 5px;">Generate</button>
+                                            Note: Only checked Solidity files will be processed to generate mutants.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-								
-								
-								
-								
-								
-                </div>
-
-
-                                
-                                 
-
-                                   
-                                
-               </div>
-                        </div>
-						</div>
-                    
-                </div>
-                         </div>
-
                         <div class="tab-pane" id="tmv" role="tabpanel">
-                           <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header bg-light">
-                                traditional mutants viewer
-                            </div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header bg-light">
+                                        traditional mutants viewer
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="single-select">Select a contract</label>
+                                                    <select id="single-select" class="form-control">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
 
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="single-select">Select a contract</label>
-                                            <select id="single-select" class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="single-select2">Select a function</label>
+                                                    <select id="single-select2" class="form-control">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
                                         </div>
-                                    </div>
-									
-									
-									<div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="single-select2">Select a function</label>
-                                            <select id="single-select2" class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-4"style="max-width:20%">
+
+                                                <div class="card">
+                                                    <div class="card-header bg-light">
+                                                        Summary
+
+                                                    </div>
+
+                                                    <div class="card-body"style="height: 340px">
+
+
+                                                        <div class="panel-body" style="height: 300px; overflow-y:scroll">
+                                                            <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
+                <span>
+				                            <label for="AOR"title="I am AOR" class="ts-label">AOR</label>
+
+                    </br>
+
+                    <label for="AOI" class="ts-label">AOI</label>
+
+                    </br>
+
+                    <label for="ROR" class="ts-label">ROR</label>
+
+                    </br>
+
+                    <label for="COR" class="ts-label">COR</label>
+
+                    </br>
+
+                    <label for="LOR" class="ts-label">LOR</label>
+
+                    </br>
+
+                    <label for="ASR" class="ts-label">ASR</label>
+
+                    </br>
+
+                    <label for="SDL" class="ts-label">SDL</label>
+
+                    </br>
+
+                    <label for="RVR" class="ts-label">RVR</label>
+
+                    </br>
+
+                    <label for="CSC" class="ts-label">CSC</label>
+
+											 <hr>
+				                            <label for="FSC" class="ts-label">FSC</label>
+
+                    </br>
+
+                    <label for="FVC" class="ts-label">FVC</label>
+
+                    </br>
+
+                    <label for="DLR" class="ts-label">DLR</label>
+
+                    </br>
+
+                    <label for="VTR" class="ts-label">VTR</label>
+
+                    </br>
+
+                    <label for="PKD" class="ts-label">PKD</label>
+
+                    </br>
+
+                    <label for="DKD" class="ts-label">DKD</label>
+
+                    </br>
+
+                    <label for="GVC" class="ts-label">GVC</label>
+
+                    </br>
+
+                    <label for="MFR" class="ts-label">MFR</label>
+
+                    </br>
+
+                    <label for="AVR" class="ts-label">AVR</label>
+
+                    </br>
+
+                    <label for="EUR" class="ts-label">EUR</label>
+
+                    </br>
+
+                    <label for="TUR" class="ts-label">TUR</label>
+
+                    </br>
+
+                    <label for="RSD" class="ts-label">RSD</label>
+
+                    </br>
+
+                    <label for="RSC" class="ts-label">RSC</label>
+
+                    </br>
+
+                    <label for="ASD" class="ts-label">ASD</label>
+
+                    </br>
+
+                    <label for="ASC" class="ts-label">ASC</label>
+
+
+
+
+
+            </span>
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="card-header bg-light">
+                                                    Original
+                                                </div>
+
+
+                                                <div id="oriText"class="card-body"style="height: 400px;overflow: auto">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto atque deleniti dolor dolores doloribus ducimus ea, eveniet facere hic illo illum laborum maiores nemo optio quas quis tenetur totam.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="card-header bg-light">
+                                                    Mutant
+                                                </div>
+
+                                                <div id="mutText"class="card-body"style="height: 400px;overflow: auto">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto atque deleniti dolor dolores doloribus ducimus ea, eveniet facere hic illo illum laborum maiores nemo optio quas quis tenetur totam.
+                                                </div>
+                                            </div>
                                         </div>
+
+
+
                                     </div>
-
-                                 
                                 </div>
-
-                                <div class="row mt-4">
-                                    <div class="col-md-4"style="max-width:20%">
-                                       
-                    <div class="card">
-                        <div class="card-header bg-light">
-                            summary
-                        </div>
-
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Op</th>
-                                        <th>#</th>
-                                        
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-                                     <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-									  <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
-                    </div>
-                
-                                    </div>
-
-                                    <div class="col-md-4">
-                                         <div class="card-header bg-light">
-                                         Original
-                                    </div>
-									 
-									 
-									  <div id="oriText"class="card-body"style="height: 400px;overflow: auto">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto atque deleniti dolor dolores doloribus ducimus ea, eveniet facere hic illo illum laborum maiores nemo optio quas quis tenetur totam.
-                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                       <div class="card-header bg-light">
-                                           Mutant
-                                         </div>
-										  
-										  	  <div id="mutText"class="card-body"style="height: 400px;overflow: auto">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto atque deleniti dolor dolores doloribus ducimus ea, eveniet facere hic illo illum laborum maiores nemo optio quas quis tenetur totam.
-                        </div>
-                                    </div>
-                                </div>
-
-                             
-
-                          </div>
-                        </div>
-                    </div>
-                     </div>
 
                         <div class="tab-pane" id="cmv" role="tabpanel">
-                              <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header bg-light">
-                                class mutants viewer
-                            </div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header bg-light">
+                                        class mutants viewer
+                                    </div>
 
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="single-select">Select a contract</label>
-                                            <select id="single-select" class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="single-select">Select a contract</label>
+                                                    <select id="single-select" class="form-control">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-4">
+
+                                                <div class="card">
+                                                    <div class="card-header bg-light">
+                                                        summary
+                                                    </div>
+
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-hover">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Op</th>
+                                                                    <th>#</th>
+
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td>AO</td>
+                                                                    <td >0</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>AO</td>
+                                                                    <td >0</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>AO</td>
+                                                                    <td >0</td>
+
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="card-header bg-light">
+                                                    Original
+                                                </div>
+
+                                                <div class="card-body">
+                                                    I am original
+                                                </div>
+                                                <div class="card-body">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto atque deleniti dolor dolores doloribus ducimus ea, eveniet facere hic illo illum laborum maiores nemo optio quas quis tenetur totam.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="card-header bg-light">
+                                                    Mutant
+                                                </div>
+
+                                                <div class="card-body">
+                                                    I am mutants
+                                                </div>
+                                                <div class="card-body">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto atque deleniti dolor dolores doloribus ducimus ea, eveniet facere hic illo illum laborum maiores nemo optio quas quis tenetur totam.
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="tcr" role="tabpanel">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header bg-light">
+                                        Test Case Runner
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <h2> Help</h2>
+                                                <br>
+                                                <p>You can choose the types of Mutants to test.</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+
+
+                                                    <label><input name="Fruit" type="radio" value="">Execute Only ESC mutants</label>
+                                                    <br>
+                                                    <label><input name="Fruit" type="radio" value="">Execute Only traditional mutants </label>
+                                                    <br>
+                                                    <label><input name="Fruit" type="radio" value="">Execute All mutants </label>
+                                                    <br>
+                                                    <button style="float:left;margin-top:5px;width:60px"  class="btn btn-rounded btn-primary">Output</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    Time-Out
+                                                    <input id="" class="form-control"style="float: right" value="10">
+                                                    <br>
+                                                    Use the default 8555 port <div class="toggle-switch" data-ts-color="info"style="float: right">
+
+                                                    <input id="toggle_port" type="checkbox" hidden="hidden">
+                                                    <label for="toggle_port" class="ts-helper"></label>
+                                                </div>
+                                                    <br>
+                                                    <button style="float:right;margin-top:5px;width:60px" onclick="startMutationTest()" class="btn btn-rounded btn-primary">Run</button>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-3">
+
+                                                <div class="card">
+                                                    <div class="card-header bg-light">
+                                                        Summary
+
+                                                    </div>
+
+                                                    <div class="card-body"style="height: 600px">
+
+
+                                                        <div class="panel-body" style="height: 500px; overflow-y:scroll">
+                                                            <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
+                <span>
+				                            <label for="AOR"title="I am AOR" class="ts-label">AOR</label>
+
+                    </br>
+
+                    <label for="AOI" class="ts-label">AOI</label>
+
+                    </br>
+
+                    <label for="ROR" class="ts-label">ROR</label>
+
+                    </br>
+
+                    <label for="COR" class="ts-label">COR</label>
+
+                    </br>
+
+                    <label for="LOR" class="ts-label">LOR</label>
+
+                    </br>
+
+                    <label for="ASR" class="ts-label">ASR</label>
+
+                    </br>
+
+                    <label for="SDL" class="ts-label">SDL</label>
+
+                    </br>
+
+                    <label for="RVR" class="ts-label">RVR</label>
+
+                    </br>
+
+                    <label for="CSC" class="ts-label">CSC</label>
+
+											 <hr>
+				                            <label for="FSC" class="ts-label">FSC</label>
+
+                    </br>
+
+                    <label for="FVC" class="ts-label">FVC</label>
+
+                    </br>
+
+                    <label for="DLR" class="ts-label">DLR</label>
+
+                    </br>
+
+                    <label for="VTR" class="ts-label">VTR</label>
+
+                    </br>
+
+                    <label for="PKD" class="ts-label">PKD</label>
+
+                    </br>
+
+                    <label for="DKD" class="ts-label">DKD</label>
+
+                    </br>
+
+                    <label for="GVC" class="ts-label">GVC</label>
+
+                    </br>
+
+                    <label for="MFR" class="ts-label">MFR</label>
+
+                    </br>
+
+                    <label for="AVR" class="ts-label">AVR</label>
+
+                    </br>
+
+                    <label for="EUR" class="ts-label">EUR</label>
+
+                    </br>
+
+                    <label for="TUR" class="ts-label">TUR</label>
+
+                    </br>
+
+                    <label for="RSD" class="ts-label">RSD</label>
+
+                    </br>
+
+                    <label for="RSC" class="ts-label">RSC</label>
+
+                    </br>
+
+                    <label for="ASD" class="ts-label">ASD</label>
+
+                    </br>
+
+                    <label for="ASC" class="ts-label">ASC</label>
+
+
+
+
+
+            </span>
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-9">
+                                                <div class="card">
+
+
+                                                    <div class="card-body">
+                                                        <div class="row">
+
+
+
+
+                                                            <div class="col-md-9">
+
+                                                                <div class="card">
+                                                                    <div class="card-header bg-light">
+                                                                        Traditional Mutants Result
+                                                                    </div>
+
+                                                                    <div class="card-body">
+
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-hover">
+
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td>Live Mutants#</td>
+                                                                                    <td id="tLive" >0</td>
+
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Killed Mutants#</td>
+                                                                                    <td id="tKill">0</td>
+
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Total Mutants#</td>
+                                                                                    <td id="tTotal">0</td>
+
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Mutant Score</td>
+                                                                                    <td id="tScore">0</td>
+
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+
+
+
+
+
+
+
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+
+
+
+
+
+
+
+                                                        </div>
+
+
+
+
+                                                    </div>
+                                                    <div class="row">
+
+                                                        <div class="col-md-4">
+                                                            <div class="card">
+                                                                <div class="card-header bg-light">
+                                                                    Live
+                                                                </div>
+
+                                                                <div class="card-body">
+
+
+                                                                    <div class="panel-body" style="height: 200px; overflow-y:scroll">
+                                                                        <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
+                              <span>
+				                            <label for="AOR"title="I am AOR" class="ts-label">AOR</label>
+
+                                  </br>
+
+                                  <label for="AOI" class="ts-label">AOI</label>
+
+                                  </br>
+
+                                  <label for="ROR" class="ts-label">ROR</label>
+
+                                  </br>
+
+                                  <label for="COR" class="ts-label">COR</label>
+
+                                  </br>
+
+                                  <label for="LOR" class="ts-label">LOR</label>
+
+                                  </br>
+
+                                  <label for="ASR" class="ts-label">ASR</label>
+
+                                  </br>
+
+                                  <label for="SDL" class="ts-label">SDL</label>
+
+                                  </br>
+
+                                  <label for="RVR" class="ts-label">RVR</label>
+
+                                  </br>
+
+                                  <label for="CSC" class="ts-label">CSC</label>
+
+											 <hr>
+				                            <label for="FSC" class="ts-label">FSC</label>
+
+                                  </br>
+
+                                  <label for="FVC" class="ts-label">FVC</label>
+
+                                  </br>
+
+                                  <label for="DLR" class="ts-label">DLR</label>
+
+                                  </br>
+
+                                  <label for="VTR" class="ts-label">VTR</label>
+
+                                  </br>
+
+                                  <label for="PKD" class="ts-label">PKD</label>
+
+                                  </br>
+
+                                  <label for="DKD" class="ts-label">DKD</label>
+
+                                  </br>
+
+                                  <label for="GVC" class="ts-label">GVC</label>
+
+                                  </br>
+
+                                  <label for="MFR" class="ts-label">MFR</label>
+
+                                  </br>
+
+                                  <label for="AVR" class="ts-label">AVR</label>
+
+                                  </br>
+
+                                  <label for="EUR" class="ts-label">EUR</label>
+
+                                  </br>
+
+                                  <label for="TUR" class="ts-label">TUR</label>
+
+                                  </br>
+
+                                  <label for="RSD" class="ts-label">RSD</label>
+
+                                  </br>
+
+                                  <label for="RSC" class="ts-label">RSC</label>
+
+                                  </br>
+
+                                  <label for="ASD" class="ts-label">ASD</label>
+
+                                  </br>
+
+                                  <label for="ASC" class="ts-label">ASC</label>
+
+
+
+
+
+            </span>
+                                                                        </div>
+                                                                    </div>
+
+
+
+
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+
+
+                                                        <div class="col-md-4">
+                                                            <div class="card">
+                                                                <div class="card-header bg-light">
+                                                                    Killed
+                                                                </div>
+
+                                                                <div class="card-body">
+
+
+                                                                    <div class="panel-body" style="height: 200px; overflow-y:scroll">
+                                                                        <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
+                              <span>
+				                            <label for="AOR"title="I am AOR" class="ts-label">AOR</label>
+
+                                  </br>
+
+                                  <label for="AOI" class="ts-label">AOI</label>
+
+                                  </br>
+
+                                  <label for="ROR" class="ts-label">ROR</label>
+
+                                  </br>
+
+                                  <label for="COR" class="ts-label">COR</label>
+
+                                  </br>
+
+                                  <label for="LOR" class="ts-label">LOR</label>
+
+                                  </br>
+
+                                  <label for="ASR" class="ts-label">ASR</label>
+
+                                  </br>
+
+                                  <label for="SDL" class="ts-label">SDL</label>
+
+                                  </br>
+
+                                  <label for="RVR" class="ts-label">RVR</label>
+
+                                  </br>
+
+                                  <label for="CSC" class="ts-label">CSC</label>
+
+											 <hr>
+				                            <label for="FSC" class="ts-label">FSC</label>
+
+                                  </br>
+
+                                  <label for="FVC" class="ts-label">FVC</label>
+
+                                  </br>
+
+                                  <label for="DLR" class="ts-label">DLR</label>
+
+                                  </br>
+
+                                  <label for="VTR" class="ts-label">VTR</label>
+
+                                  </br>
+
+                                  <label for="PKD" class="ts-label">PKD</label>
+
+                                  </br>
+
+                                  <label for="DKD" class="ts-label">DKD</label>
+
+                                  </br>
+
+                                  <label for="GVC" class="ts-label">GVC</label>
+
+                                  </br>
+
+                                  <label for="MFR" class="ts-label">MFR</label>
+
+                                  </br>
+
+                                  <label for="AVR" class="ts-label">AVR</label>
+
+                                  </br>
+
+                                  <label for="EUR" class="ts-label">EUR</label>
+
+                                  </br>
+
+                                  <label for="TUR" class="ts-label">TUR</label>
+
+                                  </br>
+
+                                  <label for="RSD" class="ts-label">RSD</label>
+
+                                  </br>
+
+                                  <label for="RSC" class="ts-label">RSC</label>
+
+                                  </br>
+
+                                  <label for="ASD" class="ts-label">ASD</label>
+
+                                  </br>
+
+                                  <label for="ASC" class="ts-label">ASC</label>
+
+
+
+
+
+            </span>
+                                                                        </div>
+                                                                    </div>
+
+
+
+
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <div class="card">
+                                                                <div class="card-header bg-light">
+                                                                    Compilation Failed
+                                                                </div>
+
+                                                                <div class="card-body">
+
+
+                                                                    <div class="panel-body" style="height: 200px; overflow-y:scroll">
+                                                                        <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
+                              <span>
+				                            <label for="AOR"title="I am AOR" class="ts-label">AOR</label>
+
+                                  </br>
+
+                                  <label for="AOI" class="ts-label">AOI</label>
+
+                                  </br>
+
+                                  <label for="ROR" class="ts-label">ROR</label>
+
+                                  </br>
+
+                                  <label for="COR" class="ts-label">COR</label>
+
+                                  </br>
+
+                                  <label for="LOR" class="ts-label">LOR</label>
+
+                                  </br>
+
+                                  <label for="ASR" class="ts-label">ASR</label>
+
+                                  </br>
+
+                                  <label for="SDL" class="ts-label">SDL</label>
+
+                                  </br>
+
+                                  <label for="RVR" class="ts-label">RVR</label>
+
+                                  </br>
+
+                                  <label for="CSC" class="ts-label">CSC</label>
+
+											 <hr>
+				                            <label for="FSC" class="ts-label">FSC</label>
+
+                                  </br>
+
+                                  <label for="FVC" class="ts-label">FVC</label>
+
+                                  </br>
+
+                                  <label for="DLR" class="ts-label">DLR</label>
+
+                                  </br>
+
+                                  <label for="VTR" class="ts-label">VTR</label>
+
+                                  </br>
+
+                                  <label for="PKD" class="ts-label">PKD</label>
+
+                                  </br>
+
+                                  <label for="DKD" class="ts-label">DKD</label>
+
+                                  </br>
+
+                                  <label for="GVC" class="ts-label">GVC</label>
+
+                                  </br>
+
+                                  <label for="MFR" class="ts-label">MFR</label>
+
+                                  </br>
+
+                                  <label for="AVR" class="ts-label">AVR</label>
+
+                                  </br>
+
+                                  <label for="EUR" class="ts-label">EUR</label>
+
+                                  </br>
+
+                                  <label for="TUR" class="ts-label">TUR</label>
+
+                                  </br>
+
+                                  <label for="RSD" class="ts-label">RSD</label>
+
+                                  </br>
+
+                                  <label for="RSC" class="ts-label">RSC</label>
+
+                                  </br>
+
+                                  <label for="ASD" class="ts-label">ASD</label>
+
+                                  </br>
+
+                                  <label for="ASC" class="ts-label">ASC</label>
+
+
+
+
+
+            </span>
+                                                                        </div>
+                                                                    </div>
+
+
+
+
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                    </div>
+
+
+                                                </div>
+
+
+
+
+
+
+
+                                            </div>
                                         </div>
                                     </div>
-									
-									
-								
 
-                                 
+
+
                                 </div>
 
-                                <div class="row mt-4">
-                                    <div class="col-md-4">
-                                       
-                    <div class="card">
-                        <div class="card-header bg-light">
-                            summary
-                        </div>
 
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Op</th>
-                                        <th>#</th>
-                                        
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-                                     <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-									  <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-                                    </tbody>
-                                </table>
+
                             </div>
                         </div>
                     </div>
-                
-                                    </div>
 
-                                    <div class="col-md-4">
-                                         <div class="card-header bg-light">
-                           Original
-                        </div>
-
-                        <div class="card-body">
-                       I am original
-					   </div>
-					   		  	  <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto atque deleniti dolor dolores doloribus ducimus ea, eveniet facere hic illo illum laborum maiores nemo optio quas quis tenetur totam.
-                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                       <div class="card-header bg-light">
-                                           Mutant
-                                         </div>
-
-                                         <div class="card-body">
-                                           I am mutants                      
-					                      </div>
-										  		  	  <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto atque deleniti dolor dolores doloribus ducimus ea, eveniet facere hic illo illum laborum maiores nemo optio quas quis tenetur totam.
-                        </div>
-                                    </div>
-                                </div>
-
-                             
-
-                          </div>
-                        </div>
-                    </div>
-                        </div>
-						
-						<div class="tab-pane" id="tcr" role="tabpanel">  
-			           <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header bg-light">
-                                Test Case Runner
-                            </div>
-
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h2> Help</h2>
-                                        <br>
-                                        <p>You can choose the types of Mutants to test.</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-
-
-                                            <label><input name="Fruit" type="radio" value="">Execute Only ESC mutants</label>
-                                            <br>
-                                            <label><input name="Fruit" type="radio" value="">Execute Only traditional mutants </label>
-                                            <br>
-                                            <label><input name="Fruit" type="radio" value="">Execute All mutants </label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="single-select4">Time-Out</label>
-                                            <select style="float:left" id="single-select4" class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-
-                                            </select>
-                                            <button style="float:right;margin-top:5px;width:60px" onclick="startMutationTest()" class="btn btn-rounded btn-primary">Run</button>
-                                        </div>
-                                    </div>
-
-
-
-
-
-                                </div>
-
-                        <div class="row mt-4">
-                        <div class="col-md-4">	
-                        <div class="card">
-                            <div class="card-header bg-light">
-                                Calculate
-                            </div>
-
-                            <div class="card-body">
-                                <div class="row">
-								
-								
-								<div class="col-md-6">
-                       <div class="card">
-                        <div class="card-header bg-light">
-                            Total:
-                        </div>
-
-                        <div class="card-body">
-                       
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Op</th>
-                                        <th>#</th>
-                                        
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-                                     <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-									  <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                                  
-                              
-                        </div>
-                    </div>
-                            </div>
-
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-light">
-                            Total:
-                        </div>
-
-                        <div class="card-body">
-                        
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Op</th>
-                                        <th>#</th>
-                                        
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-                                     <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-									  <tr>
-                                        <td>AO</td>
-                                        <td >0</td>
-                                       
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-								
-								
-								
-								
-								
-                </div>
+            </div>
+        </div>
 
-
-                                
-                                 
-
-                                   
-                                
-               </div>
-                        </div>
-						</div>
-                    
-                               
-                        <div class="col-md-8">	
-                        <div class="card">
-                            <div class="card-header bg-light">
-                                Calculate
-                            </div>
-
-                            <div class="card-body">
-                                <div class="row">
-								
-								
-								<div class="col-md-6">
-                       <div class="card">
-                        <div class="card-header bg-light">
-                            Traditional Mutants Result
-                        </div>
-
-                        <div class="card-body">
-                       
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                 
-                                    <tbody>
-                                    <tr>
-                                        <td>Live Mutants#</td>
-                                        <td id="tLive" >0</td>
-                                       
-                                    </tr>
-                                     <tr>
-                                        <td>Killed Mutants#</td>
-                                        <td id="tKill">0</td>
-                                       
-                                    </tr>
-									  <tr>
-                                        <td>Total Mutants#</td>
-                                        <td id="tTotal">0</td>
-                                       
-                                    </tr>
-									  <tr>
-                                        <td>Mutant Score</td>
-                                        <td id="tScore">0</td>
-                                       
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                               
-                                <div class="row">
-								
-								
-								<div class="col-md-6">
-                       <div class="card">
-                        <div class="card-header bg-light">
-                              Live
-                        </div>
-
-                        <div class="card-body">
-                       
-                             <div class="form-group">
-                                          
-                                            <select id="multi-select" class="form-control" multiple="">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                  
-                              
-                        </div>
-                    </div>
-                            </div>
-
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-light">
-                            Killed
-                        </div>
-
-                        <div class="card-body">
-                        
-                            <div class="form-group">
-                                          
-                                            <select id="multi-select" class="form-control" multiple="">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                        </div>
-                    </div>
-                </div>
-								
-								
-								
-								
-								
-                </div>
-
-
-                                
-                                 
-   
-                              
-                        </div>
-                    </div>
-                            </div>
-
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-light">
-                           ESC Mutants Result
-                        </div>
-
-                        <div class="card-body">
-                        
-                            <div class="table-responsive">
-                               <table class="table table-hover">
-                                 
-                                    <tbody>
-                                    <tr>
-                                        <td>Live Mutants#</td>
-                                        <td id="eLive">0</td>
-                                       
-                                    </tr>
-                                     <tr>
-                                        <td>Killed Mutants#</td>
-                                        <td id="eKill">0</td>
-                                       
-                                    </tr>
-									  <tr>
-                                        <td>Total Mutants#</td>
-                                        <td id="eTotal">0</td>
-                                       
-                                    </tr>
-									  <tr>
-                                        <td>Mutant Score</td>
-                                        <td id="eScore">0</td>
-                                       
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                       
-      
-                                <div class="row">
-								
-								
-								<div class="col-md-6">
-                       <div class="card">
-                        <div class="card-header bg-light">
-                               Live
-                        </div>
-
-                        <div class="card-body">
-                       
-                             <div class="form-group">
-                                           
-                                            <select id="multi-select" class="form-control" multiple="">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                  
-                              
-                        </div>
-                    </div>
-                            </div>
-
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-light">
-                            Killed
-                        </div>
-
-                        <div class="card-body">
-                        
-                            <div class="form-group">
-                                            
-                                            <select id="multi-select" class="form-control" multiple="">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                        </div>
-                    </div>
-                </div>
-								
-								
-								
-								
-								
-                </div>
-
-
-                                
-                            
-
-					   </div>
-                    </div>
-                </div>
-								
-								
-								
-								
-								
-                </div>
-
-
-                                
-                                 
-
-                                   
-                                
-               </div>
-                        </div>
-						</div>
-                    
-                 
-
-							   </div>
-
-                             
-
-                          </div>
-                        </div>
-                    </div>
-                    
-			   </div>
-                    </div>
-                </div>
-
-         </div>
-
-
-		</div>
     </div>
+
+
+</div>
+</div>
 </div>
 <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
 <script th:src="@{/vendor/popper.js/popper.min.js}"></script>

@@ -19,10 +19,13 @@ public class Argument extends Unit {
         if(arguments.length>0){
             for(int i=0;i<arguments.length;i++){
                 str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),arguments[i]);
-                if(i!=arguments.length-1)
-                    str+=", ";
+                if(i!=arguments.length-1) {
+                    str += ", ";
+                    Statement.lineContent+=", ";
+                }
             }
         }
+
         return str;
     }
     public static void ListOutputWithName(String[] names,Object[] arguments){
@@ -40,9 +43,12 @@ public class Argument extends Unit {
         if(arguments.length>0){
             for(int i=0;i<arguments.length;i++){
                 str+=names[i]+": ";
+                Statement.lineContent+=names[i]+": ";
                 str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),arguments[i]);
-                if(i!=arguments.length-1)
-                    str+=", ";
+                if(i!=arguments.length-1) {
+                    str += ", ";
+                    Statement.lineContent+=", ";
+                }
             }
         }
         return str;

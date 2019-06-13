@@ -48,10 +48,14 @@ public class TupleExpression {
     public String outputToLine(ArrayList<MuType> types){
         String str="";
         if(!isArray){
+            Statement.lineContent+="(";
             str+="("+printComponentToLine()+")";
+            Statement.lineContent+=")";
         }
         else{
+            Statement.lineContent+="[";
             str+="["+printComponentToLine()+"]";
+            Statement.lineContent+="]";
         }
         return str;
     }
@@ -66,8 +70,10 @@ public class TupleExpression {
         String str="";
         for(int i=0;i<components.length;i++) {
             str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),components[i]);
-            if(i!=components.length-1)
-                str+=", ";
+            if(i!=components.length-1) {
+                str += ", ";
+                Statement.lineContent+=", ";
+            }
         }
         return str;
     }

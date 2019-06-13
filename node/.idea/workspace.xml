@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34b50bfe-6345-47f5-aab2-a1e82607bd7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenAST.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenASTServer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GenAST_types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/GetTestFileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/FileUtils/CopyDir.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/MutantsJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/META-INF/mutestdemo.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,11 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GenAST_types.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="152">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -68,9 +72,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="81" />
-    <option name="y" value="45" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="51" />
+    <option name="y" value="108" />
     <option name="width" value="1890" />
     <option name="height" value="969" />
   </component>
@@ -81,6 +85,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,7 +97,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -144,17 +148,27 @@
       <option name="presentableId" value="Default" />
       <updated>1560076123157</updated>
       <workItem from="1560076125958" duration="88000" />
-      <workItem from="1560082280170" duration="1551000" />
+      <workItem from="1560082280170" duration="4111000" />
+      <workItem from="1560160099639" duration="599000" />
+      <workItem from="1560235324774" duration="1797000" />
     </task>
+    <task id="LOCAL-00001" summary="add node server code">
+      <created>1560085347730</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1560085347730</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1639000" />
+    <option name="totallyTimeSpent" value="6595000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2534413" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.254251" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -164,7 +178,7 @@
       <window_info id="npm" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3587922" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3587922" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -174,7 +188,7 @@
       <window_info anchor="bottom" id="Tool Output" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.28774422" />
       <window_info anchor="bottom" id="ANTLR Preview" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -189,6 +203,50 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add node server code" />
+    <option name="LAST_COMMIT_MESSAGE" value="add node server code" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -206,11 +264,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GenAST_types.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
         </state>
       </provider>
     </entry>

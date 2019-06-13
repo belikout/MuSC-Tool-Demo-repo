@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @org.springframework.stereotype.Controller
 public class MainController {
-    @RequestMapping("/hello")
-    public String hello(){
+    @RequestMapping("/musc")
+    public String musc(){
         return "main";
     }
 }

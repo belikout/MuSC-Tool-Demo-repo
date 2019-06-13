@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Statement {
     //ExpressionStatement,IfStatement,
     private String type;
-
+    public static String lineContent="";
     public String getType() {
         return type;
     }
@@ -57,7 +57,7 @@ public class Statement {
         String content="";
         for(int i=0;i<statements.size();i++){
             content="";
-            BinaryOperation.string="";
+            lineContent="";
             if(((JSONObject)statements.get(i)).getString("type").equals("VariableDeclarationStatement")) {
                 content+=JSON.parseObject(statements.get(i).toString(), VariableDeclarationStatement.class).outputToLine()+";";
                 Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));

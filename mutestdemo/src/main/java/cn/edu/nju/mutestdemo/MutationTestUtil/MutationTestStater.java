@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class MutationTestStater {
-    static String ProjectPath="C:\\Users\\belikout\\Desktop\\metacoin-box-master";
+    public static String ProjectPath="";
     public static MutationTestResult start(String path) {
         if(path!=null&&path!="")
         ProjectPath=path;

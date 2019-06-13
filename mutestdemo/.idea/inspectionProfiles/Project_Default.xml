@@ -3,7 +3,7 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="Duplicates" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <Java>
-        <minSize>121</minSize>
+        <minSize>530</minSize>
         <isEnabled>true</isEnabled>
       </Java>
     </inspection_tool>

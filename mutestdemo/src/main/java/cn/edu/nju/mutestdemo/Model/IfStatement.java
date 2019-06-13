@@ -49,14 +49,18 @@ public class IfStatement extends Statement {
         }
     }
     public void outputToLine(ArrayList<MuType>types,int space){
+
         String content="";
         content+="if(";
+        Statement.lineContent+=content;
         content+=ExpressionStatement.printPartToLine(types,condition);
         content+=") ";
+        Statement.lineContent+=") ";
         printBodyToLine(types,content,space,trueBody);
         content="";
         if(falseBody!=null) {
             content+="else ";
+            Statement.lineContent+=content;
             printBodyToLine(types,content,space,falseBody);
         }
     }

@@ -45,19 +45,28 @@ public static void printPart(Object expr){
 }
     public static String printPartToLine(ArrayList<MuType> types,Object expr){
     String str="";
-        if(((JSONObject)expr).getString("type").equals("Identifier"))
-            str+=((JSONObject)expr).getString("name");
+        if(((JSONObject)expr).getString("type").equals("Identifier")) {
+            str += ((JSONObject) expr).getString("name");
+            Statement.lineContent+=str;
+        }
         else if(((JSONObject)expr).getString("type").equals("NumberLiteral")) {
             str+=((JSONObject) expr).getString("number");
             if(((JSONObject) expr).getString("subdenomination")!=null)
                 str+=" "+((JSONObject) expr).getString("subdenomination");
+            Statement.lineContent+=str;
         }
-        else if(((JSONObject)expr).getString("type").equals("StringLiteral"))
-            str+="\""+((JSONObject)expr).getString("value")+"\"";
-        else if(((JSONObject)expr).getString("type").equals("HexLiteral"))
-            str+=((JSONObject)expr).getString("value");
-        else if(((JSONObject)expr).getString("type").equals("BooleanLiteral"))
-            str+=((JSONObject)expr).getString("value");
+        else if(((JSONObject)expr).getString("type").equals("StringLiteral")) {
+            str += "\"" + ((JSONObject) expr).getString("value") + "\"";
+            Statement.lineContent+=str;
+        }
+        else if(((JSONObject)expr).getString("type").equals("HexLiteral")) {
+            str += ((JSONObject) expr).getString("value");
+            Statement.lineContent+=str;
+            }
+        else if(((JSONObject)expr).getString("type").equals("BooleanLiteral")) {
+            str += ((JSONObject) expr).getString("value");
+            Statement.lineContent+=str;
+        }
         else if(((JSONObject)expr).getString("type").equals("BinaryOperation"))
             str+=JSON.parseObject(expr.toString(),BinaryOperation.class).outputToLine(types);
         else if(((JSONObject)expr).getString("type").equals("UnaryOperation"))
@@ -73,12 +82,15 @@ public static void printPart(Object expr){
         else if(((JSONObject)expr).getString("type").equals("NewExpression")){
             str+="new ";
             str+=Var.printTypeToLine(((JSONObject)expr).getJSONObject("typeName"));
+            Statement.lineContent+=str;
         }
         else if(((JSONObject)expr).getString("type").equals("ElementaryTypeNameExpression")){
             str+=Var.printTypeToLine(((JSONObject)expr).getJSONObject("typeName"));
+            Statement.lineContent+=str;
         }
         else if(((JSONObject)expr).getString("type").equals("Conditional"))
             str+=JSON.parseObject(expr.toString(),Conditional.class).outputToLine(types);
+
         return str;
     }
 }

@@ -16,6 +16,7 @@ public class Mutant {
             space="";
             for(int j=0;j<lines.get(mutateLineNums.get(i)).getSpace();j++)
                 space+="    ";
+
             mutateLine.set(i,space+mutateLine.get(i)+lines.get(mutateLineNums.get(i)).getContent().substring(mutateLineRepairFromNums.get(i)));
         }
         for(int i=0;i<lines.size();i++){

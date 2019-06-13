@@ -1,6 +1,9 @@
 package cn.edu.nju.mutestdemo.Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import cn.edu.nju.mutestdemo.ASTMutation.Mutant;
 import cn.edu.nju.mutestdemo.EnumType.MuType;
 public class UnaryOperation {
     private String type;
@@ -8,6 +11,9 @@ public class UnaryOperation {
     private String operator;
     private Object subExpression;
 
+    public UnaryOperation(){
+
+    }
     public String getType() {
         return type;
     }
@@ -50,13 +56,43 @@ public class UnaryOperation {
     }
     public String outputToLine(ArrayList<MuType> types){
         String str="";
-        if(isPrefix)
-            str+=operator;
+        boolean hasAOR=false;
+        if(types.contains(MuType.AOR))
+            hasAOR=true;
+        if(isPrefix) {
+            str += operator;
+            if(hasAOR) {
+                String temp=Statement.lineContent;
+                if (operator.equals("++"))
+                    temp=temp+"--";
+                else if(operator.equals("--"))
+                    temp=temp+"++";
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.AOR.ordinal());
+                Mutant.mutateLine.add(temp);
+                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+2);
+            }
+            Statement.lineContent+=operator;
+        }
         if(subExpression!=null) {
             str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),subExpression);
+
         }
-        if(!isPrefix)
-            str+=operator;
+        if(!isPrefix) {
+            str += operator;
+            if(hasAOR) {
+                String temp=Statement.lineContent;
+                if (operator.equals("++"))
+                    temp=temp+"--";
+                else if(operator.equals("--"))
+                    temp=temp+"++";
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.AOR.ordinal());
+                Mutant.mutateLine.add(temp);
+                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+2);
+            }
+            Statement.lineContent+=operator;
+        }
         return str;
     }
 }

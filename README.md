@@ -7,7 +7,8 @@ First, You need to install [Truffle](https://github.com/trufflesuite/truffle) in
 ```
 $ npm install -g truffle
 ```
-Next, run ```npm install``` under [node](https://github.com/belikout/MuSC-Tool-Demo-repo/tree/master/node) folder to get dependencies installed.  
+Next, run ```$ npm install``` under [node](https://github.com/belikout/MuSC-Tool-Demo-repo/tree/master/node) folder to get dependencies installed.  
+### Start up
 Follow the steps below to run this tool:  
 1. Start nodejs side service.  
 Run [GenASTServer.js](https://github.com/belikout/MuSC-Tool-Demo-repo/blob/master/node/GenASTServer.js) under [node](https://github.com/belikout/MuSC-Tool-Demo-repo/tree/master/node) folder

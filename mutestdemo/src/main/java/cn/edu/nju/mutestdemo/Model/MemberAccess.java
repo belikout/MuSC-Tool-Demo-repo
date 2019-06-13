@@ -38,6 +38,7 @@ public class MemberAccess {
     }
     public String outputToLine(ArrayList<MuType> types){
         String str=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),expression)+"."+memberName;
+        Statement.lineContent+="."+memberName;
         return str;
     }
 }

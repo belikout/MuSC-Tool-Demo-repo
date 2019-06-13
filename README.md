@@ -3,7 +3,7 @@ A Tool Demo for Ethereum Smart Contract  Mutation Test.
 ## Development Environment and Configuration
 ```Java(1.8) ```and ```Node.js``` Environment are necessary to run this project.  
 ### Configuration
-First, You need to install [Truffle](https://github.com/trufflesuite/truffle) in your device.
+First, if you haven't install [Truffle](https://github.com/trufflesuite/truffle), you need to install it in your device.
 ```
 $ npm install -g truffle
 ```

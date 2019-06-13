@@ -2,39 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbdf8288-eff9-406b-b5fa-96ef653ae583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GetTestFileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/FileUtils/CopyDir.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/MutantsJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/ASTMutation/Generate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/ASTMutation/Generate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/ASTMutation/Mutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/ASTMutation/Mutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/Argument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/BinaryOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/BinaryOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/Conditional.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/Conditional.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/ExpressionStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/ExpressionStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/FunctionCall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/FunctionCall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/IfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/IfStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/IndexAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/IndexAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/MemberAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/MemberAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/Statement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/TupleExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/TupleExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/UnaryOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/UnaryOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/mutestdemo.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/BinaryOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/BinaryOperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/Statement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/Statement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/UnaryOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/UnaryOperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../node/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/ASTMutation/Generate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/ASTMutation/Generate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/ASTMutation/Mutant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/ASTMutation/Mutant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/Argument.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/Argument.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/Conditional.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/Conditional.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/ExpressionStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/ExpressionStatement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/FunctionCall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/FunctionCall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/IfStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/IfStatement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/IndexAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/IndexAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/MemberAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/MemberAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/TupleExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Model/TupleExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -110,8 +89,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="390" column="121" selection-start-line="390" selection-start-column="121" selection-end-line="390" selection-end-column="121" />
+            <state relative-caret-position="133">
+              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -280,8 +259,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="81" />
-    <option name="y" value="45" />
+    <option name="x" value="51" />
+    <option name="y" value="108" />
     <option name="width" value="1890" />
     <option name="height" value="969" />
   </component>
@@ -412,7 +391,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/solidity-parser-antlr-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -540,12 +519,20 @@
       <workItem from="1560160049834" duration="577000" />
       <workItem from="1560235306769" duration="12461000" />
       <workItem from="1560321476475" duration="2391000" />
-      <workItem from="1560337784032" duration="20300000" />
+      <workItem from="1560337784032" duration="20561000" />
     </task>
+    <task id="LOCAL-00001" summary="fix test truffle project">
+      <created>1560416952811</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1560416952811</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80392000" />
+    <option name="totallyTimeSpent" value="80653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -634,6 +621,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="fix test truffle project" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix test truffle project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1120,8 +1109,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="390" column="121" selection-start-line="390" selection-start-column="121" selection-end-line="390" selection-end-column="121" />
+        <state relative-caret-position="133">
+          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />

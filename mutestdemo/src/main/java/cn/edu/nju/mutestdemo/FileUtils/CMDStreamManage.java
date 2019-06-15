@@ -36,10 +36,10 @@ public class CMDStreamManage extends Thread {
                     DebugInfo+=line+"\r\n";
                 }
             }
-            FileWriter writer=new FileWriter(new File(ProjectPath+"\\MutationTestLog\\MutationTestErrorInfo_"+num+".txt"));
+            FileWriter writer=new FileWriter(new File(ProjectPath+"\\MuSC_MutationTestLog\\MutationTestErrorInfo_"+num+".txt"));
             writer.write(ErrorInfo);
             writer.close();
-            writer=new FileWriter(new File(ProjectPath+"\\MutationTestLog\\MutationTestDebugInfo_"+num+".txt"));
+            writer=new FileWriter(new File(ProjectPath+"\\MuSC_MutationTestLog\\MutationTestDebugInfo_"+num+".txt"));
             writer.write(DebugInfo);
             writer.close();
 

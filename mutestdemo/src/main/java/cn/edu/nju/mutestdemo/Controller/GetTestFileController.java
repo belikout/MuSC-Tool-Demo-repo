@@ -29,12 +29,12 @@ public class GetTestFileController {
             return JSON.toJSONString("Fail: Folder directory doesn't exist.");//返回错误信息
         }else{
             MutationTestStater.generateStarterBatFile();
-            File logFileDir=new File(ProjectPath+"\\MutationTestLog");
+            File logFileDir=new File(ProjectPath+"\\MuSC_MutationTestLog");
             if(!logFileDir.exists()){//如果文件夹不存在
                 logFileDir.mkdir();//创建文件夹
             }
             try {
-                File filePath = new File(ProjectPath + "\\StartMutationTest.bat");
+                File filePath = new File(ProjectPath + "\\MuSC_StartMutationTest.bat");
                 Process proc = Runtime.getRuntime().exec(filePath.toString());
                 CMDStreamManage errorStream = new CMDStreamManage(proc.getErrorStream(), "Error",ProjectPath,0);
                 CMDStreamManage outputStream  = new CMDStreamManage(proc.getInputStream(), "Output",ProjectPath,0);
@@ -47,7 +47,7 @@ public class GetTestFileController {
 
             boolean isEnd=false;
             while(!isEnd){
-                File file = new File(ProjectPath + "\\MutationTestLog");
+                File file = new File(ProjectPath + "\\MuSC_MutationTestLog");
                 File[] files = file.listFiles();
                 if(files.length==2)isEnd=true;
                 try {
@@ -57,15 +57,15 @@ public class GetTestFileController {
                 }
             }
             String temp=AnalyseResult();
-            CopyDir.deleteDir(new File(ProjectPath+"\\StartMutationTest.bat"));
-            CopyDir.deleteDir(new File(ProjectPath+"\\MutationTestLog"));
+            CopyDir.deleteDir(new File(ProjectPath+"\\MuSC_StartMutationTest.bat"));
+            CopyDir.deleteDir(new File(ProjectPath+"\\MuSC_MutationTestLog"));
             if(!temp.equals(""))return JSON.toJSONString("Fail: "+temp);
             ArrayList<String>cons=getContract();
             return JSON.toJSONString(cons);
         }
     }
     private static String AnalyseResult(){
-        File file = new File(ProjectPath + "\\MutationTestLog\\MutationTestDebugInfo_0.txt");
+        File file = new File(ProjectPath + "\\MuSC_MutationTestLog\\MutationTestDebugInfo_0.txt");
         if(!file.exists()) {//如果文件夹不存在
             return "Test unknown error, please check your project or change path or try again later.";//返回错误信息
         }else{
@@ -79,6 +79,8 @@ public class GetTestFileController {
                         return "Not a truffle test project, please check your project or change path.";
                     if(line.contains(" failing\u001B[0m"))
                         return "Mutation test fail, please check your project.";
+                    if(line.contains("Compilation failed."))
+                        return "Compilation failed.";
                 }
                 if(num<=1)
                     return "Test unknown error, please check your project or change path or try again later.";
@@ -105,8 +107,10 @@ public class GetTestFileController {
         File[] files = file.listFiles();
         for (File file2 : files) {
             String name=file2.getName();
-            if(name.substring(name.length()-4,name.length()).equals(".sol"))
-            cons.add((file2.getName()));
+            if(file2.isFile()&&name.length()>4) {
+                if (name.substring(name.length() - 4, name.length()).equals(".sol"))
+                    cons.add((file2.getName()));
+            }
         }
         return cons;
     }

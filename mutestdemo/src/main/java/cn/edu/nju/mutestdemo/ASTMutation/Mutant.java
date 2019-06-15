@@ -10,6 +10,13 @@ public class Mutant {
     public static ArrayList<Integer>mutateLineTypeNums=new ArrayList<Integer>();
     public static ArrayList<Integer> mutateLineRepairFromNums =new ArrayList<Integer>();
     public static ArrayList<String>mutateLine=new ArrayList<String>();
+    public static void clear(){
+        lines=new ArrayList<Line>();
+        mutateLineNums=new ArrayList<Integer>();
+        mutateLineTypeNums=new ArrayList<Integer>();
+        mutateLineRepairFromNums =new ArrayList<Integer>();
+        mutateLine=new ArrayList<String>();
+    }
     public static void Repair(){
         String space="";
         for(int i=0;i<mutateLine.size();i++){

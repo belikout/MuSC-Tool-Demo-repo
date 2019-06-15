@@ -33,7 +33,7 @@ public class MutationTestStater {
             }
         }
         generateStarterBatFile();
-        File logFileDir=new File(ProjectPath+"\\MutationTestLog");
+        File logFileDir=new File(ProjectPath+"\\MuSC_MutationTestLog");
         if(!logFileDir.exists()){//如果文件夹不存在
             logFileDir.mkdir();//创建文件夹
         }
@@ -63,13 +63,13 @@ public class MutationTestStater {
         start("");
     }
     private static boolean isLogEnd(int logNum){
-        File file = new File(ProjectPath + "\\MutationTestLog");
+        File file = new File(ProjectPath + "\\MuSC_MutationTestLog");
         File[] files = file.listFiles();
         if(files.length==logNum*2)return true;
         return false;
     }
     public static void generateStarterBatFile(){
-        File file = new File(ProjectPath + "\\StartMutationTest.bat");
+        File file = new File(ProjectPath + "\\MuSC_StartMutationTest.bat");
         String content="";
         content+="cd /d "+ProjectPath+"\r\n";
         content+="truffle test";
@@ -85,7 +85,7 @@ public class MutationTestStater {
     }
     public static void generateMutationTest(int num){
         try {
-            File filePath = new File(ProjectPath + "\\StartMutationTest.bat");
+            File filePath = new File(ProjectPath + "\\MuSC_StartMutationTest.bat");
             Process proc = Runtime.getRuntime().exec(filePath.toString());
             CMDStreamManage errorStream = new CMDStreamManage(proc.getErrorStream(), "Error",ProjectPath,num);
             CMDStreamManage outputStream  = new CMDStreamManage(proc.getInputStream(), "Output",ProjectPath,num);

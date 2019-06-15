@@ -20,7 +20,7 @@ public class TestResultAnalysis {
                     continue;
                 } else {
                     if(file2.getName().substring(0,17).equals("MutationTestDebug")){
-                        if(isKill(file2))res.setTkill(res.getTkill()+1);
+                        if(isKill(file2).equals("yes"))res.setTkill(res.getTkill()+1);
                         else res.settLive(res.gettLive()+1);
                     }
                 }
@@ -30,21 +30,24 @@ public class TestResultAnalysis {
         res.settScore(100*res.getTkill()/res.gettTotal());
         return res;
     }
-    private static boolean isKill(File file){
+    private static String isKill(File file){
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));// 读取log
 
             String line  = null;
             while ((line = br.readLine()) != null) {
                 if(line.contains(" failing\u001B[0m")){
-                    return true;
+                    return "yes";
                 }
+                else if(line.contains("Compilation failed."))
+                    return "fail";
+
             }
             br.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return false;
+        return "no";
     }
 }

@@ -221,7 +221,7 @@
         }
         $.ajax({
             type: 'GET',
-            url: '/generateMutant0',
+            url: '/generateMutant',
             cache: 'false',
             data: {
                 "projectPath": projectPath,
@@ -271,19 +271,32 @@
             url: '/generateMutationTest',
             cache: 'false',
             data: {
+                "projectPath": projectPath,
+                "mutants": JSON.stringify(mutants)
             },
             dataType: 'json',
             headers : {
                 'Content-Type' : 'application/json;charset=utf-8'
             },
             success: function (result) {
-                $("#tKill").html(result[0])
-                $("#tLive").html(result[1])
-                $("#tTotal").html(result[2])
-                $("#tScore").html(result[3])
+                $(this).openWindow('Attention','Mutation test finished!','["OK"]');
+                $("#tKill").html(result[0]["kill"])
+                $("#tLive").html(result[0]["live"])
+                $("#tTotal").html(result[0]["total"])
+                $("#tScore").html(result[0]["score"])
+                $("#eKill").html(result[1]["kill"])
+                $("#eLive").html(result[1]["live"])
+                $("#eTotal").html(result[1]["total"])
+                $("#eScore").html(result[1]["score"])
+                $("#teKill").html(result[0]["kill"]+result[1]["kill"])
+                $("#teLive").html(result[0]["live"]+result[1]["live"])
+                $("#teTotal").html(result[0]["total"]+result[1]["total"])
+                $("#teScore").html((result[0]["kill"]+result[1]["kill"])*100/(result[0]["total"]+result[1]["total"]))
+
             }
         })
     }
+
 </script>
 <div class="page-wrapper">
     <div class="main-container">

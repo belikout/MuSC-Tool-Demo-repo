@@ -13,14 +13,17 @@ public class CMDStreamManage extends Thread {
     InputStream inputStream;
     String type;
     String ProjectPath;
+    String muType;
     int num;
-    public CMDStreamManage(InputStream inputStream, String type, String ProjectPath, int num) {
+    public CMDStreamManage(InputStream inputStream, String type, String ProjectPath, int num,String muType) {
         this.inputStream = inputStream;
         this.type = type;
         this.ProjectPath=ProjectPath;
         this.num=num;
+        this.muType=muType;
     }
     public void run () {
+        System.out.println(Thread.getAllStackTraces().size());
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String line = null;
@@ -36,10 +39,10 @@ public class CMDStreamManage extends Thread {
                     DebugInfo+=line+"\r\n";
                 }
             }
-            FileWriter writer=new FileWriter(new File(ProjectPath+"\\MuSC_MutationTestLog\\MutationTestErrorInfo_"+num+".txt"));
+            FileWriter writer=new FileWriter(new File(ProjectPath+"\\MuSC_MutationTestLog\\MutationTestErrorInfo_"+num+"_"+muType+".txt"));
             writer.write(ErrorInfo);
             writer.close();
-            writer=new FileWriter(new File(ProjectPath+"\\MuSC_MutationTestLog\\MutationTestDebugInfo_"+num+".txt"));
+            writer=new FileWriter(new File(ProjectPath+"\\MuSC_MutationTestLog\\MutationTestDebugInfo_"+num+"_"+muType+".txt"));
             writer.write(DebugInfo);
             writer.close();
 

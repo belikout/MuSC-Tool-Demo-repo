@@ -21,4 +21,16 @@ public class ReplaceFileUtil {
             e.printStackTrace();
         }
     }
+    public static void replaceFileContent(String Path,String content){
+        try {
+            FileWriter writer=new FileWriter(new File(Path));
+            writer.write(content);
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

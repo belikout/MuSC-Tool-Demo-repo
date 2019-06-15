@@ -1,76 +1,50 @@
 package cn.edu.nju.mutestdemo.Model;
 
 public class MutationTestResult {
-    private int tLive=0;
-    private int tkill=0;
-    private int tTotal=0;
-    private int tScore=0;
-    private int eLive=0;
-    private int ekill=0;
-    private int eTotal=0;
-    private int eScore=0;
+    private int Live=0;
+    private int kill=0;
+    private int Total=0;
+    private int compileFail=0;
+    private int Score=0;
 
-    public int gettLive() {
-        return tLive;
+
+    public int getLive() {
+        return Live;
     }
 
-    public void settLive(int tLive) {
-        this.tLive = tLive;
+    public void setLive(int live) {
+        Live = live;
     }
 
-    public int getTkill() {
-        return tkill;
+    public int getKill() {
+        return kill;
     }
 
-    public void setTkill(int tkill) {
-        this.tkill = tkill;
+    public void setKill(int kill) {
+        this.kill = kill;
     }
 
-    public int gettTotal() {
-        return tTotal;
+    public int getTotal() {
+        return Total;
     }
 
-    public void settTotal(int tTotal) {
-        this.tTotal = tTotal;
+    public void setTotal(int total) {
+        Total = total;
     }
 
-    public int gettScore() {
-        return tScore;
+    public int getCompileFail() {
+        return compileFail;
     }
 
-    public void settScore(int tScore) {
-        this.tScore = tScore;
+    public void setCompileFail(int compileFail) {
+        this.compileFail = compileFail;
     }
 
-    public int geteLive() {
-        return eLive;
+    public int getScore() {
+        return Score;
     }
 
-    public void seteLive(int eLive) {
-        this.eLive = eLive;
-    }
-
-    public int getEkill() {
-        return ekill;
-    }
-
-    public void setEkill(int ekill) {
-        this.ekill = ekill;
-    }
-
-    public int geteTotal() {
-        return eTotal;
-    }
-
-    public void seteTotal(int eTotal) {
-        this.eTotal = eTotal;
-    }
-
-    public int geteScore() {
-        return eScore;
-    }
-
-    public void seteScore(int eScore) {
-        this.eScore = eScore;
+    public void setScore(int score) {
+        Score = score;
     }
 }

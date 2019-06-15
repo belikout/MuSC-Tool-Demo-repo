@@ -16,17 +16,8 @@ import java.util.ArrayList;
 public class MutationTestController {
     @RequestMapping("/generateMutationTest")
     @ResponseBody
-    public String generateMutationTest() throws IOException {
-        MutationTestResult res=MutationTestStater.start("");
-        ArrayList<Integer>resList=new ArrayList<Integer>();
-        resList.add(res.getTkill());
-        resList.add(res.gettLive());
-        resList.add(res.gettTotal());
-        resList.add(res.gettScore());
-        resList.add(res.getEkill());
-        resList.add(res.geteLive());
-        resList.add(res.geteTotal());
-        resList.add(res.geteScore());
-        return JSON.toJSONString(resList);
+    public String generateMutationTest(@RequestParam("projectPath")String projctPath,@RequestParam("mutants")String mutantsJSON) throws IOException {
+        ArrayList<MutationTestResult> res=MutationTestStater.start0(projctPath,mutantsJSON);
+        return JSON.toJSONString(res);
     }
 }

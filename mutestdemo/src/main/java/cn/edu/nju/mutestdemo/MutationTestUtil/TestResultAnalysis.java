@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class TestResultAnalysis {
     public static MutationTestResult getTestresult(String ProjectPath){
         MutationTestResult res=new MutationTestResult();
-        File file = new File(ProjectPath + "\\MutationTestLog");
+        File file = new File(ProjectPath + "\\MuSC_MutationTestLog");
         ArrayList<String> mutFileName=new ArrayList<String>();
         if (file.exists()) {
             File[] files = file.listFiles();
@@ -20,14 +20,14 @@ public class TestResultAnalysis {
                     continue;
                 } else {
                     if(file2.getName().substring(0,17).equals("MutationTestDebug")){
-                        if(isKill(file2).equals("yes"))res.setTkill(res.getTkill()+1);
-                        else res.settLive(res.gettLive()+1);
+                        if(isKill(file2).equals("yes"))res.setKill(res.getKill()+1);
+                        else res.setLive(res.getLive()+1);
                     }
                 }
             }
         }
-        res.settTotal(res.gettLive()+res.getTkill());
-        res.settScore(100*res.getTkill()/res.gettTotal());
+        res.setTotal(res.getLive()+res.getKill());
+        res.setScore(100*res.getKill()/res.getTotal());
         return res;
     }
     private static String isKill(File file){

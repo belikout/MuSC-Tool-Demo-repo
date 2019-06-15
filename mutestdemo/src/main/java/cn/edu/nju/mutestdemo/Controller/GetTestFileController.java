@@ -36,8 +36,8 @@ public class GetTestFileController {
             try {
                 File filePath = new File(ProjectPath + "\\MuSC_StartMutationTest.bat");
                 Process proc = Runtime.getRuntime().exec(filePath.toString());
-                CMDStreamManage errorStream = new CMDStreamManage(proc.getErrorStream(), "Error",ProjectPath,0);
-                CMDStreamManage outputStream  = new CMDStreamManage(proc.getInputStream(), "Output",ProjectPath,0);
+                CMDStreamManage errorStream = new CMDStreamManage(proc.getErrorStream(), "Error",ProjectPath,0,"ori");
+                CMDStreamManage outputStream  = new CMDStreamManage(proc.getInputStream(), "Output",ProjectPath,0,"ori");
                 errorStream.start();
                 outputStream.start();
             } catch (IOException ioe) {
@@ -65,7 +65,7 @@ public class GetTestFileController {
         }
     }
     private static String AnalyseResult(){
-        File file = new File(ProjectPath + "\\MuSC_MutationTestLog\\MutationTestDebugInfo_0.txt");
+        File file = new File(ProjectPath + "\\MuSC_MutationTestLog\\MutationTestDebugInfo_0_ori.txt");
         if(!file.exists()) {//如果文件夹不存在
             return "Test unknown error, please check your project or change path or try again later.";//返回错误信息
         }else{

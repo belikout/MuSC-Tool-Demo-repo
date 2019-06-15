@@ -2,27 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34b50bfe-6345-47f5-aab2-a1e82607bd7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../mutestdemo/src/main/resources/static/css/global.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mutestdemo/src/main/resources/static/js/windowOpen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/ASTMutation/Mutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/ASTMutation/Mutant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/GetTestFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/GetTestFileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/EnumType/MuType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/EnumType/MuType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/MutationTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/MutationTestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/FileUtils/CMDStreamManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/FileUtils/CMDStreamManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/MutantsJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/MutantsJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/FileUtils/ReplaceFileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/FileUtils/ReplaceFileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/MutationTestResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/MutationTestResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/resources/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/ASTMutation/Mutant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/ASTMutation/Mutant.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/EnumType/MuType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/EnumType/MuType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/MutationTestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/MutationTestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/FileUtils/CMDStreamManage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/FileUtils/CMDStreamManage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/FileUtils/ReplaceFileUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/FileUtils/ReplaceFileUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/MutationTestResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/MutationTestResult.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/web2/WebViewSample.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,9 +75,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="949" />
-    <option name="width" value="980" />
-    <option name="height" value="1031" />
+    <option name="x" value="421" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -88,6 +85,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -100,7 +98,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -157,6 +154,7 @@
       <workItem from="1560160099639" duration="599000" />
       <workItem from="1560235324774" duration="1797000" />
       <workItem from="1560433619963" duration="3636000" />
+      <workItem from="1560572219642" duration="709000" />
     </task>
     <task id="LOCAL-00001" summary="add node server code">
       <created>1560085347730</created>
@@ -169,13 +167,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10231000" />
+    <option name="totallyTimeSpent" value="10940000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25101215" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12469636" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -185,7 +183,7 @@
       <window_info id="npm" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3587922" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3587922" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

@@ -43,7 +43,7 @@ function clearCount(type){
     else if(type==1)
         for(var i=9;i<24;i++)
             items[i].innerHTML="0";
-     else if(type==-1)
+    else if(type==-1)
         for(var i=0;i<items.length;i++)
             items[i].innerHTML="0";
 }
@@ -293,20 +293,23 @@ function startMutationTest(){
         success: function (result) {
             isTesting=false;
             document.getElementById("loadMutationTest").setAttribute("hidden","hidden");
-            $(this).openWindow('Attention','Mutation test finished!','["OK"]');
-            $("#tKill").html(result[0]["kill"])
-            $("#tLive").html(result[0]["live"])
-            $("#tTotal").html(result[0]["total"])
-            $("#tScore").html(result[0]["score"])
-            $("#eKill").html(result[1]["kill"])
-            $("#eLive").html(result[1]["live"])
-            $("#eTotal").html(result[1]["total"])
-            $("#eScore").html(result[1]["score"])
-            $("#teKill").html(result[0]["kill"]+result[1]["kill"])
-            $("#teLive").html(result[0]["live"]+result[1]["live"])
-            $("#teTotal").html(result[0]["total"]+result[1]["total"])
-            $("#teScore").html(parseInt((result[0]["kill"]+result[1]["kill"])*100/(result[0]["total"]+result[1]["total"])))
-
+            if(result.toString().length>4&&result.toString().substr(0,4)=="Fail"){
+                $(this).openWindow('Attention',result,'["OK"]');
+            }else{
+                $(this).openWindow('Attention','Mutation test finished!','["OK"]');
+                $("#tKill").html(result[0]["kill"])
+                $("#tLive").html(result[0]["live"])
+                $("#tTotal").html(result[0]["total"])
+                $("#tScore").html(result[0]["score"])
+                $("#eKill").html(result[1]["kill"])
+                $("#eLive").html(result[1]["live"])
+                $("#eTotal").html(result[1]["total"])
+                $("#eScore").html(result[1]["score"])
+                $("#teKill").html(result[0]["kill"]+result[1]["kill"])
+                $("#teLive").html(result[0]["live"]+result[1]["live"])
+                $("#teTotal").html(result[0]["total"]+result[1]["total"])
+                $("#teScore").html(parseInt((result[0]["kill"]+result[1]["kill"])*100/(result[0]["total"]+result[1]["total"])))
+            }
         }
     })
 }

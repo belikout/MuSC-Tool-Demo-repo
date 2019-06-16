@@ -19,45 +19,61 @@ public class MutationTestController {
     @RequestMapping("/generateMutationTest")
     @ResponseBody
     public String generateMutationTest(@RequestParam("chainCode")String chainCode,@RequestParam("projectPath")String projectPath,@RequestParam("mutants")String mutantsJSON) throws IOException {
-        Process proc=null;
+        boolean istestFail=false;
+        boolean istestfinish=false;
         if(chainCode!=null&&chainCode!=""){
-            /*String cmd="cmd /c pushd "+projectPath+"\\MuSC_dup"+" && "+chainCode+" > "+"C:\\Users\\belikout\\Desktop\\read.txt";
-            try {
-                proc = Runtime.getRuntime().exec(cmd);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
             generateStartChainFile(projectPath,chainCode);
-            String cmd = "cmd /k start "+projectPath+"\\MuSC_dup\\MuSC_StartTestChain.bat";
-            //String cmd = "cmd.exe /C start /b " +projectPath+"\\MuSC_dup\\MuSC_StartTestChain.bat";
+            /*String cmd = "cmd /k start "+projectPath+"\\MuSC_dup\\MuSC_StartTestChain.bat";
             try {
                 Process ps = Runtime.getRuntime().exec(cmd);
             } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
-            /*File filePath = new File(projectPath + "\\MuSC_dup\\MuSC_StartTestChain.bat");
-            proc = Runtime.getRuntime().exec(filePath.toString());
-            InputStreamReader inputStreamReader = new InputStreamReader(proc.getInputStream());
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String line = null;
             try {
-                while((line = bufferedReader.readLine()) !=null ) {
-                    System.out.println("attention!!!:  "+line);
-                }
-            } catch (IOException e) {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }*/
+            Process proc=null;
+            try {
+                File filePath = new File(projectPath + "\\MuSC_dup\\MuSC_StartTestChain.bat");
+                proc = Runtime.getRuntime().exec(filePath.toString());
+                InputStreamReader inputStreamReader = new InputStreamReader(proc.getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line = null;
+                String DebugInfo="";
+                try {
+                    while((line = bufferedReader.readLine()) !=null ) {
+                        System.out.println(line);
+                        if(line.contains("Listening on")) {
+                            istestfinish=true;
+                            break;
+                        }
+                        else if(line.contains("Error")){
+                            istestFail=true;
+                            break;
+                        }
+                    }
+                    System.out.println("finish");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+            if(proc!=null)
+                proc.destroy();
         }
+        if(istestFail||!istestfinish)
+            return JSON.toJSONString("Fail:Start Test Chain Fail! Please check command or check if there is already running a test chain on the port!");
         ArrayList<MutationTestResult> res=MutationTestStater.start(projectPath,mutantsJSON);
-        //if(proc!=null)
-            //proc.destroy();
         return JSON.toJSONString(res);
     }
     public void generateStartChainFile(String projectPath,String chainCode){
         File file = new File(projectPath + "\\MuSC_dup\\MuSC_StartTestChain.bat");
         String content="";
         content+="cd /d %~dp0\r\n";
-        content+=chainCode+" > "+"C:\\Users\\belikout\\Desktop\\read.txt";
+        content+=chainCode;//+" > "+"E:\\blockchain\\MutationTest\\TC\\AirSwap\\test.txt";
         FileWriter writer= null;
         try {
             writer = new FileWriter(file);

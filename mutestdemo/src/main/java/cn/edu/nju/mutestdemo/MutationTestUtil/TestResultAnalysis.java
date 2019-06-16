@@ -41,6 +41,8 @@ public class TestResultAnalysis {
                 }
                 else if(line.contains("Compilation failed."))
                     return "fail";
+                else if(line.contains("Could not connect to your Ethereum client."))
+                    return "can't connect client";
 
             }
             br.close();

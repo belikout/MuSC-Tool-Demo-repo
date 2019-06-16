@@ -9,295 +9,9 @@
     <link rel="stylesheet" th:href="@{/vendor/font-awesome/css/fontawesome-all.min.css}">
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/global.css}">
-    <style>
-        .lineNum {
-            min-width: 30px;
-            float: left;
-        }
-        .chooseMutant div {
-            position: relative;
-            line-height: 30px;
-        }
-        .chooseMutant input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            opacity: 0;
-        }
-
-        .chooseMutant label {
-            position: absolute;
-            left: 5px;
-            top: 3px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid #999;
-        }
-
-        /*设置选中的input的样式*/
-        /* + 是兄弟选择器,获取选中后的label元素*/
-        .chooseMutant input:checked+label {
-            background-color: #006eb2;
-            border: 1px solid #006eb2;
-        }
-
-        .chooseMutant input:checked+label::after {
-            position: absolute;
-            content: "";
-            width: 5px;
-            height: 10px;
-            top: 3px;
-            left: 6px;
-            border: 2px solid #fff;
-            border-top: none;
-            border-left: none;
-            transform: rotate(45deg)
-        }</style>
+    <script th:src="@{/js/pageFunction.js}"></script>
 </head>
 <body class=" ">
-<script>
-    var tOpNum=9;
-    var eOpNum=15;
-    var projectPath=""
-    var contractsName=new Array()
-    var mutants=null;
-    function tAll() {
-        var ops=document.getElementsByClassName("typeCheck");
-        if(document.getElementById("toggle-t-all").checked){
-            for(var i=0;i<tOpNum;i++)
-                ops[i].checked=true;
-        }else
-            for(var i=0;i<tOpNum;i++)
-                ops[i].checked=false;
-    }
-    function eAll() {
-        var ops=document.getElementsByClassName("typeCheck");
-        if(document.getElementById("toggle-e-all").checked){
-            for(var i=tOpNum;i<tOpNum+eOpNum;i++)
-                ops[i].checked=true;
-        }else
-            for(var i=tOpNum;i<tOpNum+eOpNum;i++)
-                ops[i].checked=false;
-    }
-    function chooseCon(type){
-        var conNum;
-        if(type==0) {
-            conNum=document.getElementById("select-con-t").selectedIndex;
-            showChooseMutantSpan(0,conNum);
-            showMuText(0,conNum,0);
-        }else{
-            conNum=document.getElementById("select-con-e").selectedIndex;
-            showChooseMutantSpan(1,conNum);
-            showMuText(1,conNum,0);
-        }
-    }
-    function showChooseMutantSpan(type,conNum){
-        var spanText=""
-        if(type==0) {
-            for(var i=0;i<mutants[type][conNum].mutateLine.length;i++){
-                spanText+="<div>\n" +
-                    "          <input id=\"chooseRadio-t-"+i+"\" class=\"chooseRadio-t\" type=\"radio\" onchange='changeMuText(0,"+conNum+","+i+")' name=\"item\" value=\"水果\""
-                if(i==0)spanText+= "checked";
-                spanText+=">\n" +"          <label for=\"chooseRadio-t-"+i+"\"></label>\n" +
-                "          <span style=\"margin-left: 10px\">"+mutants[type][conNum]["mutateLineType"][i]+"_"+(mutants[type][conNum]["mutateLineNums"][i]+1)+"</span>\n" +
-                "        </div>"
-            }
-
-            $("#chooseMutant-t").html(spanText);
-        }else{
-            for(var i=0;i<mutants[type][conNum].mutateLine.length;i++){
-                spanText+="<div>\n" +
-                    "          <input id=\"chooseRadio-e-"+i+"\" class=\"chooseRadio-t\" type=\"radio\" onchange='changeMuText(1,"+conNum+","+i+")' name=\"item\" value=\"水果\" checked>\n" +
-                    "          <label for=\"chooseRadio-e-"+i+"\"></label>\n" +
-                    "          <span style=\"margin-left: 10px\">"+mutants[type][conNum]["mutateLineType"][i]+"_"+mutants[type][conNum]["mutateLineNums"][i]+"</span>\n" +
-                    "        </div>"
-            }
-            $("#chooseMutant-e").html(spanText);
-        }
-    }
-    function changeMuText(type,conNum,muNum){
-        showMuText(type,conNum,muNum);
-    }
-    function showMuText(type,conNum,muNum){
-        var muLine=mutants[type][conNum]["mutateLine"][muNum];
-        var muLineNum=mutants[type][conNum]["mutateLineNums"][muNum];
-        var muLineType=mutants[type][conNum]["mutateLineType"][muNum];
-        var oriText="<p>";
-        var muText="<p>";
-        var no=1;
-        for(var i=0;i<muLineNum;i++){
-            oriText+="<div class=\"lineNum\">"+no+"</div>"
-            oriText+=mutants[type][conNum]["oriLine"][i]+"<br>";
-            muText+="<div class=\"lineNum\">"+no+"</div>"
-            muText+=mutants[type][conNum]["oriLine"][i]+"<br>";
-            no+=1;
-        }
-        oriText+="<div id='oriLine-"+type+"' class=\"lineNum\">"+no+"</div>"
-        oriText+=" <font color=\"red\">"+mutants[type][conNum]["oriLine"][muLineNum]+"</font><br>";
-        muText+="<div id='muLine-"+type+"' class=\"lineNum\">"+no+"</div>"
-        muText+="<font color=\"red\">"+muLine+"</font><br>";
-        no+=1;
-        for(var i=muLineNum+1;i<mutants[type][conNum]["oriLine"].length;i++){
-            oriText+="<div class=\"lineNum\">"+no+"</div>"
-            oriText+=mutants[type][conNum]["oriLine"][i]+"<br>";
-            muText+="<div class=\"lineNum\">"+no+"</div>"
-            muText+=mutants[type][conNum]["oriLine"][i]+"<br>";
-            no+=1;
-        }
-        if(type==0) {
-            $("#oriText-t").html(oriText+"</p>");
-            $("#mutText-t").html(muText+"</p>");
-            $("#oriText-t").scrollTop($('#oriLine-0').offset().top);
-            $("#mutText-t").scrollTop($('#muLine-0').offset().top);
-        }else{
-            $("#oriText-e").html(oriText+"</p>");
-            $("#mutText-e").html(muText+"</p>");
-            $("#oriText-e").scrollTop($('#oriLine-1').offset().top);
-            $("#mutText-e").scrollTop($('#muLine-1').offset().top);
-        }
-
-    }
-    function changeProjectPath(){
-        projectPath="";
-        $("#project-path-input").removeAttr("disabled");
-        var instruction="<h2>Instruction</h2>\n" +
-        "                                                <p>Enter the path of Truffle Project to be tested in the input box above, and click \"Test Project\" to check the project of the path. Only when the path is correct and the test cases are all passed, can the mutants be generated by clicking \"Generate\" button below.</p>\n" +
-        "                                                <p>If you need to change the path of the project, click the \"Change Path\" button above, and then test the changed path again.</p>";
-        $("#contractChoosePanel").html(instruction);
-    }
-    function getTestProjectFolder(){
-        document.getElementById("project-path-input").setAttribute("disabled","disabled");
-        $.ajax({
-            type: 'GET',
-            url: '/getTestProfile',
-            cache: 'false',
-            data: {
-                "path": document.getElementById("project-path-input").value
-            },
-            dataType: 'json',
-            //contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
-            headers : {
-                'Content-Type' : 'application/json;charset=utf-8'
-            },
-            success: function (result) {
-                if(result.toString().length>4&&result.toString().substr(0,4)=="Fail"){
-                    projectPath="";
-                    $("#project-path-input").removeAttr("disabled");
-                    $(this).openWindow('Fail',result.substr(5,result.length),'["OK"]');
-                }
-                else {
-                    $("#contractChoosePanel").html("");
-                    projectPath=result[0];
-                    document.getElementById("project-path-input").value=result[0];
-                    for (var i = 1; i < result.length; i++) {
-                        contractsName[contractsName.length]=result[i]
-                        var text = "<div class=\"col-md-3\"class=\"contractFile\"style='margin-bottom: 15px;max-width:90%;margin-top: 15px'>\n" +
-                            "                                        <div class=\"toggle-switch\" data-ts-color=\"info\">\n" +
-                            "                                            <label for=\"ts" + contractsName.length + "\" class=\"contract-label\">" + result[i] + "</label>\n" +
-                            "                                            <input class=\"contractFileChoose\"id=\"ts" + contractsName.length + "\" type=\"checkbox\" hidden=\"hidden\">\n" +
-                            "                                            <label for=\"ts" + contractsName.length + "\" class=\"ts-helper\"></label>\n" +
-                            "                                        </div>\n" +
-                            "                                    </div>"
-                        $("#contractChoosePanel").append(text);
-                    }
-                }
-            }
-        })
-    }
-    function generateMutant() {
-        var checkboxs=document.getElementsByClassName("contractFileChoose");
-        var testContractsName=[];
-        for (var i=0;i<checkboxs.length;i++){
-            if(checkboxs.item(i).checked) {
-                testContractsName[testContractsName.length]=contractsName[i];
-            }
-        }
-        var ops=document.getElementsByClassName("typeCheck");
-        var types=[]
-        for (var i=0;i<ops.length;i++){
-            if(ops.item(i).checked) {
-                types[types.length] = ops.item(i).id;
-            }
-        }
-        $.ajax({
-            type: 'GET',
-            url: '/generateMutant',
-            cache: 'false',
-            data: {
-                "projectPath": projectPath,
-                "contracts": JSON.stringify(testContractsName),
-                "types": JSON.stringify(types)
-            },
-            dataType: 'json',
-            //contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
-            headers : {
-                'Content-Type' : 'application/json;charset=utf-8'
-            },
-            success: function (result) {
-                mutants=result;
-                showMutants();
-            }
-        })
-    }
-    function showMutants(){
-        if(mutants[0].length>0){
-            var selectCon="";
-            for(var i=0;i<mutants[0].length;i++){
-                selectCon+='<option>'+mutants[0][i].conName+'</option>'
-            }
-            $("#select-con-t").html(selectCon);
-            showChooseMutantSpan(0,0);
-            showMuText(0,0,0);
-            $("#tViewer").click();
-        }
-        if(mutants[1].length>0){
-            var selectCon="";
-            for(var i=0;i<mutants[0].length;i++){
-                selectCon+='<option>'+mutants[0][i].conName+'</option>'
-            }
-            $("#select-con-e").html(selectCon);
-            showChooseMutantSpan(1,0);
-            showMuText(1,0,0)
-            $("#eViewer").click();
-        }
-        if(mutants[0].length<=0&&mutants[1].length<=0){
-            //提示一下未生成变异体
-            $(this).openWindow('Attention','No mutant generated!','["OK"]');
-        }
-    }
-    function startMutationTest(){
-        $.ajax({
-            type: 'GET',
-            url: '/generateMutationTest',
-            cache: 'false',
-            data: {
-                "projectPath": projectPath,
-                "mutants": JSON.stringify(mutants)
-            },
-            dataType: 'json',
-            headers : {
-                'Content-Type' : 'application/json;charset=utf-8'
-            },
-            success: function (result) {
-                $(this).openWindow('Attention','Mutation test finished!','["OK"]');
-                $("#tKill").html(result[0]["kill"])
-                $("#tLive").html(result[0]["live"])
-                $("#tTotal").html(result[0]["total"])
-                $("#tScore").html(result[0]["score"])
-                $("#eKill").html(result[1]["kill"])
-                $("#eLive").html(result[1]["live"])
-                $("#eTotal").html(result[1]["total"])
-                $("#eScore").html(result[1]["score"])
-                $("#teKill").html(result[0]["kill"]+result[1]["kill"])
-                $("#teLive").html(result[0]["live"]+result[1]["live"])
-                $("#teTotal").html(result[0]["total"]+result[1]["total"])
-                $("#teScore").html((result[0]["kill"]+result[1]["kill"])*100/(result[0]["total"]+result[1]["total"]))
-
-            }
-        })
-    }
-
-</script>
 <div class="page-wrapper">
     <div class="main-container">
         <div class="content">
@@ -443,10 +157,16 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card">
-                                        <div class="card-header bg-light">Truffle Test Project Selector
+                                        <div class="card-header bg-light" style="height:147px">Truffle Test Project Selector
                                             <input id="project-path-input" class="form-control" style="float:left;margin-top: 10px;" placeholder="Input truffle project path">
-                                            <button class="btn btn-rounded btn-primary" style="float: right;margin-top: 15px;margin-left: 10px;" onclick="getTestProjectFolder()">Test Project</button>
-                                            <button class="btn btn-rounded btn-primary" style="float: right;margin-top: 15px;" onclick="changeProjectPath()">Change Path</button>
+                                            <div>
+                                                <button class="btn btn-rounded btn-primary" style="float: right;margin-top: 15px;margin-left: 10px;" onclick="getTestProjectFolder()">Test Project</button>
+                                                <button class="btn btn-rounded btn-primary" style="float: right;margin-top: 15px;" onclick="changeProjectPath()">Change Path</button>
+                                            </div>
+                                            <div id="loadTestProject" hidden="hidden">
+                                                <img th:src="@{/imgs/load.png}" style="margin-top: 20px" alt="loading" width="30px" height="30px">
+                                                <p style="float: left;margin-top: 20px;margin-right: 20px;">Test the project now...</p>
+                                            </div>
                                         </div>
                                         <div id="temp"></div>
                                         <div class="card-body">
@@ -504,22 +224,31 @@
                                                             <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
                                                                 <span>
 				                                                    <label for="AOR" title="I am AOR" class="ts-label">AOR</label>
+                                                                    <label class="typeCount"id="AORMuCount">0</label>
                                                                     <br>
                                                                     <label for="AOI" class="ts-label">AOI</label>
+                                                                    <label class="typeCount"id="AOIMuCount">0</label>
                                                                     <br>
                                                                     <label for="ROR" class="ts-label">ROR</label>
+                                                                    <label class="typeCount"id="RORMuCount">0</label>
                                                                     <br>
                                                                     <label for="COR" class="ts-label">COR</label>
+                                                                    <label class="typeCount"id="CORMuCount">0</label>
                                                                     <br>
                                                                     <label for="LOR" class="ts-label">LOR</label>
+                                                                    <label class="typeCount"id="LORMuCount">0</label>
                                                                     <br>
                                                                     <label for="ASR" class="ts-label">ASR</label>
+                                                                    <label class="typeCount"id="ASRMuCount">0</label>
                                                                     <br>
                                                                     <label for="SDL" class="ts-label">SDL</label>
+                                                                    <label class="typeCount"id="SDLMuCount">0</label>
                                                                     <br>
                                                                     <label for="RVR" class="ts-label">RVR</label>
+                                                                    <label class="typeCount"id="RVRMuCount">0</label>
                                                                     <br>
                                                                     <label for="CSC" class="ts-label">CSC</label>
+                                                                    <label class="typeCount"id="CSCMuCount">0</label>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -587,34 +316,49 @@
                                                             <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
                                                                 <span>
 				                                                    <label for="FSC" class="ts-label">FSC</label>
+                                                                    <label class="typeCount"id="FSCMuCount">0</label>
                                                                     <br>
                                                                     <label for="FVC" class="ts-label">FVC</label>
+                                                                    <label class="typeCount"id="FVCMuCount">0</label>
                                                                     <br>
                                                                     <label for="DLR" class="ts-label">DLR</label>
+                                                                    <label class="typeCount"id="DLRMuCount">0</label>
                                                                     <br>
                                                                     <label for="VTR" class="ts-label">VTR</label>
+                                                                    <label class="typeCount"id="VTRMuCount">0</label>
                                                                     <br>
                                                                     <label for="PKD" class="ts-label">PKD</label>
+                                                                    <label class="typeCount"id="PKDMuCount">0</label>
                                                                     <br>
                                                                     <label for="DKD" class="ts-label">DKD</label>
+                                                                    <label class="typeCount"id="DKDMuCount">0</label>
                                                                     <br>
                                                                     <label for="GVC" class="ts-label">GVC</label>
+                                                                    <label class="typeCount"id="GVCMuCount">0</label>
                                                                     <br>
                                                                     <label for="MFR" class="ts-label">MFR</label>
+                                                                    <label class="typeCount"id="MFRMuCount">0</label>
                                                                     <br>
                                                                     <label for="AVR" class="ts-label">AVR</label>
+                                                                    <label class="typeCount"id="AVRMuCount">0</label>
                                                                     <br>
                                                                     <label for="EUR" class="ts-label">EUR</label>
+                                                                    <label class="typeCount"id="EURMuCount">0</label>
                                                                     <br>
                                                                     <label for="TUR" class="ts-label">TUR</label>
+                                                                    <label class="typeCount"id="TURMuCount">0</label>
                                                                     <br>
                                                                     <label for="RSD" class="ts-label">RSD</label>
+                                                                    <label class="typeCount"id="RSDMuCount">0</label>
                                                                     <br>
                                                                     <label for="RSC" class="ts-label">RSC</label>
+                                                                    <label class="typeCount"id="RSCMuCount">0</label>
                                                                     <br>
                                                                     <label for="ASD" class="ts-label">ASD</label>
+                                                                    <label class="typeCount"id="ASDMuCount">0</label>
                                                                     <br>
                                                                     <label for="ASC" class="ts-label">ASC</label>
+                                                                    <label class="typeCount"id="ASCMuCount">0</label>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -677,21 +421,25 @@
                                                     <br>
                                                     <label><input name="Fruit" type="radio" value="">Execute All mutants </label>
                                                     <br>
-                                                    <button style="float:left;margin-top:5px;width:80px"  class="btn btn-rounded btn-primary">Output</button>
+                                                </div>
+                                                <div id="loadMutationTest" hidden="hidden">
+                                                    <img src="/imgs/load.png" alt="loading" width="30px" height="30px">
+                                                    <p id="loadMuTestText"style="float: left;margin-right: 20px;">Test the mutants now...</p>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    Time-Out
-                                                    <input id="" class="form-control"style="float: right;margin-bottom: 10px" value="10">
+                                                    Start Test Chain Code
+                                                    <input id="chainCodeInput" class="form-control"style="float: right;margin-bottom: 10px" placeholder="testrpc-sc --gasLimit 0xfffffffffff --port 8555" disabled>
                                                     <br>
-                                                    Use the default 8555 port
+                                                    Need to start test chain before test
                                                     <div class="toggle-switch" data-ts-color="info"style="float: right">
-                                                    <input id="toggle_port" type="checkbox" hidden="hidden">
-                                                    <label for="toggle_port" class="ts-helper"></label>
+                                                    <input id="toggle_chain-code" type="checkbox" hidden="hidden" onchange="configureTestChain()">
+                                                    <label for="toggle_chain-code" class="ts-helper"></label>
                                                 </div>
                                                     <br>
-                                                    <button style="float:right;margin-top:5px;width: 50%;margin-right: 15%;" onclick="startMutationTest()" class="btn btn-rounded btn-primary"><b>Run</b></button>
+                                                    <button style="float:right;margin-top:5px;width: 50%;margin-left: 30px;" onclick="startMutationTest()" class="btn btn-rounded btn-primary"><b>Export Report</b></button>
+                                                    <button style="float:right;margin-top:5px;width: 35%;margin-right: -20px;" onclick="startMutationTest()" class="btn btn-rounded btn-primary"><b>Run</b></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -701,57 +449,81 @@
                                                     <div class="card-header bg-light">
                                                     Summary
                                                     </div>
-                                                    <div class="card-body"style="height: 580px">
-                                                        <div class="panel-body" style="height: 560px; overflow-y:scroll">
+                                                    <div class="card-body"style="height: 287px">
+                                                        <div class="panel-body" style="height: 260px; overflow-y:scroll">
                                                             <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
                                                                 <span>
-				                                                    <label for="AOR"title="I am AOR" class="ts-label">AOR</label>
+				                                                    <label for="AOR" class="ts-label">AOR</label>
+                                                                    <label class="typeCount"id="AOR-MuCount">0</label>
                                                                     </br>
                                                                     <label for="AOI" class="ts-label">AOI</label>
+                                                                    <label class="typeCount"id="AOI-MuCount">0</label>
                                                                     </br>
                                                                     <label for="ROR" class="ts-label">ROR</label>
+                                                                    <label class="typeCount"id="ROR-MuCount">0</label>
                                                                     </br>
                                                                     <label for="COR" class="ts-label">COR</label>
+                                                                    <label class="typeCount"id="COR-MuCount">0</label>
                                                                     </br>
                                                                     <label for="LOR" class="ts-label">LOR</label>
+                                                                    <label class="typeCount"id="LOR-MuCount">0</label>
                                                                     </br>
                                                                     <label for="ASR" class="ts-label">ASR</label>
+                                                                    <label class="typeCount"id="ASR-MuCount">0</label>
                                                                     </br>
                                                                     <label for="SDL" class="ts-label">SDL</label>
+                                                                    <label class="typeCount"id="SDL-MuCount">0</label>
                                                                     </br>
                                                                     <label for="RVR" class="ts-label">RVR</label>
+                                                                    <label class="typeCount"id="RVR-MuCount">0</label>
                                                                     </br>
                                                                     <label for="CSC" class="ts-label">CSC</label>
+                                                                    <label class="typeCount"id="CSC-MuCount">0</label>
                                                                     <hr>
                                                                     <label for="FSC" class="ts-label">FSC</label>
+                                                                    <label class="typeCount"id="FSC-MuCount">0</label>
                                                                     <br>
                                                                     <label for="FVC" class="ts-label">FVC</label>
+                                                                    <label class="typeCount"id="FVC-MuCount">0</label>
                                                                     <br>
                                                                     <label for="DLR" class="ts-label">DLR</label>
+                                                                    <label class="typeCount"id="DLR-MuCount">0</label>
                                                                     <br>
                                                                     <label for="VTR" class="ts-label">VTR</label>
+                                                                    <label class="typeCount"id="VTR-MuCount">0</label>
                                                                     <br>
                                                                     <label for="PKD" class="ts-label">PKD</label>
+                                                                    <label class="typeCount"id="PKD-MuCount">0</label>
                                                                     <br>
                                                                     <label for="DKD" class="ts-label">DKD</label>
+                                                                    <label class="typeCount"id="DKD-MuCount">0</label>
                                                                     <br>
                                                                     <label for="GVC" class="ts-label">GVC</label>
+                                                                    <label class="typeCount"id="GVC-MuCount">0</label>
                                                                     <br>
                                                                     <label for="MFR" class="ts-label">MFR</label>
+                                                                    <label class="typeCount"id="MFR-MuCount">0</label>
                                                                     <br>
                                                                     <label for="AVR" class="ts-label">AVR</label>
+                                                                    <label class="typeCount"id="AVR-MuCount">0</label>
                                                                     <br>
                                                                     <label for="EUR" class="ts-label">EUR</label>
+                                                                    <label class="typeCount"id="EUR-MuCount">0</label>
                                                                     <br>
                                                                     <label for="TUR" class="ts-label">TUR</label>
+                                                                    <label class="typeCount"id="TUR-MuCount">0</label>
                                                                     <br>
                                                                     <label for="RSD" class="ts-label">RSD</label>
+                                                                    <label class="typeCount"id="RSD-MuCount">0</label>
                                                                     <br>
                                                                     <label for="RSC" class="ts-label">RSC</label>
+                                                                    <label class="typeCount"id="RSC-MuCount">0</label>
                                                                     <br>
                                                                     <label for="ASD" class="ts-label">ASD</label>
+                                                                    <label class="typeCount"id="ASD-MuCount">0</label>
                                                                     <br>
                                                                     <label for="ASC" class="ts-label">ASC</label>
+                                                                    <label class="typeCount"id="ASC-MuCount">0</label>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -857,7 +629,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="card-body" style="margin-top: -30px;margin-bottom: -20px;">
+                                                    <!--<div class="card-body" style="margin-top: -30px;margin-bottom: -20px;">
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="card">
@@ -1046,7 +818,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                             </div>
                                         </div>

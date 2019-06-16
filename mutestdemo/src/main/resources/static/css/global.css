@@ -86,3 +86,61 @@
 .window-container h2{text-align: center;font-size: 16px;font-weight: bold;color:#363636;padding-top: 22px;display: none;}
 .jy-password{width: 90%;height: 34px;display:block;margin: 20px auto 0;}
 /***************公共弹窗部分结束***************/
+.lineNum {
+    min-width: 30px;
+    float: left;
+}
+.chooseMutant div {
+    position: relative;
+    line-height: 30px;
+}
+.chooseMutant input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+}
+
+.chooseMutant label {
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #999;
+}
+/*设置选中的input的样式*/
+/* + 是兄弟选择器,获取选中后的label元素*/
+.chooseMutant input:checked+label {
+    background-color: #006eb2;
+    border: 1px solid #006eb2;
+}
+.typeCount {
+    float: right;
+    margin-right: 20px;
+}
+.chooseMutant input:checked+label::after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 10px;
+    top: 3px;
+    left: 6px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg)
+}
+img {
+    border-radius: 80%;
+    transform: rotate(0deg);
+    animation: zhuandong 2s linear infinite;
+}
+@keyframes zhuandong{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

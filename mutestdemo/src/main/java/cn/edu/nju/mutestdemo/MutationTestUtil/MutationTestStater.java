@@ -16,62 +16,6 @@ public class MutationTestStater {
     private static ArrayList<MutantsJSON> tMutants=new ArrayList<MutantsJSON>();
     private static ArrayList<MutantsJSON> eMutants=new ArrayList<MutantsJSON>();
     public static ArrayList<MutationTestResult> start(String path,String mutantsJSON) {
-        if(path!=null&&path!="")
-        ProjectPath=path+"\\MuSC_dup";
-        File file = new File(ProjectPath + "\\Mutants");
-        ArrayList<File> list = new ArrayList<File>();
-        String testFileName="";
-        ArrayList<String> mutFileName=new ArrayList<String>();
-        if (file.exists()) {
-            File[] files = file.listFiles();
-            for (File file2 : files) {
-                if (file2.isDirectory()) {
-                    continue;
-                } else {
-                    System.out.println("文件:" + file2.getAbsolutePath());
-                    if(file2.getName().substring(0,4).equals("mut_")){
-                        mutFileName.add(file2.getName());
-                    }
-                    else if(file2.getName().substring(0,4).equals("ori_")){
-                        testFileName=file2.getName().substring(4,file2.getName().length());
-                    }
-                }
-            }
-        }
-        generateStarterBatFile();
-        File logFileDir=new File(ProjectPath+"\\MuSC_MutationTestLog");
-        if(!logFileDir.exists()){//如果文件夹不存在
-            logFileDir.mkdir();//创建文件夹
-        }
-        else{
-            CopyDir.deleteDir(logFileDir);
-            logFileDir.mkdir();//创建文件夹
-        }
-        for(int i=0;i<mutFileName.size();i++){
-
-            ReplaceFileUtil.replaceFile(ProjectPath+"\\contracts\\"+testFileName,ProjectPath+"\\Mutants\\"+mutFileName.get(i));
-            //对每个变异体进行truffle test
-            generateMutationTest(i,"AOR");
-        }
-        //通过log文件判断是否结束测试
-        boolean isEnd=false;
-        while(!isEnd){
-            if(isLogEnd(mutFileName.size()))isEnd=true;
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        ReplaceFileUtil.replaceFile(ProjectPath+"\\contracts\\"+testFileName,ProjectPath+"\\Mutants\\ori_"+testFileName);
-        System.out.println("End Test");
-        //分析log返回结果
-        MutationTestResult res=TestResultAnalysis.getTestresult(ProjectPath);
-        //删除log文件夹
-        return null;
-        //return res;
-    }
-    public static ArrayList<MutationTestResult> start0(String path,String mutantsJSON) {
         ProjectPath="";
         tMutants=new ArrayList<MutantsJSON>();
         eMutants=new ArrayList<MutantsJSON>();
@@ -155,7 +99,8 @@ public class MutationTestStater {
     private static boolean isLogEnd(int logNum){
         File file = new File(ProjectPath + "\\MuSC_MutationTestLog");
         File[] files = file.listFiles();
-        if(files.length==logNum*2)return true;
+        //if(files.length==logNum*2)return true;
+        if(files.length==logNum)return true;
         return false;
     }
     private static String getMutantString(String mutantLine,int mutantLineNum,ArrayList<String>oriLine){
@@ -204,15 +149,30 @@ public class MutationTestStater {
         try {
             File filePath = new File(ProjectPath + "\\MuSC_StartMutationTest.bat");
             Process proc = Runtime.getRuntime().exec(filePath.toString());
-            CMDStreamManage errorStream = new CMDStreamManage(proc.getErrorStream(), "Error",ProjectPath,num,type);
-            CMDStreamManage outputStream  = new CMDStreamManage(proc.getInputStream(), "Output",ProjectPath,num,type);
-            errorStream.start();
-            outputStream.start();
+            runTest(proc.getInputStream(),num,type);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
         System.out.println("Start Mutation Test");
 
+    }
+    public static void runTest(InputStream inputStream,int num,String muType){
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        String line = null;
+        String DebugInfo="";
+        try {
+            while((line = bufferedReader.readLine()) !=null ) {
+                    //System.out.println(line);
+                    DebugInfo+=line+"\r\n";
+            }
+            FileWriter writer=new FileWriter(new File(ProjectPath+"\\MuSC_MutationTestLog\\MutationTestDebugInfo_"+num+"_"+muType+".txt"));
+            writer.write(DebugInfo);
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

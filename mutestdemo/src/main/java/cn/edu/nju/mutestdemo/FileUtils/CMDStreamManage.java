@@ -23,7 +23,7 @@ public class CMDStreamManage extends Thread {
         this.muType=muType;
     }
     public void run () {
-        System.out.println(Thread.getAllStackTraces().size());
+
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String line = null;

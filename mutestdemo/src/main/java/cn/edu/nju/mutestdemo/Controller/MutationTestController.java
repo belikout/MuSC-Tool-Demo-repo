@@ -16,11 +16,13 @@ import java.util.ArrayList;
 @RequestMapping
 @Controller
 public class MutationTestController {
+    public static boolean isTesting=false;
     @RequestMapping("/generateMutationTest")
     @ResponseBody
     public String generateMutationTest(@RequestParam("chainCode")String chainCode,@RequestParam("projectPath")String projectPath,@RequestParam("mutants")String mutantsJSON) throws IOException {
         boolean istestFail=false;
         boolean istestfinish=false;
+        Process proc=null;
         if(chainCode!=null&&chainCode!=""){
             generateStartChainFile(projectPath,chainCode);
             /*String cmd = "cmd /k start "+projectPath+"\\MuSC_dup\\MuSC_StartTestChain.bat";
@@ -34,14 +36,12 @@ public class MutationTestController {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }*/
-            Process proc=null;
             try {
                 File filePath = new File(projectPath + "\\MuSC_dup\\MuSC_StartTestChain.bat");
                 proc = Runtime.getRuntime().exec(filePath.toString());
                 InputStreamReader inputStreamReader = new InputStreamReader(proc.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 String line = null;
-                String DebugInfo="";
                 try {
                     while((line = bufferedReader.readLine()) !=null ) {
                         System.out.println(line);
@@ -61,13 +61,19 @@ public class MutationTestController {
             } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
-            if(proc!=null)
-                proc.destroy();
+            if(istestFail||!istestfinish)
+                return JSON.toJSONString("Fail: Start Test Chain Fail! Please check command or check if there is already running a test chain on the port!");
         }
-        if(istestFail||!istestfinish)
-            return JSON.toJSONString("Fail:Start Test Chain Fail! Please check command or check if there is already running a test chain on the port!");
+        isTesting=true;
         ArrayList<MutationTestResult> res=MutationTestStater.start(projectPath,mutantsJSON);
-        return JSON.toJSONString(res);
+        if(proc!=null)
+            proc.destroy();
+        if(res!=null) {
+            isTesting = false;
+            return JSON.toJSONString(res);
+        }
+        else
+            return JSON.toJSONString("Fail: Tests have been interrupted!");
     }
     public void generateStartChainFile(String projectPath,String chainCode){
         File file = new File(projectPath + "\\MuSC_dup\\MuSC_StartTestChain.bat");
@@ -94,4 +100,10 @@ public class MutationTestController {
         }
         return 0;
     }
+    @RequestMapping("/stopTest")
+    @ResponseBody
+    public void stopTest()  {
+        isTesting=false;
+    }
+
 }

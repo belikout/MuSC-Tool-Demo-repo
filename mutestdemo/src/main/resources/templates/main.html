@@ -22,10 +22,10 @@
                             <a class="nav-link active" data-toggle="tab" href="#mg" role="tab" aria-controls="mg">Mutants Generator</a>
                         </li>
                         <li class="nav-item">
-                            <a id="tViewer"class="nav-link" data-toggle="tab" href="#tmv" role="tab" aria-controls="tmv">Traditional mutants viewer</a>
+                            <a id="Viewer"class="nav-link" data-toggle="tab" href="#tmv" role="tab" aria-controls="tmv">Mutants viewer</a>
                         </li>
-                        <li class="nav-item">
-                            <a id="eViewer"class="nav-link" data-toggle="tab" href="#cmv" role="tab" aria-controls="cmv">ESC mutants viewer</a>
+                        <!--<li class="nav-item">
+                            <a id="eViewer"class="nav-link" data-toggle="tab" href="#cmv" role="tab" aria-controls="cmv">ESC mutants viewer</a>-->
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tcr" role="tab" aria-controls="tcr">Test Case Runner</a>
@@ -187,14 +187,14 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header bg-light">
-                                        Traditional mutants viewer
+                                        Mutants viewer
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="select-con-t">Select a contract</label>
-                                                    <select id="select-con-t" class="form-control" onchange="chooseCon(0)">
+                                                    <label for="select-con">Select a contract</label>
+                                                    <select id="select-con" class="form-control" onchange="chooseCon0()">
 
                                                     </select>
                                                 </div>
@@ -249,6 +249,51 @@
                                                                     <br>
                                                                     <label for="CSC" class="ts-label">CSC</label>
                                                                     <label class="typeCount"id="CSCMuCount">0</label>
+                                                                    <hr>
+                                                                    <label for="FSC" class="ts-label">FSC</label>
+                                                                    <label class="typeCount"id="FSCMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="FVC" class="ts-label">FVC</label>
+                                                                    <label class="typeCount"id="FVCMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="DLR" class="ts-label">DLR</label>
+                                                                    <label class="typeCount"id="DLRMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="VTR" class="ts-label">VTR</label>
+                                                                    <label class="typeCount"id="VTRMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="PKD" class="ts-label">PKD</label>
+                                                                    <label class="typeCount"id="PKDMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="DKD" class="ts-label">DKD</label>
+                                                                    <label class="typeCount"id="DKDMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="GVC" class="ts-label">GVC</label>
+                                                                    <label class="typeCount"id="GVCMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="MFR" class="ts-label">MFR</label>
+                                                                    <label class="typeCount"id="MFRMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="AVR" class="ts-label">AVR</label>
+                                                                    <label class="typeCount"id="AVRMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="EUR" class="ts-label">EUR</label>
+                                                                    <label class="typeCount"id="EURMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="TUR" class="ts-label">TUR</label>
+                                                                    <label class="typeCount"id="TURMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="RSD" class="ts-label">RSD</label>
+                                                                    <label class="typeCount"id="RSDMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="RSC" class="ts-label">RSC</label>
+                                                                    <label class="typeCount"id="RSCMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="ASD" class="ts-label">ASD</label>
+                                                                    <label class="typeCount"id="ASDMuCount">0</label>
+                                                                    <br>
+                                                                    <label for="ASC" class="ts-label">ASC</label>
+                                                                    <label class="typeCount"id="ASCMuCount">0</label>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -262,7 +307,7 @@
                                                 <div class="card-body" style="height: 340px">
                                                     <div class="panel-body" style="height: 300px; overflow-y:auto">
                                                         <div style="border: 1px  #000000; width: 90%; margin: 0 auto;">
-                                                            <span class="chooseMutant"id="chooseMutant-t">
+                                                            <span class="chooseMutant"id="chooseMutant">
 
                                                             </span>
                                                         </div>
@@ -274,14 +319,14 @@
                                                 <div class="card-header bg-light">
                                                     Original
                                                 </div>
-                                                <div id="oriText-t" class="card-body" style="height: 300px;overflow: auto">
+                                                <div id="oriText" class="card-body" style="height: 300px;overflow: auto">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="card-header bg-light">
                                                     Mutant
                                                 </div>
-                                                <div id="mutText-t" class="card-body" style="height: 300px;overflow: auto">
+                                                <div id="mutText" class="card-body" style="height: 300px;overflow: auto">
                                                 </div>
                                             </div>
                                         </div>
@@ -289,7 +334,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="cmv" role="tabpanel">
+                        <!--<div class="tab-pane" id="cmv" role="tabpanel">
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header bg-light">
@@ -399,7 +444,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="tab-pane" id="tcr" role="tabpanel">
                             <div class="col-md-12">
                                 <div class="card">
@@ -415,22 +460,23 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label><input name="Fruit" type="radio" value="">Execute Only ESC mutants</label>
+                                                    <label><input class="runTypeCheck" type="radio" value="">Execute Only ESC mutants</label>
                                                     <br>
-                                                    <label><input name="Fruit" type="radio" value="">Execute Only traditional mutants </label>
+                                                    <label><input class="runTypeCheck" type="radio" value="">Execute Only traditional mutants </label>
                                                     <br>
-                                                    <label><input name="Fruit" type="radio" value="">Execute All mutants </label>
+                                                    <label><input class="runTypeCheck" type="radio" value="" checked>Execute All mutants </label>
                                                     <br>
                                                 </div>
                                                 <div id="loadMutationTest" hidden="hidden">
                                                     <img src="/imgs/load.png" alt="loading" width="30px" height="30px">
                                                     <p id="loadMuTestText"style="float: left;margin-right: 20px;">Test the mutants now...</p>
+                                                    <button style="float:right;margin-top: -5px;width: 25%;background-color: red;border-color: red;margin-right: 20px;" onclick="stopTest()" class="btn btn-rounded btn-primary"><b>Stop</b></button>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <div class="form-group">
+                                                <div class="form-group" style="margin-top:7px">
                                                     Start Test Chain Code
-                                                    <input id="chainCodeInput" class="form-control"style="float: right;margin-bottom: 10px" placeholder="testrpc-sc --gasLimit 0xfffffffffff --port 8555" disabled>
+                                                    <input id="chainCodeInput" class="form-control"style="float: right;margin-bottom: 10px" value="testrpc-sc --gasLimit 0xfffffffffff --port 8555" disabled>
                                                     <br>
                                                     Need to start test chain before test
                                                     <div class="toggle-switch" data-ts-color="info"style="float: right">
@@ -438,8 +484,10 @@
                                                     <label for="toggle_chain-code" class="ts-helper"></label>
                                                 </div>
                                                     <br>
-                                                    <button style="float:right;margin-top:5px;width: 50%;margin-left: 30px;" onclick="startMutationTest()" class="btn btn-rounded btn-primary"><b>Export Report</b></button>
-                                                    <button style="float:right;margin-top:5px;width: 35%;margin-right: -20px;" onclick="startMutationTest()" class="btn btn-rounded btn-primary"><b>Run</b></button>
+                                                    <div id="runTestButtons">
+                                                        <button id="exportButton" style="float:right;margin-top:5px;width: 50%;margin-left: 30px;" onclick="" class="btn btn-rounded btn-primary" disabled><b>Export Test Report</b></button>
+                                                        <button style="float:right;margin-top:5px;width: 35%;margin-right: -20px;" onclick="startMutationTest()" class="btn btn-rounded btn-primary"><b>Run</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

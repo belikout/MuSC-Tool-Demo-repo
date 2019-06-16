@@ -1,5 +1,6 @@
 package cn.edu.nju.mutestdemo.MutationTestUtil;
 
+import cn.edu.nju.mutestdemo.Controller.MutationTestController;
 import cn.edu.nju.mutestdemo.FileUtils.CopyDir;
 import cn.edu.nju.mutestdemo.FileUtils.ReplaceFileUtil;
 import cn.edu.nju.mutestdemo.FileUtils.CMDStreamManage;
@@ -10,6 +11,8 @@ import com.alibaba.fastjson.JSONArray;
 
 import java.io.*;
 import java.util.ArrayList;
+
+
 
 public class MutationTestStater {
     public static String ProjectPath="";
@@ -41,8 +44,12 @@ public class MutationTestStater {
             for(int i=0;i<tMutants.size();i++){
                 for(int j=0;j<tMutants.get(i).mutateLine.size();j++){
                     ReplaceFileUtil.replaceFileContent(ProjectPath+"\\contracts\\"+tMutants.get(i).conName,getMutantString(tMutants.get(i).mutateLine.get(j),tMutants.get(i).mutateLineNums.get(j),tMutants.get(i).oriLine));
-                    generateMutationTest(index,tMutants.get(i).mutateLineType.get(j));
-                    index+=1;
+                    if(MutationTestController.isTesting) {
+                        generateMutationTest(index, tMutants.get(i).mutateLineType.get(j));
+                        index += 1;
+                    }else{
+                        return null;
+                    }
                 }
             }
             boolean isEnd=false;
@@ -56,7 +63,6 @@ public class MutationTestStater {
             }
             MutationTestResult tRes=TestResultAnalysis.getTestresult(ProjectPath);
             res.add(tRes);
-            CopyDir.deleteDir(logFileDir);
         }else{
             res.add(new MutationTestResult());
         }
@@ -70,8 +76,12 @@ public class MutationTestStater {
             for(int i=0;i<eMutants.size();i++){
                 for(int j=0;j<eMutants.get(i).mutateLine.size();j++){
                     ReplaceFileUtil.replaceFileContent(ProjectPath+"\\contracts\\"+eMutants.get(i).conName,getMutantString(eMutants.get(i).mutateLine.get(j),eMutants.get(i).mutateLineNums.get(j),eMutants.get(i).oriLine));
-                    generateMutationTest(index,eMutants.get(i).mutateLineType.get(j));
-                    index+=1;
+                    if(MutationTestController.isTesting) {
+                        generateMutationTest(index, eMutants.get(i).mutateLineType.get(j));
+                        index += 1;
+                    }else{
+                        return null;
+                    }
                 }
             }
             boolean isEnd=false;
@@ -89,8 +99,6 @@ public class MutationTestStater {
         }else{
             res.add(new MutationTestResult());
         }
-        //删除log文件夹
-        CopyDir.deleteDir(logFileDir);
         return res;
     }
     public static void main(String[] args) {

@@ -5,6 +5,7 @@ var projectPath=""
 var contractsName=new Array()
 var mutants=null;
 var mutantsNum=0;
+var testResult=null;
 function tAll() {
     var ops=document.getElementsByClassName("typeCheck");
     if(document.getElementById("toggle-t-all").checked){
@@ -202,7 +203,7 @@ function generateMutant() {
         success: function (result) {
             mutants=result;
             mutantsNum=0;
-            showMutants();
+            showMutants0();
         }
     })
 }
@@ -248,6 +249,100 @@ function showTotalOpsSummary(){
         }
     }
 }
+function configureTestChain(){
+    if(document.getElementById("toggle_chain-code").checked){
+        $("#chainCodeInput").removeAttr("disabled");
+    }else{
+        document.getElementById("chainCodeInput").setAttribute("disabled","disabled");
+    }
+
+}
+function showMutants0(){
+    if(mutants[0].length>0){
+        var selectCon="";
+        for(var i=0;i<mutants[0].length;i++){
+            selectCon+='<option>'+mutants[0][i].conName+'</option>'
+            mutantsNum+=mutants[0][i].mutateLine.length;
+        }
+        $("#select-con").html(selectCon);
+        showChooseMutantSpan0(0);
+        showMuText0(0,0)
+        $("#Viewer").click();
+    }else{
+        $(this).openWindow('Attention','No mutant generated!','["OK"]');
+    }
+}
+function showChooseMutantSpan0(conNum){
+    var spanText=""
+        clearCount(0)
+        for(var i=0;i<mutants[0][conNum].mutateLine.length;i++){
+            spanText+="<div>\n" +
+                "          <input id=\"chooseRadio-"+i+"\" class=\"chooseRadio\" type=\"radio\" onchange='changeMuText0("+conNum+","+i+")' name=\"item\" value=\"\""
+            if(i==0)spanText+= "checked";
+            spanText+=">\n" +"          <label for=\"chooseRadio-t-"+i+"\"></label>\n" +
+                "          <span style=\"margin-left: 10px\">"+mutants[0][conNum]["mutateLineType"][i]+"_"+(mutants[0][conNum]["mutateLineNums"][i]+1)+"</span>\n" +
+                "        </div>"
+            var num= parseInt(document.getElementById(mutants[0][conNum]["mutateLineType"][i]+"MuCount").innerText);
+            num+=1;
+            $("#"+mutants[0][conNum]["mutateLineType"][i]+"MuCount").html(""+num);
+        }
+        $("#chooseMutant").html(spanText);
+}
+function changeMuText0(conNum,muNum){
+    showMuText0(conNum,muNum);
+}
+function showMuText0(conNum,muNum){
+    var muLine=mutants[0][conNum]["mutateLine"][muNum];
+    var muLineNum=mutants[0][conNum]["mutateLineNums"][muNum];
+    var muLineType=mutants[0][conNum]["mutateLineType"][muNum];
+    var oriText="<p>";
+    var muText="<p>";
+    var no=1;
+    for(var i=0;i<muLineNum;i++){
+        oriText+="<div class=\"lineNum\">"+no+"</div>"
+        oriText+=mutants[0][conNum]["oriLine"][i]+"<br>";
+        muText+="<div class=\"lineNum\">"+no+"</div>"
+        muText+=mutants[0][conNum]["oriLine"][i]+"<br>";
+        no+=1;
+    }
+    oriText+="<div id='oriLine' class=\"lineNum\">"+no+"</div>"
+    oriText+=" <font color=\"red\">"+mutants[0][conNum]["oriLine"][muLineNum]+"</font><br>";
+    muText+="<div id='muLine' class=\"lineNum\">"+no+"</div>"
+    muText+="<font color=\"red\">"+muLine+"</font><br>";
+    no+=1;
+    for(var i=muLineNum+1;i<mutants[0][conNum]["oriLine"].length;i++){
+        oriText+="<div class=\"lineNum\">"+no+"</div>"
+        oriText+=mutants[0][conNum]["oriLine"][i]+"<br>";
+        muText+="<div class=\"lineNum\">"+no+"</div>"
+        muText+=mutants[0][conNum]["oriLine"][i]+"<br>";
+        no+=1;
+    }
+        $("#oriText").html(oriText+"</p>");
+        $("#mutText").html(muText+"</p>");
+        $("#oriText").scrollTop($('#oriLine').offset().top);
+        $("#mutText").scrollTop($('#muLine').offset().top);
+}
+function chooseCon0(){
+    var conNum;
+        conNum=document.getElementById("select-con").selectedIndex;
+        showChooseMutantSpan0(conNum);
+        showMuText0(conNum,0);
+}
+function stopTest(){
+    //isTesting=false;
+    $.ajax({
+        type: 'GET',
+        url: '/stopTest',
+        cache: 'false',
+        data: {
+        },
+        dataType: 'json',
+        //contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
+        headers : {
+            'Content-Type' : 'application/json;charset=utf-8'
+        }
+    })
+}
 function getTestedNum(){
     if(isTesting){
         $.ajax({
@@ -271,53 +366,56 @@ function getTestedNum(){
     }
 }
 function startMutationTest(){
-    document.getElementById("loadMutationTest").removeAttribute("hidden");
-    isTesting=true;
-    getTestedNum();
-    var chainCode="";
-    if(document.getElementById("toggle_chain-code").checked)
-        chainCode=document.getElementById("chainCodeInput").value;
-    $.ajax({
-        type: 'GET',
-        url: '/generateMutationTest',
-        cache: 'false',
-        data: {
-            "chainCode":chainCode,
-            "projectPath": projectPath,
-            "mutants": JSON.stringify(mutants)
-        },
-        dataType: 'json',
-        headers : {
-            'Content-Type' : 'application/json;charset=utf-8'
-        },
-        success: function (result) {
-            isTesting=false;
-            document.getElementById("loadMutationTest").setAttribute("hidden","hidden");
-            if(result.toString().length>4&&result.toString().substr(0,4)=="Fail"){
-                $(this).openWindow('Attention',result,'["OK"]');
-            }else{
-                $(this).openWindow('Attention','Mutation test finished!','["OK"]');
-                $("#tKill").html(result[0]["kill"])
-                $("#tLive").html(result[0]["live"])
-                $("#tTotal").html(result[0]["total"])
-                $("#tScore").html(result[0]["score"])
-                $("#eKill").html(result[1]["kill"])
-                $("#eLive").html(result[1]["live"])
-                $("#eTotal").html(result[1]["total"])
-                $("#eScore").html(result[1]["score"])
-                $("#teKill").html(result[0]["kill"]+result[1]["kill"])
-                $("#teLive").html(result[0]["live"]+result[1]["live"])
-                $("#teTotal").html(result[0]["total"]+result[1]["total"])
-                $("#teScore").html(parseInt((result[0]["kill"]+result[1]["kill"])*100/(result[0]["total"]+result[1]["total"])))
+    if(mutants!=null&&mutants[0].length>0) {
+        document.getElementById("exportButton").setAttribute("disabled", "disabled");
+        document.getElementById("loadMutationTest").removeAttribute("hidden");
+        isTesting = true;
+        var chainCode = "";
+        var testedMutants = new Array();
+        testedMutants[0] = mutants[1]
+        testedMutants[1] = mutants[2]
+        if (document.getElementById("toggle_chain-code").checked)
+            chainCode = document.getElementById("chainCodeInput").value;
+        $.ajax({
+            type: 'GET',
+            url: '/generateMutationTest',
+            cache: 'false',
+            data: {
+                "chainCode": chainCode,
+                "projectPath": projectPath,
+                "mutants": JSON.stringify(testedMutants)
+            },
+            dataType: 'json',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            success: function (result) {
+                isTesting = false;
+                document.getElementById("loadMutationTest").setAttribute("hidden", "hidden");
+                if (result.toString().length > 4 && result.toString().substr(0, 4) == "Fail") {
+                    $(this).openWindow('Attention', result, '["OK"]');
+                } else {
+                    testResult=result;
+                    $(this).openWindow('Attention', 'Mutation test finished!', '["OK"]');
+                    $("#tKill").html(result[0]["kill"])
+                    $("#tLive").html(result[0]["live"])
+                    $("#tTotal").html(result[0]["total"])
+                    $("#tScore").html(result[0]["score"])
+                    $("#eKill").html(result[1]["kill"])
+                    $("#eLive").html(result[1]["live"])
+                    $("#eTotal").html(result[1]["total"])
+                    $("#eScore").html(result[1]["score"])
+                    $("#teKill").html(result[0]["kill"] + result[1]["kill"])
+                    $("#teLive").html(result[0]["live"] + result[1]["live"])
+                    $("#teTotal").html(result[0]["total"] + result[1]["total"])
+                    $("#teScore").html(parseInt((result[0]["kill"] + result[1]["kill"]) * 100 / (result[0]["total"] + result[1]["total"])))
+                    document.getElementById("exportButton").removeAttribute("disabled");
+                }
             }
-        }
-    })
-}
-function configureTestChain(){
-    if(document.getElementById("toggle_chain-code").checked){
-        $("#chainCodeInput").removeAttr("disabled");
+        })
+        $("#loadMuTestText").html("Test the mutants now...(0" + "/" + mutantsNum + ")");
+        getTestedNum();
     }else{
-        document.getElementById("chainCodeInput").setAttribute("disabled","disabled");
+        $(this).openWindow('Attention', "No mutant has been generated!", '["OK"]');
     }
-
 }

@@ -124,6 +124,7 @@ public class GenerateMutantController {
             if(hasE)
                 resESC.add(eTemp);
         }
+        res.add(resTemp);
         res.add(resTraditional);
         res.add(resESC);
         return JSON.toJSONString(res);
@@ -138,7 +139,6 @@ public class GenerateMutantController {
         FileWriter writer=new FileWriter(new File(fileDir+"\\ori_"+name));
         writer.write(contract);
         writer.close();
-
         //后面写处理多个文件
         String json= GenASTServiceClient.genAST(fileDir+"\\ori_"+name);
         SourceUnit su= JSON.parseObject(json, SourceUnit.class);

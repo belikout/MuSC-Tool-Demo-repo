@@ -58,9 +58,9 @@ public class GetTestFileController {
             }
             String temp=AnalyseResult();
             CopyDir.deleteDir(new File(ProjectPath+"\\MuSC_StartMutationTest.bat"));
-            CopyDir.deleteDir(new File(ProjectPath+"\\MuSC_MutationTestLog"));
             if(!temp.equals(""))return JSON.toJSONString("Fail: "+temp);
             ArrayList<String>cons=getContract();
+            CopyDir.deleteDir(new File(ProjectPath+"\\MuSC_MutationTestLog"));
             return JSON.toJSONString(cons);
         }
     }

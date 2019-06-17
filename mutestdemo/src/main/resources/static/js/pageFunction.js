@@ -160,9 +160,9 @@ function getTestProjectFolder(){
                     contractsName[contractsName.length]=result[i]
                     var text = "<div class=\"col-md-3\"class=\"contractFile\"style='margin-bottom: 15px;max-width:90%;margin-top: 15px'>\n" +
                         "                                        <div class=\"toggle-switch\" data-ts-color=\"info\">\n" +
-                        "                                            <label for=\"ts" + contractsName.length + "\" class=\"contract-label\">" + result[i] + "</label>\n" +
                         "                                            <input class=\"contractFileChoose\"id=\"ts" + contractsName.length + "\" type=\"checkbox\" hidden=\"hidden\">\n" +
                         "                                            <label for=\"ts" + contractsName.length + "\" class=\"ts-helper\"></label>\n" +
+                        "                                            <label for=\"ts" + contractsName.length + "\" class=\"contract-label\" style=\"margin-left: 20px\">" + result[i] + "</label>\n" +
                         "                                        </div>\n" +
                         "                                    </div>"
                     $("#contractChoosePanel").append(text);

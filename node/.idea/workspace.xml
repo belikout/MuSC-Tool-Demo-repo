@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="34b50bfe-6345-47f5-aab2-a1e82607bd7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../mutestdemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/TestReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/TestReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/resources/static/js/pageFunction.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/resources/static/js/pageFunction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/resources/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/templates/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -140,7 +143,7 @@
       <workItem from="1560160099639" duration="599000" />
       <workItem from="1560235324774" duration="1797000" />
       <workItem from="1560433619963" duration="3636000" />
-      <workItem from="1560572219642" duration="6107000" />
+      <workItem from="1560572219642" duration="6764000" />
     </task>
     <task id="LOCAL-00001" summary="add node server code">
       <created>1560085347730</created>
@@ -153,7 +156,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16338000" />
+    <option name="totallyTimeSpent" value="16995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
@@ -169,7 +172,7 @@
       <window_info id="npm" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3587922" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3587922" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

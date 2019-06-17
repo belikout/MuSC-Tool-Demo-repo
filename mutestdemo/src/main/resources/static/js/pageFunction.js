@@ -236,19 +236,6 @@ function showMutants(){
         $(this).openWindow('Attention','No mutant generated!','["OK"]');
     }
 }
-function showTotalOpsSummary(){
-    clearCount(-1);
-    for(var i=0;i<mutants.length;i++){
-        if(mutants[i].length>0){
-            for(var j=0;j<mutants[i].length;j++){
-                for(var m=0;m<mutants[i][j]["mutateLineType"].length;m++){
-                    var num= parseInt(document.getElementById(mutants[i][j]["mutateLineType"][m]+"-MuCount").innerText)+1;
-                    $("#"+mutants[i][j]["mutateLineType"][m]+"-MuCount").html(""+num);
-                }
-            }
-        }
-    }
-}
 function configureTestChain(){
     if(document.getElementById("toggle_chain-code").checked){
         $("#chainCodeInput").removeAttr("disabled");
@@ -258,6 +245,7 @@ function configureTestChain(){
 
 }
 function showMutants0(){
+    showTotalOpsSummary0();
     if(mutants[0].length>0){
         var selectCon="";
         for(var i=0;i<mutants[0].length;i++){
@@ -272,6 +260,28 @@ function showMutants0(){
         $(this).openWindow('Attention','No mutant generated!','["OK"]');
     }
 }
+function showTotalOpsSummary0(){
+    clearCount(-1);
+    for(var j=0;j<mutants[0].length;j++){
+        for(var m=0;m<mutants[0][j]["mutateLineType"].length;m++){
+            var num= parseInt(document.getElementById(mutants[0][j]["mutateLineType"][m]+"-MuCount").innerText)+1;
+            $("#"+mutants[0][j]["mutateLineType"][m]+"-MuCount").html(""+num);
+        }
+    }
+}
+function showTotalOpsSummary(){
+    clearCount(-1);
+    for(var i=0;i<mutants.length;i++){
+        if(mutants[i].length>0){
+            for(var j=0;j<mutants[i].length;j++){
+                for(var m=0;m<mutants[i][j]["mutateLineType"].length;m++){
+                    var num= parseInt(document.getElementById(mutants[i][j]["mutateLineType"][m]+"-MuCount").innerText)+1;
+                    $("#"+mutants[i][j]["mutateLineType"][m]+"-MuCount").html(""+num);
+                }
+            }
+        }
+    }
+}
 function showChooseMutantSpan0(conNum){
     var spanText=""
         clearCount(0)
@@ -279,7 +289,7 @@ function showChooseMutantSpan0(conNum){
             spanText+="<div>\n" +
                 "          <input id=\"chooseRadio-"+i+"\" class=\"chooseRadio\" type=\"radio\" onchange='changeMuText0("+conNum+","+i+")' name=\"item\" value=\"\""
             if(i==0)spanText+= "checked";
-            spanText+=">\n" +"          <label for=\"chooseRadio-t-"+i+"\"></label>\n" +
+            spanText+=">\n" +"          <label for=\"chooseRadio-"+i+"\"></label>\n" +
                 "          <span style=\"margin-left: 10px\">"+mutants[0][conNum]["mutateLineType"][i]+"_"+(mutants[0][conNum]["mutateLineNums"][i]+1)+"</span>\n" +
                 "        </div>"
             var num= parseInt(document.getElementById(mutants[0][conNum]["mutateLineType"][i]+"MuCount").innerText);

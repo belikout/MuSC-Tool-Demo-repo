@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\BasicToken.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All contracts </a>/ Exchange.sol
+    </h1>
+    <div class="clearfix">
+        <div class="fl pad1y space-right2">
+          <span class="strong">75% </span>
+          <span class="quiet">Mutation Test Score</span>
+          <span class="fraction">6/8</span>
+        </div>
+        <div class="fl pad1y space-right2">
+          <span class="strong">75% </span>
+          <span class="quiet">Traditional Mutants Killed Rate</span>
+          <span class="fraction">6/8</span>
+        </div>
+        <div class="fl pad1y space-right2">
+          <span class="strong">100% </span>
+          <span class="quiet">ESC Mutants Killed Rate</span>
+          <span class="fraction">0/0</span>
+        </div>
+        <div class="fl pad1y space-right2">
+          <span class="strong">100% </span>
+          <span class="quiet">Compile Passed Rate</span>
+          <span class="fraction">8/8</span>
+        </div>
+      </div>
+  </div>
+  <div class='status-line high'></div>
+  <div class='mutantsView'>
+    <div class="pad1">
+        <table class="coverage-summary">
+        <thead>
+        <tr>
+            <th data-col="file" data-html="true" class="file sorted" style="
+            width: 100px;
+        ">Mutant No</th>
+        <th data-col="file" data-html="true" class="file sorted" style="
+        width: 100px;
+        ">Mutant Status</th>
+            <th data-col="file" data-html="true" class="file sorted" style="
+            width: 100px;
+        ">Mutant Type</th>      
+            <th data-col="file"  data-html="true" class="file sorted" style="
+            width: 100px;
+        ">Line Num</th>
+            <th data-col="file"  data-html="true" class="file sorted" style="
+            width: 400px;
+        ">Original Line</th>
+            <th data-col="file" data-html="true" class="file sorted" style="
+            width: 400px;
+        ">Mutant Line</th>
+        </tr>
+        </thead>
+        <tbody><tr>
+            <td class="file high" data-value="1">1</td>
+            <td data-value="83.33" class="file high">Killed</td>
+            <td data-value="83.33" class="file high">ROR</td>
+            <td data-value="50" class="file high">9</td>
+            <td data-value="100" class="file high">if(makerAddress == takerAddress) {</td>
+            <td data-value="85.71" class="file high">if(makerAddress != takerAddress) {</td>
+            </tr>
+            <tr>
+                <td class="file low" data-value="1">2</td>
+                <td data-value="83.33" class="file low">Live</td>
+                <td data-value="83.33" class="file low">ROR</td>
+                <td data-value="50" class="file low">14</td>
+                <td data-value="100" class="file low">if(expiration < now) {</td>
+                <td data-value="85.71" class="file low">if(expiration <= now) {</td>
+            </tr>
+            <tr>
+                <td class="file high" data-value="1">3</td>
+                <td data-value="83.33" class="file high">Killed</td>
+                <td data-value="83.33" class="file high">ROR</td>
+                <td data-value="50" class="file high">25</td>
+                <td data-value="100" class="file high">if(takerToken == address(0x0)) {</td>
+                <td data-value="85.71" class="file high">if(takerToken != address(0x0)) {</td>
+            </tr>
+            <tr>
+                <td class="file high" data-value="1">4</td>
+                <td data-value="83.33" class="file high">Killed</td>
+                <td data-value="83.33" class="file high">ROR</td>
+                <td data-value="50" class="file high">25</td>
+                <td data-value="100" class="file high">if(msg.value == takerAmount) {</td>
+                <td data-value="85.71" class="file high">if(msg.value != takerAmount) {</td>
+            </tr>
+            <tr>
+                <td class="file low" data-value="1">5</td>
+                <td data-value="83.33" class="file low">Live</td>
+                <td data-value="83.33" class="file low">ROR</td>
+                <td data-value="50" class="file low">38</td>
+                <td data-value="100" class="file low">if(msg.value != 0) {</td>
+                <td data-value="85.71" class="file low">if(msg.value > 0) {</td>
+            </tr>
+            <tr>
+                <td class="file high" data-value="1">6</td>
+                <td data-value="83.33" class="file high">Killed</td>
+                <td data-value="83.33" class="file high">ROR</td>
+                <td data-value="50" class="file high">43</td>
+                <td data-value="100" class="file high">if(takerAddress == msg.sender) {</td>
+                <td data-value="85.71" class="file high">if(takerAddress != msg.sender) {</td>
+            </tr>
+            <tr>
+                <td class="file high" data-value="1">7</td>
+                <td data-value="83.33" class="file high">Killed</td>
+                <td data-value="83.33" class="file high">ROR</td>
+                <td data-value="50" class="file high">55</td>
+                <td data-value="100" class="file high">if(msg.sender == makerAddress) {</td>
+                <td data-value="85.71" class="file high">if(msg.sender != makerAddress) {</td>
+            </tr>
+            <tr>
+                <td class="file high" data-value="1">8</td>
+                <td data-value="83.33" class="file high">Killed</td>
+                <td data-value="83.33" class="file high">ROR</td>
+                <td data-value="50" class="file high">56</td>
+                <td data-value="100" class="file high">if(fills[hash] == false) {</td>
+                <td data-value="85.71" class="file high">if(fills[hash] != false) {</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+  </div>
+<pre>
+  <h2 style="margin-left: 10px;margin-bottom: -20px">Original Solidity Code</h2>
+  <table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</td>
+<td class="line-coverage quiet"></td>
+<td class="text" style="width: 100%;float: left;overflow: auto;"><pre class="prettyprint lang-js">
+pragma solidity ^0.4.11;
+import {StandardToken as ERC20} from "./lib/StandardToken.sol";
+contract Exchange {
+    mapping (bytes32 => bool) public fills;
+    event Filled(address indexed makerAddress, uint makerAmount, address indexed makerToken, address takerAddress, uint takerAmount, address indexed takerToken, uint256 expiration, uint256 nonce);
+    event Canceled(address indexed makerAddress, uint makerAmount, address indexed makerToken, address takerAddress, uint takerAmount, address indexed takerToken, uint256 expiration, uint256 nonce);
+    event Failed(uint code, address indexed makerAddress, uint makerAmount, address indexed makerToken, address takerAddress, uint takerAmount, address indexed takerToken, uint256 expiration, uint256 nonce);
+    function fill(address makerAddress, uint makerAmount, address makerToken, address takerAddress, uint takerAmount, address takerToken, uint256 expiration, uint256 nonce, uint8 v, bytes32 r, bytes32 s) payable  {
+        if(makerAddress == takerAddress) {
+            msg.sender.transfer(msg.value);
+            Failed(1, makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+            return ;
+        }
+        if(expiration < now) {
+            msg.sender.transfer(msg.value);
+            Failed(2, makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+            return ;
+        }
+        bytes32 hash = validate(makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce, v, r, s);
+        if(fills[hash]) {
+            msg.sender.transfer(msg.value);
+            Failed(3, makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+            return ;
+        }
+        if(takerToken == address(0x0)) {
+            if(msg.value == takerAmount) {
+                fills[hash] = true;
+                assert(transfer(makerAddress, takerAddress, makerAmount, makerToken));
+                makerAddress.transfer(msg.value);
+                Filled(makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+            }
+            else {
+                msg.sender.transfer(msg.value);
+                Failed(4, makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+            }
+        }
+        else {
+            if(msg.value != 0) {
+                msg.sender.transfer(msg.value);
+                Failed(5, makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+                return ;
+            }
+            if(takerAddress == msg.sender) {
+                fills[hash] = true;
+                assert(trade(makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken));
+                Filled(makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+            }
+            else {
+                Failed(6, makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+            }
+        }
+    }
+    function cancel(address makerAddress, uint makerAmount, address makerToken, address takerAddress, uint takerAmount, address takerToken, uint256 expiration, uint256 nonce, uint8 v, bytes32 r, bytes32 s) {
+        bytes32 hash = validate(makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce, v, r, s);
+        if(msg.sender == makerAddress) {
+            if(fills[hash] == false) {
+                fills[hash] = true;
+                Canceled(makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+            }
+            else {
+                Failed(7, makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+            }
+        }
+    }
+    function trade(address makerAddress, uint makerAmount, address makerToken, address takerAddress, uint takerAmount, address takerToken) private returns(bool) {
+        return (transfer(makerAddress, takerAddress, makerAmount, makerToken) && transfer(takerAddress, makerAddress, takerAmount, takerToken));
+    }
+    function transfer(address from, address to, uint amount, address token) private returns(bool) {
+        require(ERC20(token).transferFrom(from, to, amount));
+        return true;
+    }
+    function validate(address makerAddress, uint makerAmount, address makerToken, address takerAddress, uint takerAmount, address takerToken, uint256 expiration, uint256 nonce, uint8 v, bytes32 r, bytes32 s) private returns(bytes32) {
+        bytes32 hashV = keccak256(makerAddress, makerAmount, makerToken, takerAddress, takerAmount, takerToken, expiration, nonce);
+        bytes memory prefix = "\x19Ethereum Signed Message:\n32";
+        bytes32 prefixedHash = sha3(prefix, hashV);
+        require(ecrecover(prefixedHash, v, r, s) == makerAddress);
+        return hashV;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class="footer quiet pad2 space-top1 center small">
+        Mutation Test Report
+        generated by <a href="https://github.com/belikout/MuSC-Tool-Demo-repo" >MuSC Tool Demo</a>
+      </div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

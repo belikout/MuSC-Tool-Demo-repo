@@ -8,6 +8,7 @@ public class TestReport {
     public ArrayList<String>mutateLine=new ArrayList<String>();
     public ArrayList<Integer>mutateLineNums=new ArrayList<Integer>();
     public ArrayList<String>mutateLineType=new ArrayList<String>();
+    public ArrayList<Boolean>isKilled=new ArrayList<Boolean>();
     public int tLive=0;
     public int tkill=0;
     public int tTotal=0;

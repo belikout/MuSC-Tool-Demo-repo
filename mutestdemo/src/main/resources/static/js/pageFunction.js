@@ -430,5 +430,5 @@ function startMutationTest(){
     }
 }
 function exportReport(){
-    window.open("C:\\Users\\belikout\\Desktop\\coverage\\lcov-report - Copy\\contracts\\index.html")
+    $(this).openWindow('Attention', "Report has been export to \<MuSC_Report\> folder under your truffle project folder! ", '["OK"]');
 }

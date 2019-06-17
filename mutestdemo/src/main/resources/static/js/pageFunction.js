@@ -419,3 +419,6 @@ function startMutationTest(){
         $(this).openWindow('Attention', "No mutant has been generated!", '["OK"]');
     }
 }
+function exportReport(){
+    window.open("C:\\Users\\belikout\\Desktop\\coverage\\lcov-report - Copy\\contracts\\index.html")
+}

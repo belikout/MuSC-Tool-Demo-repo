@@ -2,15 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbdf8288-eff9-406b-b5fa-96ef653ae583" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/TestReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/report/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/report/contracts/BasicToken.sol.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/report/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/report/prettify.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/report/prettify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/report/sort-arrow-sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/report/sorter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GetTestFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GetTestFileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MutationTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MutationTestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/pageFunction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/pageFunction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/MutationTestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/MutationTestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/Controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../node/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -31,22 +36,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="128" column="24" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="487" column="218" selection-start-line="487" selection-start-column="218" selection-end-line="487" selection-end-column="218" />
+            <state relative-caret-position="151">
+              <caret line="487" column="156" selection-start-line="487" selection-start-column="156" selection-end-line="487" selection-end-column="170" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -97,19 +90,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/global.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1782">
-              <caret line="145" column="1" selection-start-line="145" selection-start-column="1" selection-end-line="145" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MutationTestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
+            <state relative-caret-position="335">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1554#2596#0" />
@@ -122,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/pageFunction.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-22">
-              <caret line="397" column="38" selection-start-line="397" selection-start-column="38" selection-end-line="397" selection-end-column="38" />
+            <state relative-caret-position="285">
+              <caret line="422" column="98" selection-start-line="422" selection-start-column="98" selection-end-line="422" selection-end-column="98" />
               <folding>
                 <element signature="n#!!block;n#tAll#0" />
                 <element signature="n#!!block;n#eAll#0" />
@@ -152,16 +136,17 @@
                 <element signature="n#!!block;n#chooseCon#1" />
                 <element signature="n#!!block;n#stopTest#0" />
                 <element signature="n#!!block;n#getTestedNum#0" />
+                <element signature="n#!!block;n#startMutationTest#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GetTestFileController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="826">
-              <caret line="59" column="84" selection-start-line="59" selection-start-column="84" selection-end-line="59" selection-end-column="84" />
+            <state relative-caret-position="190">
+              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,7 +157,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
+            <state relative-caret-position="-422">
               <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -188,13 +173,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/TestReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
+            <state relative-caret-position="352">
+              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#351#359#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/MutationTestResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="7" selection-end-column="24" />
+              <folding>
+                <element signature="e#228#229#0" expanded="true" />
+                <element signature="e#255#256#0" expanded="true" />
+                <element signature="e#292#293#0" expanded="true" />
+                <element signature="e#319#320#0" expanded="true" />
+                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#374#375#0" expanded="true" />
+                <element signature="e#411#412#0" expanded="true" />
+                <element signature="e#443#444#0" expanded="true" />
+                <element signature="e#472#473#0" expanded="true" />
+                <element signature="e#500#501#0" expanded="true" />
+                <element signature="e#539#540#0" expanded="true" />
+                <element signature="e#568#569#0" expanded="true" />
+                <element signature="e#603#604#0" expanded="true" />
+                <element signature="e#637#638#0" expanded="true" />
+                <element signature="e#688#689#0" expanded="true" />
+                <element signature="e#734#735#0" expanded="true" />
+                <element signature="e#763#764#0" expanded="true" />
+                <element signature="e#791#792#0" expanded="true" />
+                <element signature="e#830#831#0" expanded="true" />
+                <element signature="e#859#860#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -205,8 +221,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -250,7 +266,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/model/UnaryOperation.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/model/UsingForDeclaration.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/model/Variable.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/model/WhileStatement.java" />
@@ -270,7 +285,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/FileUtils/StreamManage.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/FileUtils/CopyDir.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/Statement.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/IfStatement.java" />
@@ -301,6 +315,8 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/pageFunction.js" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/TestReport.java" />
       </list>
     </option>
   </component>
@@ -312,8 +328,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="532" />
-    <option name="y" value="36" />
+    <option name="x" value="411" />
+    <option name="y" value="76" />
     <option name="width" value="981" />
     <option name="height" value="1031" />
   </component>
@@ -399,6 +415,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mutestdemo" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mutestdemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mutestdemo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mutestdemo" type="462c0819:PsiDirectoryNode" />
               <item name="MutationTestUtil" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -432,7 +457,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mutestdemo" type="b2602c69:ProjectViewProjectNode" />
@@ -441,16 +466,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="imgs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutestdemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutestdemo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mutestdemo" type="b2602c69:ProjectViewProjectNode" />
@@ -480,7 +497,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/IdeaProjects/SolMuTest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/report" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -488,11 +505,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MuSC-Tool-Demo-repo\mutestdemo\src\main\resources\static\report" />
+      <recent name="D:\MuSC-Tool-Demo-repo\mutestdemo\src\main\resources\static" />
       <recent name="D:\MuSC-Tool-Demo-repo\mutestdemo\src\main\resources\static\css" />
       <recent name="D:\MuSC-Tool-Demo-repo\mutestdemo\src\main\resources\static\js" />
       <recent name="D:\MuSC-Tool-Demo-repo\mutestdemo\src\main\java\cn\edu\nju\mutestdemo\FileUtils" />
-      <recent name="D:\IdeaProjects\mutestdemo\src\main\java\cn\edu\nju\mutestdemo" />
-      <recent name="D:\IdeaProjects\mutestdemo\src\main\resources\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\MuSC-Tool-Demo-repo\mutestdemo\src\main\resources\static\imgs" />
@@ -513,7 +530,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MutestdemoApplication">
+  <component name="RunManager" selected="Application.MainController">
     <configuration name="CopyDir" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.edu.nju.mutestdemo.FileUtils.CopyDir" />
       <module name="mutestdemo" />
@@ -566,12 +583,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebViewSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.nju.mutestdemo.web2.WebViewSample" />
+    <configuration name="MainController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.nju.mutestdemo.Controller.MainController" />
       <module name="mutestdemo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.edu.nju.mutestdemo.web2.*" />
+          <option name="PATTERN" value="cn.edu.nju.mutestdemo.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -588,11 +605,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainController" />
         <item itemvalue="Application.GenerateMutantController" />
         <item itemvalue="Application.Generate" />
         <item itemvalue="Application.CopyDir" />
         <item itemvalue="Application.GetTestFileController" />
-        <item itemvalue="Application.WebViewSample" />
       </list>
     </recent_temporary>
   </component>
@@ -612,7 +629,7 @@
       <workItem from="1560235306769" duration="12461000" />
       <workItem from="1560321476475" duration="2391000" />
       <workItem from="1560337784032" duration="57529000" />
-      <workItem from="1560570637870" duration="56499000" />
+      <workItem from="1560570637870" duration="60245000" />
     </task>
     <task id="LOCAL-00001" summary="fix test truffle project">
       <created>1560416952811</created>
@@ -649,17 +666,24 @@
       <option name="project" value="LOCAL" />
       <updated>1560687347975</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finish stop test">
+      <created>1560703926256</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1560703926256</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174120000" />
+    <option name="totallyTimeSpent" value="177866000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27044535" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27044535" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -669,7 +693,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19005328" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.053285968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.10124334" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -747,7 +771,8 @@
     <MESSAGE value="finish mutation test starter" />
     <MESSAGE value="finish mutation test" />
     <MESSAGE value="configure port" />
-    <option name="LAST_COMMIT_MESSAGE" value="configure port" />
+    <MESSAGE value="finish stop test" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish stop test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -911,16 +936,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/CMDRedirect/CMDUtils.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationUtils/AllInfo.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationUtils/Mutation.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Jnotify/Listener.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationUtils/SetMutators.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationUtils/MutationOperator.java" />
@@ -939,13 +954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1092,48 +1100,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/MutantsJSON.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="42" />
-          <folding>
-            <element signature="e#375#383#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Sol2AST/GenASTServiceClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/MutationTestResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding>
-            <element signature="e#255#256#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#603#604#0" expanded="true" />
-            <element signature="e#637#638#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#830#831#0" expanded="true" />
-            <element signature="e#859#860#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1171,16 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -1209,10 +1169,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GetTestFileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="826">
+          <caret line="59" column="84" selection-start-line="59" selection-start-column="84" selection-end-line="59" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MutationTestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
+        <state relative-caret-position="335">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1554#2596#0" />
@@ -1224,37 +1194,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3541#3561#0" expanded="true" />
-            <element signature="e#1430#2634#1" />
-            <element signature="e#2790#4037#1" />
-            <element signature="e#4261#4262#0" expanded="true" />
-            <element signature="method#getMutantString#0;class#MutationTestStater#0" />
-            <element signature="method#generateStarterBatFile#0;class#MutationTestStater#0" />
-            <element signature="method#processMutantsJSON#0;class#MutationTestStater#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/GetTestFileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="59" column="84" selection-start-line="59" selection-start-column="84" selection-end-line="59" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="487" column="218" selection-start-line="487" selection-start-column="218" selection-end-line="487" selection-end-column="218" />
+        <state relative-caret-position="151">
+          <caret line="487" column="156" selection-start-line="487" selection-start-column="156" selection-end-line="487" selection-end-column="170" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1305,8 +1248,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/pageFunction.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="397" column="38" selection-start-line="397" selection-start-column="38" selection-end-line="397" selection-end-column="38" />
+        <state relative-caret-position="285">
+          <caret line="422" column="98" selection-start-line="422" selection-start-column="98" selection-end-line="422" selection-end-column="98" />
           <folding>
             <element signature="n#!!block;n#tAll#0" />
             <element signature="n#!!block;n#eAll#0" />
@@ -1332,6 +1275,102 @@
             <element signature="n#!!block;n#chooseCon#1" />
             <element signature="n#!!block;n#stopTest#0" />
             <element signature="n#!!block;n#getTestedNum#0" />
+            <element signature="n#!!block;n#startMutationTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/report/base.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/TestResultAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/report/contracts/BasicToken.sol.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/report/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/MutantsJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="9" selection-end-column="67" />
+          <folding>
+            <element signature="e#375#383#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/MutationTestUtil/MutationTestStater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-422">
+          <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3541#3561#0" expanded="true" />
+            <element signature="e#1430#2634#1" />
+            <element signature="e#2790#4037#1" />
+            <element signature="e#4261#4262#0" expanded="true" />
+            <element signature="method#getMutantString#0;class#MutationTestStater#0" />
+            <element signature="method#generateStarterBatFile#0;class#MutationTestStater#0" />
+            <element signature="method#processMutantsJSON#0;class#MutationTestStater#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/MutationTestResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#292#293#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#791#792#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#859#860#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/edu/nju/mutestdemo/Model/TestReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding>
+            <element signature="e#351#359#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -18,3 +18,36 @@ to start node side service.
 This tool's main body ```mutestdemo``` is written by Spring Boot, running  [MutestdemoApplication.java](https://github.com/belikout/MuSC-Tool-Demo-repo/blob/master/mutestdemo/src/main/java/cn/edu/nju/mutestdemo/MutestdemoApplication.java)
 to start the local server for tool. Then access tool website via ```localhost:8080/musc```  
 ## Tool Usage Process
+You can get the tool usage introduction in the video available at https://youtu.be/rHRX8NY4X_E
+## Mutation Operators Explanation
+### Traditional Operators
+| Operator | Description |
+| ------ | ------ |
+| AOR | Arithmetic Operator Replacement |
+| AOI | Arithmetic Operator Insertion |
+| ROR | Relational Operator Replacement |
+| COR | Conditional Operator Replacement |
+| LOR | Logical Operator Replacement |
+| ASR | Assignment Short-cut Operator Replacement |
+| SDL | Statement Deletion |
+| RVR | Return Value Replacement |
+| CSC | Condition Statement Change |
+
+### ESC Aimed Operators
+|Type| Operator | Description |
+| ------ | ------ | ------ |
+|Keyword| FSC | Function State Keyword Chang |
+|Keyword| FVC | Function Visibility Keyword Chang |
+|Keyword| DLR | Data Location Keyword Replacement |
+|Keyword| VTR | Variable Type Keyword Replacement |
+|Keyword| PKD | Payable Keyword Deletion |
+|Keyword| DKD | Delete Keyword Deletion |
+|Global Variable and Function| GVC | Global Variable Change |
+|Global Variable and Function| MFR | Mathematical  Functions  Replacement |
+|Global Variable and Function| AVR | Address  Variable  Replacement |
+|Variable Unit| EUR | Ether Unit Replacement |
+|Variable Unit| TUR | Time Unit Replacement |
+|Error Handling| RSD | Require Statement Deletion |
+|Error Handling| RSC | Require Statement Change |
+|Error Handling| ASD | Assert Statement Deletion |
+|Error Handling| ASC | Assert Statement Change |

@@ -23,7 +23,7 @@ Enter the path of Truffle Project to be tested in the input box above, and click
 ![avatar](https://github.com/belikout/MuSC-Tool-Demo-repo/blob/master/mutestdemo/src/main/resources/static/imgs/1.png)
 ### 2.Generate Muatnts
 Choose the Solidity files you want to generate mutants for, and the mutantion operators you want to use, clicking the "Generate" button to generate mutants.  
-You can find the truffle project example used for test at [MetaCoin](https://github.com/truffle-box/metacoin-box)
+You can find the truffle project example used for test at [AirSwap](https://github.com/airswap/contracts)
 ![avatar](https://github.com/belikout/MuSC-Tool-Demo-repo/blob/master/mutestdemo/src/main/resources/static/imgs/1-1.png)
 You can check mutants on the mutants viewer panel.
 ![avatar](https://github.com/belikout/MuSC-Tool-Demo-repo/blob/master/mutestdemo/src/main/resources/static/imgs/2.png)

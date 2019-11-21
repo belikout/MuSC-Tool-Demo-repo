@@ -14,11 +14,11 @@ public class Argument extends Unit {
             }
         }
     }
-    public static String ListOutputToLine(Object[] arguments){
+    public static String ListOutputToLine(ArrayList<MuType>types,Object[] arguments){
         String str="";
         if(arguments.length>0){
             for(int i=0;i<arguments.length;i++){
-                str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),arguments[i]);
+                str+=ExpressionStatement.printPartToLine(types,arguments[i]);
                 if(i!=arguments.length-1) {
                     str += ", ";
                     Statement.lineContent+=", ";
@@ -38,13 +38,13 @@ public class Argument extends Unit {
             }
         }
     }
-    public static String ListOutputWithNameToLine(String[] names,Object[] arguments){
+    public static String ListOutputWithNameToLine(ArrayList<MuType> types,String[] names,Object[] arguments){
         String str="";
         if(arguments.length>0){
             for(int i=0;i<arguments.length;i++){
                 str+=names[i]+": ";
                 Statement.lineContent+=names[i]+": ";
-                str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),arguments[i]);
+                str+=ExpressionStatement.printPartToLine(types,arguments[i]);
                 if(i!=arguments.length-1) {
                     str += ", ";
                     Statement.lineContent+=", ";

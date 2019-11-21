@@ -63,6 +63,10 @@ public class GenerateMutantController {
             MuType mutype = MuType.valueOf(typeArr.getString(i));
             typesArr.add(mutype);
         }
+        if(typeArr.contains(MuType.LOR)){
+            if(!typeArr.contains(MuType.ROR))typeArr.add(MuType.ROR);
+            if(!typeArr.contains(MuType.COR))typeArr.add(MuType.COR);
+        }
         ArrayList<MutantsJSON>resTemp=new ArrayList<MutantsJSON>();
         File file = new File(path + "\\MuSC_dup\\contracts");
         if (file.exists()) {
@@ -143,6 +147,7 @@ public class GenerateMutantController {
         String json= GenASTServiceClient.genAST(fileDir+"\\ori_"+name);
         SourceUnit su= JSON.parseObject(json, SourceUnit.class);
         su.addToMutant(types);
+        su.output();
         System.out.println(Mutant.lines.size());
         Mutant.Repair();
         writer=new FileWriter(new File(fileDir+"\\ori_"+name));
@@ -173,7 +178,7 @@ public class GenerateMutantController {
         return res;
     }
     public static void main(String[]args){
-        System.out.println(generateMutant0("C:\\Users\\belikout\\Desktop\\metacoin-box-master","[\"MetaCoin.sol\",\"Migrations.sol\"]","[\"ASR\",\"AOR\",\"COR\",\"ROR\"]"));
+        System.out.println(generateMutant0("C:\\Users\\belikout\\Desktop\\TC\\AirSwap","[\"MetaCoin.sol\",\"Migrations.sol\"]","[\"ASR\",\"AOR\",\"COR\",\"ROR\"]"));
 
     }
 }

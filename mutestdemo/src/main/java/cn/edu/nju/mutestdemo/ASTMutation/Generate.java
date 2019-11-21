@@ -7,10 +7,10 @@ import cn.edu.nju.mutestdemo.Model.SourceUnit;
 
 import java.io.*;
 import java.util.ArrayList;
-
+import cn.edu.nju.mutestdemo.Sol2AST.GenASTServiceClient;
 public class Generate {
     public static void main(String[]args) {
-        try {
+       /* try {
             BufferedReader br = new BufferedReader(new FileReader("C:\\\\Users\\\\belikout\\\\Desktop\\\\ast.json"));// 读取原始json文件
 
             String s  = null;
@@ -22,30 +22,29 @@ public class Generate {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-            }
-        //String json= GenASTServiceClient.genAST("C:\\Users\\belikout\\Desktop\\sol.txt");
-
+            }*/
+        String json= GenASTServiceClient.genAST("C:\\Users\\belikout\\Desktop\\sol0.txt");
+            System.out.println(MuType.FSC.ordinal());
+            //stateMutability: pure constant payable view
             SourceUnit su= JSON.parseObject(json, SourceUnit.class);
             ArrayList<MuType>type=new ArrayList<MuType>();
             type.add(MuType.AOR);
             type.add(MuType.ASR);
             type.add(MuType.ROR);
             type.add(MuType.COR);
+            type.add(MuType.FSC);
+            type.add(MuType.FVC);
+            type.add(MuType.PKD);
+            type.add(MuType.RSD);
+            type.add(MuType.RSC);
+            type.add(MuType.EUR);
             su.addToMutant(type);
             System.out.println(Mutant.lines.size());
             Mutant.Repair();
-            for(int i=0;i<Mutant.mutateLine.size();i++){
-                /*if(Mutant.mutateLine.get(i).getSpace()>0)
-                    for(int j=0;j<Mutant.lines.get(i).getSpace();j++)
-                        System.out.print("    ");*/
-                    System.out.println(Mutant.mutateLine.get(i));
+            for(int i=0;i<Mutant.mutateLine.size();i++) {
+                System.out.println(Mutant.mutateLineTypeNums.get(i)+" "+Mutant.mutateLine.get(i));
+                System.out.println("OK");
             }
-            br.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
     }
     /*public void generateMutant(Object mutypes){
         System.out.println("okkkkkkkkkkkkkkkkk");

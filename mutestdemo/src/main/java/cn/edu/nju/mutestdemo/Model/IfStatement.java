@@ -86,16 +86,19 @@ public class IfStatement extends Statement {
         if (((JSONObject) body).getString("type").equals("Block")) {
             content+="{";
             Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+            Statement.lineContent="";
             Statement.ListOutputToLine(space + 1, ((JSONObject) body).getJSONArray("statements"),types);
         }
         else{
             Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+            Statement.lineContent="";
             JSONArray arr=new JSONArray();
             arr.add(body);
             Statement.ListOutputToLine(space + 1, arr,types);
         }
         if (((JSONObject) body).getString("type").equals("Block")){
             Mutant.lines.add(new Line("}",new ArrayList<MuType>(),space));
+            Statement.lineContent="";
         }
 
     }

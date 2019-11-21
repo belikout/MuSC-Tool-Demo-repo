@@ -16,7 +16,8 @@ public class Function extends Unit {
     private Object body;
     private Object[] modifiers;
     private Object parameters;
-
+    private String[] FSCList= {"pure","view","constant"};
+    private String[] FVCList= {"private","internal","public"};
     public String getVisibility() {
         return visibility;
     }
@@ -123,14 +124,55 @@ public class Function extends Unit {
 
         if(modifiers.length>0){
             for(int i=0;i<modifiers.length;i++){
-                content+=JSON.parseObject(modifiers[i].toString(), ModifierInvoc.class).outputToLine();
+                content+=JSON.parseObject(modifiers[i].toString(), ModifierInvoc.class).outputToLine(types);
                 content+="  ";
             }
         }
-        if(!visibility.equals("default"))
-            content+=visibility+" ";
-        if(stateMutability!=null)
-            content+=stateMutability+"  ";
+        if(!visibility.equals("default")) {
+            if(types.contains(MuType.FVC)){
+                for(int m=0;m<FVCList.length;m++){
+                    if(!FVCList[m].equals(visibility)){
+                        Mutant.mutateLineNums.add(Mutant.lines.size());
+                        Mutant.mutateLineTypeNums.add(MuType.FVC.ordinal());
+                        Mutant.mutateLine.add(content+FVCList[m]);
+                        Mutant.mutateLineRepairFromNums.add(content.length() + visibility.length());
+                    }
+                }
+            }
+            content += visibility + " ";
+        }
+        else{
+            if(types.contains(MuType.FVC)){
+                for(int m=0;m<FVCList.length;m++){
+                        Mutant.mutateLineNums.add(Mutant.lines.size());
+                        Mutant.mutateLineTypeNums.add(MuType.FVC.ordinal());
+                        Mutant.mutateLine.add(content+FVCList[m]);
+                        Mutant.mutateLineRepairFromNums.add(content.length());
+                }
+            }
+            content+=" ";
+        }
+        if(stateMutability!=null) {
+            if(types.contains(MuType.FSC)) {
+                if (!stateMutability.equals("payable")){
+                    for (int m = 0; m < FSCList.length; m++) {
+                        if (!FSCList[m].equals(stateMutability)) {
+                            Mutant.mutateLineNums.add(Mutant.lines.size());
+                            Mutant.mutateLineTypeNums.add(MuType.FSC.ordinal());
+                            Mutant.mutateLine.add(content + FSCList[m]);
+                            Mutant.mutateLineRepairFromNums.add(content.length() + stateMutability.length());
+                        }
+                    }
+            }
+            }
+            if(types.contains(MuType.PKD)&&stateMutability.equals("payable")){
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.PKD.ordinal());
+                Mutant.mutateLine.add(content );
+                Mutant.mutateLineRepairFromNums.add(content.length() + 7);
+            }
+            content += stateMutability + "  ";
+        }
         if(returnParameters!=null) {
             content+="returns(";
             content+=Parameter.ListOutputToLine(returnParameters);
@@ -138,14 +180,17 @@ public class Function extends Unit {
         }
         if(body!=null) {
             content+="{";
-            Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+            Mutant.lines.add(new Line(content,types,space));
+            Statement.lineContent="";
             //处理body start
             JSONArray statements = ((JSONObject) body).getJSONArray("statements");
             Statement.ListOutputToLine(space + 1, statements,types);
             //处理body end
-            Mutant.lines.add(new Line("}",new ArrayList<MuType>(),space));
+            Mutant.lines.add(new Line("}",types,space));
+            Statement.lineContent="";
         }
         else
-            Mutant.lines.add(new Line(content+";",new ArrayList<MuType>(),space));
+            Mutant.lines.add(new Line(content+";",types,space));
+        Statement.lineContent="";
     }
 }

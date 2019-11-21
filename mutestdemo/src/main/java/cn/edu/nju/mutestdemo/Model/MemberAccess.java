@@ -37,7 +37,7 @@ public class MemberAccess {
         System.out.print("."+memberName);
     }
     public String outputToLine(ArrayList<MuType> types){
-        String str=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),expression)+"."+memberName;
+        String str=ExpressionStatement.printPartToLine(types,expression)+"."+memberName;
         Statement.lineContent+="."+memberName;
         return str;
     }

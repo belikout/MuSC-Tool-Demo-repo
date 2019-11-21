@@ -32,6 +32,7 @@ public class Struct extends Unit {
     }
     public void addToMutant(ArrayList<MuType>types,int space){
         Mutant.lines.add(new Line("struct "+getName()+" {",new ArrayList<MuType>(),space));
+        Statement.lineContent="";
         // 处理members
         if(members!=null)
             for(int i=0;i<members.length;i++){
@@ -39,5 +40,6 @@ public class Struct extends Unit {
                     JSON.parseObject(members[i].toString(), Variable.class).outputToLine(types,space+1);
             }
         Mutant.lines.add(new Line("}",new ArrayList<MuType>(),space));
+        Statement.lineContent="";
     }
 }

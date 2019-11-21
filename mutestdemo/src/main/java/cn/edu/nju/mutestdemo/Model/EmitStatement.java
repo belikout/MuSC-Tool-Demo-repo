@@ -34,5 +34,6 @@ public class EmitStatement {
         String content="emit ";
         content+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),eventCall)+";";
         Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+        Statement.lineContent="";
     }
 }

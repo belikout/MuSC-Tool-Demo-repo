@@ -46,5 +46,6 @@ public class Variable extends Var {
             content+=" "+storageLocation;
         System.out.println(" "+getName()+";");
         Mutant.lines.add(new Line(content+" "+getName()+";",new ArrayList<MuType>(),space));
+        Statement.lineContent="";
     }
 }

@@ -61,35 +61,50 @@ public class UnaryOperation {
             hasAOR=true;
         if(isPrefix) {
             str += operator;
-            if(hasAOR) {
-                String temp=Statement.lineContent;
-                if (operator.equals("++"))
-                    temp=temp+"--";
-                else if(operator.equals("--"))
-                    temp=temp+"++";
-                Mutant.mutateLineNums.add(Mutant.lines.size());
-                Mutant.mutateLineTypeNums.add(MuType.AOR.ordinal());
-                Mutant.mutateLine.add(temp);
-                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+2);
+            if(hasAOR && (operator.equals("++") || operator.equals("--"))) {
+                    String temp = Statement.lineContent;
+                    if (operator.equals("++"))
+                        temp = temp + "--";
+                    else if (operator.equals("--"))
+                        temp = temp + "++";
+                    Mutant.mutateLineNums.add(Mutant.lines.size());
+                    Mutant.mutateLineTypeNums.add(MuType.AOR.ordinal());
+                    Mutant.mutateLine.add(temp);
+                    Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length() + 2);
+                }
+            if(types.contains(MuType.COR)){
+                if (operator.equals("!")){
+                    Mutant.mutateLineNums.add(Mutant.lines.size());
+                    Mutant.mutateLineTypeNums.add(MuType.COR.ordinal());
+                    Mutant.mutateLine.add(Statement.lineContent);
+                    Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+1);
+                }
             }
-            Statement.lineContent+=operator;
+                Statement.lineContent += operator;
         }
         if(subExpression!=null) {
-            str+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),subExpression);
-
+            str+=ExpressionStatement.printPartToLine(types,subExpression);
         }
         if(!isPrefix) {
             str += operator;
-            if(hasAOR) {
+            if(hasAOR&& (operator.equals("++") || operator.equals("--"))) {
                 String temp=Statement.lineContent;
                 if (operator.equals("++"))
                     temp=temp+"--";
                 else if(operator.equals("--"))
                     temp=temp+"++";
                 Mutant.mutateLineNums.add(Mutant.lines.size());
-                Mutant.mutateLineTypeNums.add(MuType.AOR.ordinal());
+                Mutant.mutateLineTypeNums.add(MuType.COR.ordinal());
                 Mutant.mutateLine.add(temp);
                 Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+2);
+            }
+            if(types.contains(MuType.COR)){
+                if (operator.equals("!")){
+                    Mutant.mutateLineNums.add(Mutant.lines.size());
+                    Mutant.mutateLineTypeNums.add(MuType.AOR.ordinal());
+                    Mutant.mutateLine.add(Statement.lineContent);
+                    Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+1);
+                }
             }
             Statement.lineContent+=operator;
         }

@@ -51,6 +51,7 @@ public class MutationTestStater {
                         return null;
                     }
                 }
+                ReplaceFileUtil.replaceFile(ProjectPath+"\\contracts\\"+tMutants.get(i).conName,ProjectPath+"\\Mutants\\ori_"+tMutants.get(i).conName);
             }
             boolean isEnd=false;
             while(!isEnd){
@@ -83,6 +84,7 @@ public class MutationTestStater {
                         return null;
                     }
                 }
+                ReplaceFileUtil.replaceFile(ProjectPath+"\\contracts\\"+eMutants.get(i).conName,ProjectPath+"\\Mutants\\ori_"+eMutants.get(i).conName);
             }
             boolean isEnd=false;
             while(!isEnd){

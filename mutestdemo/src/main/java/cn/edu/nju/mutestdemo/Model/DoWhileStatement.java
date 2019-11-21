@@ -24,5 +24,6 @@ public class DoWhileStatement extends WhileStatement {
         content+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),getCondition());
         content+=");";
         Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+        Statement.lineContent="";
     }
 }

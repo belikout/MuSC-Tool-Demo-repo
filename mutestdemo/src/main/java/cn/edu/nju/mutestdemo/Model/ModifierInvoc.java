@@ -1,5 +1,9 @@
 package cn.edu.nju.mutestdemo.Model;
 
+import cn.edu.nju.mutestdemo.EnumType.MuType;
+
+import java.util.ArrayList;
+
 public class ModifierInvoc extends Unit {
     public Object[] getArguments() {
         return arguments;
@@ -19,11 +23,11 @@ public class ModifierInvoc extends Unit {
             System.out.print(")");
         }
     }
-    public String outputToLine(){
+    public String outputToLine(ArrayList<MuType>types){
         String str=getName();
         if(arguments.length>0) {
             str+="(";
-            str+=Argument.ListOutputToLine(arguments);
+            str+=Argument.ListOutputToLine(types,arguments);
             str+=")";
         }
         return str;

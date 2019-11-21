@@ -57,15 +57,17 @@ public class Statement {
         String content="";
         for(int i=0;i<statements.size();i++){
             content="";
-            lineContent="";
+            //Statement.lineContent="";
             if(((JSONObject)statements.get(i)).getString("type").equals("VariableDeclarationStatement")) {
                 content+=JSON.parseObject(statements.get(i).toString(), VariableDeclarationStatement.class).outputToLine()+";";
                 Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+                Statement.lineContent="";
             }
             else if(((JSONObject)statements.get(i)).getString("type").equals("ExpressionStatement")) {
 
                 content+=ExpressionStatement.printPartToLine(types,((JSONObject) statements.get(i)).getJSONObject("expression"))+";";
                 Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+                Statement.lineContent="";
             }
             else if(((JSONObject)statements.get(i)).getString("type").equals("IfStatement"))
                 JSON.parseObject(statements.get(i).toString(), IfStatement.class).outputToLine(types,space);

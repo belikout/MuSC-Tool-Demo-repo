@@ -38,5 +38,6 @@ public class EnumDefinition extends Unit {
             }
         }
         Mutant.lines.add(new Line(content+"}",new ArrayList<MuType>(),space));
+        Statement.lineContent="";
     }
 }

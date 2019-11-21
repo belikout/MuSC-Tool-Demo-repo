@@ -38,6 +38,7 @@ public class ReturnStatement {
             content+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),expression);
         content+=";";
         Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+        Statement.lineContent="";
     }
     public void output(){
         System.out.print("return ");
@@ -51,5 +52,6 @@ public class ReturnStatement {
             content+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),expression);
         content+=";";
         Mutant.lines.add(new Line(content,new ArrayList<MuType>(),0));
+        Statement.lineContent="";
     }
 }

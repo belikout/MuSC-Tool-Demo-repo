@@ -1,5 +1,6 @@
 package cn.edu.nju.mutestdemo.Model;
 
+import cn.edu.nju.mutestdemo.ASTMutation.Mutant;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import cn.edu.nju.mutestdemo.EnumType.MuType;
 public class ExpressionStatement extends Statement{
     //Function call,BinaryOperation,Identifier,NumberLiteral,StringLiteral,indexAccess,MemberAccess
+    static String[]EURList={"wei","finney","szabo","ether"};
 public static void printPart(Object expr){
     if(((JSONObject)expr).getString("type").equals("Identifier"))
         System.out.print(((JSONObject)expr).getString("name"));
@@ -46,14 +48,40 @@ public static void printPart(Object expr){
     public static String printPartToLine(ArrayList<MuType> types,Object expr){
     String str="";
         if(((JSONObject)expr).getString("type").equals("Identifier")) {
+            if(types.contains(MuType.RSD)&&((JSONObject) expr).getString("name").equals("require")){
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.RSD.ordinal());
+                Mutant.mutateLine.add("//");
+                Mutant.mutateLineRepairFromNums.add(0);
+            }
+            if(types.contains(MuType.RSC)&&((JSONObject) expr).getString("name").equals("require")){
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.RSC.ordinal());
+                Mutant.mutateLine.add("require(!");
+                Mutant.mutateLineRepairFromNums.add(8);
+            }
             str += ((JSONObject) expr).getString("name");
             Statement.lineContent+=str;
         }
         else if(((JSONObject)expr).getString("type").equals("NumberLiteral")) {
             str+=((JSONObject) expr).getString("number");
-            if(((JSONObject) expr).getString("subdenomination")!=null)
-                str+=" "+((JSONObject) expr).getString("subdenomination");
-            Statement.lineContent+=str;
+            if(((JSONObject) expr).getString("subdenomination")!=null) {
+                String type=((JSONObject) expr).getString("subdenomination");
+                if(types.contains(MuType.EUR)&&(type.equals(EURList[0])||type.equals(EURList[1])||type.equals(EURList[2])||type.equals(EURList[3]))){
+                    for (int m = 0; m < EURList.length; m++) {
+                        if (!EURList[m].equals(type)) {
+                            Mutant.mutateLineNums.add(Mutant.lines.size());
+                            Mutant.mutateLineTypeNums.add(MuType.EUR.ordinal());
+                            Mutant.mutateLine.add(Statement.lineContent + str+" "+EURList[m]);
+                            Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length() + str.length()+type.length()+1);
+                        }
+                    }
+                }
+                str += " " + type;
+
+            }
+            Statement.lineContent += str;
+
         }
         else if(((JSONObject)expr).getString("type").equals("StringLiteral")) {
             str += "\"" + ((JSONObject) expr).getString("value") + "\"";

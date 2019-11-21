@@ -58,6 +58,7 @@ public class Modifier extends Unit {
         }
         content+=" {";
         Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+        Statement.lineContent="";
         content="";
         //处理body
         JSONArray statements=((JSONObject)body).getJSONArray("statements");
@@ -66,5 +67,6 @@ public class Modifier extends Unit {
             content+="    ";
         content+="}";
         Mutant.lines.add(new Line(content,new ArrayList<MuType>(),space));
+        Statement.lineContent="";
     }
 }

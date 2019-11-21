@@ -19,5 +19,6 @@ public class Pragma extends Unit {
         String content="pragma "+getName()+" "+getValue()+";" ;
         Line line =new Line(content,new ArrayList<MuType>(),0);
         Mutant.lines.add(line);
+        Statement.lineContent="";
     }
 }

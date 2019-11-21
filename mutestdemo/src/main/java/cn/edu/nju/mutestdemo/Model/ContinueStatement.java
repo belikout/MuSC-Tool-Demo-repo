@@ -21,6 +21,7 @@ public class ContinueStatement {
     }
     public void outputToLine(ArrayList<MuType> types, int space){
         Mutant.lines.add(new Line("continue;",new ArrayList<MuType>(),space));
+        Statement.lineContent="";
     }
     public void output(){
         System.out.println("continue;");

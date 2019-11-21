@@ -49,5 +49,6 @@ public class UsingForDeclaration {
         else
             content+="*";
         Mutant.lines.add(new Line(content+";",new ArrayList<MuType>(),space));
+        Statement.lineContent="";
     }
 }

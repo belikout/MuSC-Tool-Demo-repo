@@ -69,6 +69,7 @@ public class Contract extends Unit {
         content+="{";
         Line line=new Line(content,new ArrayList<MuType>(),0);
         Mutant.lines.add(line);
+        Statement.lineContent="";
 
         //处理SubNotes
         if(subNodes!=null&&subNodes.length>0)
@@ -95,6 +96,7 @@ public class Contract extends Unit {
                     JSON.parseObject(subNodes[i].toString(), EnumDefinition.class).addToMutant(types,1);
                 }
             }
-        Mutant.lines.add(new Line("}",new ArrayList<MuType>(),0));
+        Mutant.lines.add(new Line("}",types,0));
+        Statement.lineContent="";
     }
 }

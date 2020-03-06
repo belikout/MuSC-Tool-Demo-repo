@@ -27,8 +27,10 @@ public class ModifierInvoc extends Unit {
         String str=getName();
         if(arguments.length>0) {
             str+="(";
+            Statement.lineContent+=str;
             str+=Argument.ListOutputToLine(types,arguments);
             str+=")";
+            Statement.lineContent+=")";
         }
         return str;
     }

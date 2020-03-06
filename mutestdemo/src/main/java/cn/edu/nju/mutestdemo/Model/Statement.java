@@ -72,21 +72,21 @@ public class Statement {
             else if(((JSONObject)statements.get(i)).getString("type").equals("IfStatement"))
                 JSON.parseObject(statements.get(i).toString(), IfStatement.class).outputToLine(types,space);
             else if(((JSONObject)statements.get(i)).getString("type").equals("ForStatement"))
-                JSON.parseObject(statements.get(i).toString(),ForStatement.class).outputToLine(new ArrayList<MuType>(),space);
+                JSON.parseObject(statements.get(i).toString(),ForStatement.class).outputToLine(types,space);
             else if(((JSONObject)statements.get(i)).getString("type").equals("WhileStatement"))
-                JSON.parseObject(statements.get(i).toString(), WhileStatement.class).outputToLine(new ArrayList<MuType>(),space);
+                JSON.parseObject(statements.get(i).toString(), WhileStatement.class).outputToLine(types,space);
             else if(((JSONObject)statements.get(i)).getString("type").equals("DoWhileStatement"))
-                JSON.parseObject(statements.get(i).toString(), DoWhileStatement.class).outputToLine(new ArrayList<MuType>(),space);
+                JSON.parseObject(statements.get(i).toString(), DoWhileStatement.class).outputToLine(types,space);
             else if(((JSONObject)statements.get(i)).getString("type").equals("ReturnStatement"))
-                JSON.parseObject(statements.get(i).toString(),ReturnStatement.class).outputToLine(new ArrayList<MuType>(),space);
+                JSON.parseObject(statements.get(i).toString(),ReturnStatement.class).outputToLine(types,space);
             else if(((JSONObject)statements.get(i)).getString("type").equals("ThrowStatement"))
-                JSON.parseObject(statements.get(i).toString(), ThrowStatement.class).outputToLine(new ArrayList<MuType>(),space);
+                JSON.parseObject(statements.get(i).toString(), ThrowStatement.class).outputToLine(types,space);
             else if(((JSONObject)statements.get(i)).getString("type").equals("BreakStatement"))
-                JSON.parseObject(statements.get(i).toString(), BreakStatement.class).outputToLine(new ArrayList<MuType>(),space);
+                JSON.parseObject(statements.get(i).toString(), BreakStatement.class).outputToLine(types,space);
             else if(((JSONObject)statements.get(i)).getString("type").equals("ContinueStatement"))
-                JSON.parseObject(statements.get(i).toString(),ContinueStatement.class).outputToLine(new ArrayList<MuType>(),space);
+                JSON.parseObject(statements.get(i).toString(),ContinueStatement.class).outputToLine(types,space);
             else if(((JSONObject)statements.get(i)).getString("type").equals("EmitStatement"))
-                JSON.parseObject(statements.get(i).toString(),EmitStatement.class).outputToLine(new ArrayList<MuType>(),space);
+                JSON.parseObject(statements.get(i).toString(),EmitStatement.class).outputToLine(types,space);
         }
     }
     public static void printPart(Object statement){

@@ -1,6 +1,8 @@
 package cn.edu.nju.mutestdemo.Model;
 
+import cn.edu.nju.mutestdemo.ASTMutation.Mutant;
 import cn.edu.nju.mutestdemo.EnumType.MuType;
+import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
 
@@ -56,14 +58,37 @@ public class FunctionCall {
     public String outputToLine(ArrayList<MuType> types){
         String str=ExpressionStatement.printPartToLine(types,expression);
         str+="(";
+        String tempStr="";
+        String temp="";
         Statement.lineContent+="(";
         if(names.length>0) {
             Statement.lineContent+="{";
-            str+="{ "+Argument.ListOutputWithNameToLine(types,names, arguments)+"}";
+            temp="{ "+Argument.ListOutputWithNameToLine(types,names, arguments)+"}";
+            str+=temp;
+            tempStr+=temp;
             Statement.lineContent+="}";
         }
-        else
-            str+=Argument.ListOutputToLine(types,arguments);
+        else {
+            temp=Argument.ListOutputToLine(types, arguments);
+            str += temp;
+            tempStr+=temp;
+        }
+
+        if(((JSONObject)expression).getString("type").equals("Identifier")) {
+            if(types.contains(MuType.RSD)&&((JSONObject) expression).getString("name").equals("require")){
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.RSD.ordinal());
+                Mutant.mutateLine.add("//");
+                Mutant.mutateLineRepairFromNums.add(0);
+            }
+            if(types.contains(MuType.RSC)&&((JSONObject) expression).getString("name").equals("require")){
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.RSC.ordinal());
+                Mutant.mutateLine.add("require(!("+tempStr+")");
+                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length());
+            }
+        }
+
         str+=")";
         Statement.lineContent+=")";
         return str;

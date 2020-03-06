@@ -48,7 +48,7 @@ GenAST_genAST_args.prototype.read = function(input) {
     input.readFieldEnd();
   }
   input.readStructEnd();
-  return;
+
 };
 
 GenAST_genAST_args.prototype.write = function(output) {
@@ -60,7 +60,7 @@ GenAST_genAST_args.prototype.write = function(output) {
   }
   output.writeFieldStop();
   output.writeStructEnd();
-  return;
+
 };
 
 var GenAST_genAST_result = function(args) {
@@ -98,7 +98,7 @@ GenAST_genAST_result.prototype.read = function(input) {
     input.readFieldEnd();
   }
   input.readStructEnd();
-  return;
+
 };
 
 GenAST_genAST_result.prototype.write = function(output) {
@@ -110,7 +110,7 @@ GenAST_genAST_result.prototype.write = function(output) {
   }
   output.writeFieldStop();
   output.writeStructEnd();
-  return;
+
 };
 
 var GenASTClient = exports.Client = function(output, pClass) {

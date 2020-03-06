@@ -41,8 +41,8 @@ public class WhileStatement {
     }public void outputToLine(ArrayList<MuType> types, int space){
         String content="";
         content+="while(";
-        content+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),condition);
+        content+=ExpressionStatement.printPartToLine(types,condition);
         content+=") ";
-        IfStatement.printBodyToLine(new ArrayList<MuType>(),content,space,body);
+        IfStatement.printBodyToLine(types,content,space,body);
     }
 }

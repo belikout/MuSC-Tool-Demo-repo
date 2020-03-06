@@ -2,12 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34b50bfe-6345-47f5-aab2-a1e82607bd7f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mutestdemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/TestReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/TestReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/resources/static/js/pageFunction.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/resources/static/js/pageFunction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/resources/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/ASTMutation/Generate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/ASTMutation/Generate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/BinaryOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/BinaryOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/DoWhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/DoWhileStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/EnumDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/EnumDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/ExpressionStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/ExpressionStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/FunctionCall.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/FunctionCall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/IfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/IfStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/Modifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/Modifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/ModifierInvoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/ModifierInvoc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/Statement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/UnaryOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/UnaryOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/Var.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/Var.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/VariableDeclarationStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/VariableDeclarationStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/WhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/src/main/java/cn/edu/nju/mutestdemo/Model/WhileStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/ASTMutation/Generate.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/ASTMutation/Generate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Controller/GenerateMutantController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/BinaryOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/BinaryOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/DoWhileStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/DoWhileStatement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/EnumDefinition.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/EnumDefinition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/ExpressionStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/ExpressionStatement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/Function.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/Function.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/FunctionCall.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/FunctionCall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/IfStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/IfStatement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/Modifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/Modifier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/ModifierInvoc.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/ModifierInvoc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/Statement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/Statement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/UnaryOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/UnaryOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/Var.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/Var.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/VariableDeclarationStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/VariableDeclarationStatement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/WhileStatement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mutestdemo/target/classes/cn/edu/nju/mutestdemo/Model/WhileStatement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenAST.js" beforeDir="false" afterPath="$PROJECT_DIR$/GenAST.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +48,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -27,16 +57,16 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GenAST.js">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GenASTServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+            <state relative-caret-position="190">
+              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -59,14 +89,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/GenASTServer.js" />
+        <option value="$PROJECT_DIR$/GenAST.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="411" />
-    <option name="y" value="76" />
-    <option name="width" value="981" />
-    <option name="height" value="1031" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -74,7 +103,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -86,7 +115,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -94,7 +123,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -144,6 +173,23 @@
       <workItem from="1560235324774" duration="1797000" />
       <workItem from="1560433619963" duration="3636000" />
       <workItem from="1560572219642" duration="6764000" />
+      <workItem from="1560819898491" duration="2419000" />
+      <workItem from="1561001014129" duration="1061000" />
+      <workItem from="1561012222697" duration="627000" />
+      <workItem from="1563813491095" duration="14000" />
+      <workItem from="1569225642464" duration="1807000" />
+      <workItem from="1570375182930" duration="599000" />
+      <workItem from="1570720966731" duration="116000" />
+      <workItem from="1572158918080" duration="653000" />
+      <workItem from="1573462060515" duration="1533000" />
+      <workItem from="1573922366025" duration="3717000" />
+      <workItem from="1574091382487" duration="4886000" />
+      <workItem from="1574332640792" duration="35000" />
+      <workItem from="1580796629514" duration="2162000" />
+      <workItem from="1580877513157" duration="1520000" />
+      <workItem from="1582187452761" duration="11000" />
+      <workItem from="1583250320931" duration="1037000" />
+      <workItem from="1583501028689" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="add node server code">
       <created>1560085347730</created>
@@ -156,13 +202,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16995000" />
+    <option name="totallyTimeSpent" value="39211000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12469636" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14493927" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -172,8 +217,8 @@
       <window_info id="npm" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3587922" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35820895" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39964476" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -246,8 +291,12 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/GenAST.js">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/GenASTServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GenAST_types.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -256,12 +305,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GenASTServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/GenAST.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

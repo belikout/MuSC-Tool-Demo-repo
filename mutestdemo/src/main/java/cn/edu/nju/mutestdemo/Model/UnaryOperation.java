@@ -60,7 +60,7 @@ public class UnaryOperation {
         if(types.contains(MuType.AOR))
             hasAOR=true;
         if(isPrefix) {
-            str += operator;
+            str += operator+" ";
             if(hasAOR && (operator.equals("++") || operator.equals("--"))) {
                     String temp = Statement.lineContent;
                     if (operator.equals("++"))
@@ -80,7 +80,7 @@ public class UnaryOperation {
                     Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+1);
                 }
             }
-                Statement.lineContent += operator;
+                Statement.lineContent += operator+" ";
         }
         if(subExpression!=null) {
             str+=ExpressionStatement.printPartToLine(types,subExpression);

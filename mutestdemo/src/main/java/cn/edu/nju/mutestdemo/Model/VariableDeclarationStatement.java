@@ -35,8 +35,8 @@ public class VariableDeclarationStatement extends StateVariableDefinition {
     public String outputToLine(){
         String str="";
         Variable v;
-        if((getVariables().length>0&&getVariables()[0]==null)||(getVariables().length>0&&((JSONObject)getVariables()[0]).getJSONObject("typeName")==null))
-            str+="var";
+        //if((getVariables().length>0&&getVariables()[0]==null)||(getVariables().length>0&&((JSONObject)getVariables()[0]).getJSONObject("typeName")==null))
+        //    str+="var";
         if(getVariables().length>1)
             str+="(";
         for(int i=0;i<getVariables().length;i++){

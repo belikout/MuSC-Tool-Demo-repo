@@ -84,41 +84,53 @@ public class BinaryOperation {
         String str=ExpressionStatement.printPartToLine(types,left);
         if(types.contains(MuType.AOR)&& AOROp.containsKey(operator))
         {
-            String mutate=Statement.lineContent+" "+ AOROpArray[(AOROp.get(operator)+1)%5]+" ";
-            Mutant.mutateLineNums.add(Mutant.lines.size());
-            Mutant.mutateLineTypeNums.add(MuType.AOR.ordinal());
-            Mutant.mutateLine.add(mutate);
-            Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+3);
+            for(int i=1;i<=AOROp.size()-1;i++) {
+                String mutate = Statement.lineContent + " " + AOROpArray[(AOROp.get(operator) + i) % 5] + " ";
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.AOR.ordinal());
+                Mutant.mutateLine.add(mutate);
+                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length() + 3);
+            }
         }
         if(types.contains(MuType.ASR)&& ASROp.containsKey(operator))
         {
-            String mutate=Statement.lineContent+" "+ ASROpArray[(ASROp.get(operator)+1)%6]+" ";
-            Mutant.mutateLineNums.add(Mutant.lines.size());
-            Mutant.mutateLineTypeNums.add(MuType.ASR.ordinal());
-            Mutant.mutateLine.add(mutate);
-            Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+4);
+            for(int i=1;i<=ASROp.size()-1;i++) {
+                String mutate = Statement.lineContent + " " + ASROpArray[(ASROp.get(operator) + i) % 6] + " ";
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.ASR.ordinal());
+                Mutant.mutateLine.add(mutate);
+                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length() + 4);
+            }
         }
         if(types.contains(MuType.ROR)&& ROROp.containsKey(operator))
         {
-            String mutate=Statement.lineContent+" "+ ROROpArray[(ROROp.get(operator)+1)%6]+" ";
-            Mutant.mutateLineNums.add(Mutant.lines.size());
-            Mutant.mutateLineTypeNums.add(MuType.ROR.ordinal());
-            Mutant.mutateLine.add(mutate);
-            if(operator.length()==1)
-                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+3);
-            else
-                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+4);
+            for(int i=1;i<=ROROp.size()-1;i++) {
+                String mutate = Statement.lineContent + " " + ROROpArray[(ROROp.get(operator) + i) % 6] + " ";
+                Mutant.mutateLineNums.add(Mutant.lines.size());
+                Mutant.mutateLineTypeNums.add(MuType.ROR.ordinal());
+                Mutant.mutateLine.add(mutate);
+                if (operator.length() == 1)
+                    Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length() + 3);
+                else
+                    Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length() + 4);
+            }
         }
         if(types.contains(MuType.COR)&& COROp.containsKey(operator))
         {
-            String mutate=Statement.lineContent+" "+ COROpArray[(COROp.get(operator)+1)%4]+" ";
-            Mutant.mutateLineNums.add(Mutant.lines.size());
-            Mutant.mutateLineTypeNums.add(MuType.COR.ordinal());
-            Mutant.mutateLine.add(mutate);
-            if(operator.length()==1)
-                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+3);
-            else
-                Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+4);
+            for(int i=0;i<=COROp.size()-1;i++) {
+                if(COROpArray[i].equals(operator)){
+                    String mutate = Statement.lineContent + " " + COROpArray[(COROp.get(operator) + 2) % 4] + " ";
+                    Mutant.mutateLineNums.add(Mutant.lines.size());
+                    Mutant.mutateLineTypeNums.add(MuType.COR.ordinal());
+                    Mutant.mutateLine.add(mutate);
+                    if (operator.length() == 1)
+                        Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length() + 3);
+                    else
+                        Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length() + 4);
+                }
+
+            }
+
         }
         str+=" "+operator+" ";
         Statement.lineContent+=" "+operator+" ";

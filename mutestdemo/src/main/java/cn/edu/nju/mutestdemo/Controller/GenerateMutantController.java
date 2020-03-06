@@ -177,8 +177,9 @@ public class GenerateMutantController {
             res.mutateLineType.add(MuType.class.getEnumConstants()[Mutant.mutateLineTypeNums.get(i)].toString());
         return res;
     }
+
     public static void main(String[]args){
-        System.out.println(generateMutant0("C:\\Users\\belikout\\Desktop\\TC\\AirSwap","[\"MetaCoin.sol\",\"Migrations.sol\"]","[\"ASR\",\"AOR\",\"COR\",\"ROR\"]"));
+        System.out.println(generateMutant0("C:\\Users\\belikout\\Desktop\\all_object\\cryptofin-solidity","[\"array-utils/AddressArrayUtils.sol\"]","[\"ASR\",\"AOR\",\"COR\",\"ROR\",\"FSC\",\"FVC\",\"PKD\",\"EUR\",\"RSD\",\"RSC\"]"));
 
     }
 }

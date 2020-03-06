@@ -1,5 +1,7 @@
 package cn.edu.nju.mutestdemo.Model;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 public class Var extends Unit {
@@ -63,6 +65,33 @@ public class Var extends Unit {
             str+=printTypeToLine(((JSONObject)typeName).getJSONObject("valueType"));
             str+=")";
 
+        }
+        else if(((JSONObject)typeName).getString("type").equals("FunctionTypeName")){
+            str+="function"+" "+"(";
+            int pTypeNum=((JSONObject)typeName).getJSONArray("parameterTypes").size();
+            for(int i=0;i<pTypeNum;i++) {
+                str += JSON.parseObject(((JSONObject)typeName).getJSONArray("parameterTypes").get(i).toString(), Parameter.class).outputToLine();
+                if(i!=pTypeNum-1)str+=",";
+            }
+            str+=")";
+            if(!((JSONObject) typeName).getString("visibility").equals("default")){
+                str+=" "+((JSONObject) typeName).getJSONObject("visibility")+" ";
+            }
+            if(((JSONObject) typeName).getString("stateMutability")!=null){
+                str+=" "+((JSONObject) typeName).getString("stateMutability")+" ";
+            }
+            if(((JSONObject) typeName).getJSONArray("returnTypes").size()>0){
+                str+=" returns(";
+                JSONArray pList=((JSONObject) typeName).getJSONArray("returnTypes");
+                if(pList.size()>0){
+                    for(int i=0;i<pList.size();i++){
+                        str+= JSON.parseObject(pList.get(i).toString(), Parameter.class).outputToLine();
+                        if(i!=pList.size()-1)
+                            str+=", ";
+                    }
+                }
+                str+=") ";
+            }
         }
         return str;
     }

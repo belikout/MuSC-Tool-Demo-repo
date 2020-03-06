@@ -48,18 +48,6 @@ public static void printPart(Object expr){
     public static String printPartToLine(ArrayList<MuType> types,Object expr){
     String str="";
         if(((JSONObject)expr).getString("type").equals("Identifier")) {
-            if(types.contains(MuType.RSD)&&((JSONObject) expr).getString("name").equals("require")){
-                Mutant.mutateLineNums.add(Mutant.lines.size());
-                Mutant.mutateLineTypeNums.add(MuType.RSD.ordinal());
-                Mutant.mutateLine.add("//");
-                Mutant.mutateLineRepairFromNums.add(0);
-            }
-            if(types.contains(MuType.RSC)&&((JSONObject) expr).getString("name").equals("require")){
-                Mutant.mutateLineNums.add(Mutant.lines.size());
-                Mutant.mutateLineTypeNums.add(MuType.RSC.ordinal());
-                Mutant.mutateLine.add("require(!");
-                Mutant.mutateLineRepairFromNums.add(8);
-            }
             str += ((JSONObject) expr).getString("name");
             Statement.lineContent+=str;
         }

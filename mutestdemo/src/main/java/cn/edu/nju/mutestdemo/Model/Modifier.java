@@ -62,7 +62,7 @@ public class Modifier extends Unit {
         content="";
         //处理body
         JSONArray statements=((JSONObject)body).getJSONArray("statements");
-        Statement.ListOutputToLine(space+1,statements,new ArrayList<MuType>());
+        Statement.ListOutputToLine(space+1,statements,types);
         for(int i=0;i<space;i++)
             content+="    ";
         content+="}";

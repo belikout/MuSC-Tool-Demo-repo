@@ -53,8 +53,19 @@ public class IfStatement extends Statement {
         String content="";
         content+="if(";
         Statement.lineContent+=content;
+        String mutate = Statement.lineContent;
         content+=ExpressionStatement.printPartToLine(types,condition);
         content+=") ";
+        if(types.contains(MuType.CSC)){
+            Mutant.mutateLineNums.add(Mutant.lines.size());
+            Mutant.mutateLineTypeNums.add(MuType.CSC.ordinal());
+            Mutant.mutateLine.add(mutate+"true)");
+            Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+1);
+            Mutant.mutateLineNums.add(Mutant.lines.size());
+            Mutant.mutateLineTypeNums.add(MuType.CSC.ordinal());
+            Mutant.mutateLine.add(mutate+"false)");
+            Mutant.mutateLineRepairFromNums.add(Statement.lineContent.length()+1);
+        }
         Statement.lineContent+=") ";
         printBodyToLine(types,content,space,trueBody);
         content="";

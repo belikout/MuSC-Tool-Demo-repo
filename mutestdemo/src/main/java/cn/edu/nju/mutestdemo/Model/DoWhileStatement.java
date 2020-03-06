@@ -17,9 +17,9 @@ public class DoWhileStatement extends WhileStatement {
         ExpressionStatement.printPart(getCondition());
         System.out.println(");");
     }
-    public void outputToLine(int space){
+    public void outputToLine( ArrayList<MuType> types,int space){
         String content="do";
-        IfStatement.printBodyToLine(new ArrayList<MuType>(),content,space,getBody());
+        IfStatement.printBodyToLine(types,content,space,getBody());
         content="while(";
         content+=ExpressionStatement.printPartToLine(new ArrayList<MuType>(),getCondition());
         content+=");";

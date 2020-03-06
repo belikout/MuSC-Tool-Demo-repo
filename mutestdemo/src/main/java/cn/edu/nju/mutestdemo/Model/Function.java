@@ -119,14 +119,16 @@ public class Function extends Unit {
             content+="constructor(";
         else
             content+="function"+" "+getName()+"(";
+        Statement.lineContent=content;
         content+=Parameter.ListOutputToLine(parameters);
         content+=") ";
-
+        Statement.lineContent=content;
         if(modifiers.length>0){
             for(int i=0;i<modifiers.length;i++){
                 content+=JSON.parseObject(modifiers[i].toString(), ModifierInvoc.class).outputToLine(types);
                 content+="  ";
             }
+            Statement.lineContent=content;
         }
         if(!visibility.equals("default")) {
             if(types.contains(MuType.FVC)){
@@ -140,6 +142,7 @@ public class Function extends Unit {
                 }
             }
             content += visibility + " ";
+            Statement.lineContent=content;
         }
         else{
             if(types.contains(MuType.FVC)){
@@ -151,6 +154,7 @@ public class Function extends Unit {
                 }
             }
             content+=" ";
+            Statement.lineContent=content;
         }
         if(stateMutability!=null) {
             if(types.contains(MuType.FSC)) {
@@ -172,11 +176,13 @@ public class Function extends Unit {
                 Mutant.mutateLineRepairFromNums.add(content.length() + 7);
             }
             content += stateMutability + "  ";
+            Statement.lineContent=content;
         }
         if(returnParameters!=null) {
             content+="returns(";
             content+=Parameter.ListOutputToLine(returnParameters);
             content+=") ";
+            Statement.lineContent=content;
         }
         if(body!=null) {
             content+="{";

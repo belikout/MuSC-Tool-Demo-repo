@@ -34,7 +34,7 @@ public class EnumDefinition extends Unit {
             for(int i=0;i<members.length;i++){
                 content+=((JSONObject)members[i]).getString("name");
                 if(i!=members.length-1)
-                    content=", ";
+                    content+=", ";
             }
         }
         Mutant.lines.add(new Line(content+"}",new ArrayList<MuType>(),space));

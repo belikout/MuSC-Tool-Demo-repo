@@ -66,3 +66,4 @@ You can get the full tool usage introduction in the video available at https://y
 |Error Handling| RSC | Require Statement Change |
 |Error Handling| ASD | Assert Statement Deletion |
 |Error Handling| ASC | Assert Statement Change |
+![avatar](https://github.com/belikout/MuSC-Tool-Demo-repo/blob/master/mutestdemo/src/main/resources/static/imgs/1.png)
